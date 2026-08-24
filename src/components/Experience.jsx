@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const experience = [
   {
@@ -62,7 +63,9 @@ export default function Experience() {
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 {item.details.map((detail, dIdx) => (
                   <li key={dIdx} style={{ position: 'relative', paddingLeft: '20px', marginBottom: '8px', fontSize: '0.95rem', color: 'var(--text)' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent)' }}>&rarr;</span>
+                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', display: 'inline-flex', alignItems: 'center' }}>
+                      <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                    </span>
                     {detail}
                   </li>
                 ))}

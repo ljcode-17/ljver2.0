@@ -84,7 +84,13 @@ export default function Navbar({ theme, toggleTheme }) {
         </nav>
 
         <motion.button
-          onClick={toggleTheme}
+          onClick={(event) => {
+            const rect = event.currentTarget.getBoundingClientRect();
+            toggleTheme({
+              x: rect.left + rect.width / 2,
+              y: rect.top + rect.height / 2
+            });
+          }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           style={{

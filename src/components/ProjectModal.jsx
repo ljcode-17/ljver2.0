@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, PlayCircle, FileText, Github } from 'lucide-react';
+import { X, PlayCircle, FileText, Github, ArrowRight } from 'lucide-react';
 
 export default function ProjectModal({ project, isOpen, onClose }) {
   useEffect(() => {
@@ -129,7 +129,10 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   <ul style={{ listStyle: 'none', padding: 0 }}>
                     {project.features.map((f, i) => (
                       <li key={i} style={{ marginBottom: '0.6rem', color: 'var(--text)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                        <span style={{ color: 'var(--accent)', marginTop: '2px' }}>&rarr;</span> {f}
+                        <span style={{ color: 'var(--accent)', marginTop: '2px', display: 'inline-flex', alignItems: 'center' }}>
+                          <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                        </span>
+                        {f}
                       </li>
                     ))}
                   </ul>
@@ -142,7 +145,10 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   <ul style={{ listStyle: 'none', padding: 0 }}>
                     {project.responsibilities.map((r, i) => (
                       <li key={i} style={{ marginBottom: '0.6rem', color: 'var(--text)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                        <span style={{ color: 'var(--accent)', marginTop: '2px' }}>&rarr;</span> {r}
+                        <span style={{ color: 'var(--accent)', marginTop: '2px', display: 'inline-flex', alignItems: 'center' }}>
+                          <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                        </span>
+                        {r}
                       </li>
                     ))}
                   </ul>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 
 const projectsData = [
@@ -302,7 +303,9 @@ export default function Projects() {
                     opacity: 0,
                     transition: '0.3s'
                   }} className="project-hover-overlay">
-                    <span style={{ color: 'white', fontWeight: 600, fontSize: '0.9rem' }}>View Details &rarr;</span>
+                    <span style={{ color: 'white', fontWeight: 600, fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                      View Details <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                    </span>
                   </div>
                 </div>
                 <div style={{ padding: '1.5rem' }}>

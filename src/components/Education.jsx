@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const education = [
   {
@@ -124,7 +125,9 @@ export default function Education() {
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       {item.details.map((detail, dIdx) => (
                         <li key={dIdx} style={{ position: 'relative', paddingLeft: '20px', marginBottom: '8px', fontSize: '0.95rem', color: 'var(--text)', overflowWrap: 'anywhere' }}>
-                          <span style={{ position: 'absolute', left: 0, color: 'var(--accent)' }}>&rarr;</span>
+                          <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', display: 'inline-flex', alignItems: 'center' }}>
+                            <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+                          </span>
                           {detail}
                         </li>
                       ))}

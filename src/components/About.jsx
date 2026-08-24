@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Pause, Play, Square, Volume2 } from 'lucide-react';
+import { Pause, Play, Square, Volume2, Palette, Sparkles, Rocket } from 'lucide-react';
 
 export default function About() {
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -12,17 +12,17 @@ export default function About() {
 
   const cards = [
     { 
-      icon: "🎨", 
+      Icon: Palette,
       title: "Who I Am", 
       desc: "An Information Technology Graduate with a strong passion for Frontend Development, UI/UX Design, and technical problem-solving. I focus on creating intuitive, visually engaging, and user-centered digital experiences."
     },
     { 
-      icon: "✨", 
+      Icon: Sparkles,
       title: "What I Do", 
       desc: "I bridge the gap between technical logic and visual design. Whether it's crafting responsive interfaces or refining user workflows, I focus on aesthetics, usability, and clarity." 
     },
     { 
-      icon: "🚀", 
+      Icon: Rocket,
       title: "My Goal", 
       desc: "To secure a role as a Frontend Developer or UI/UX Designer where I can leverage my eye for detail and technical skills to build high-quality web solutions. I aim to contribute to creative projects while continuing to refine my expertise in modern web technologies." 
     }
@@ -180,7 +180,9 @@ export default function About() {
           maxWidth: '1200px',
           margin: '0 auto'
         }}>
-          {cards.map((card, index) => (
+          {cards.map((card, index) => {
+            const CardIcon = card.Icon;
+            return (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 100 }}
@@ -197,11 +199,14 @@ export default function About() {
                 transition: 'border-color 0.3s ease'
               }}
             >
-              <div style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>{card.icon}</div>
+              <div style={{ marginBottom: '1.5rem', color: 'var(--accent)' }}>
+                <CardIcon size={34} strokeWidth={1.8} aria-hidden="true" />
+              </div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text)' }}>{renderSpeechText(card.title, index * 2)}</h3>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{renderSpeechText(card.desc, index * 2 + 1)}</p>
             </motion.div>
-          ))}
+          );
+          })}
         </div>
 
         {isSupported && (

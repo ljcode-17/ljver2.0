@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -33,8 +34,15 @@ export default function Skills() {
         <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', textAlign: 'center', marginBottom: '1rem', color: 'var(--text)' }}>
           Technical <span style={{ color: 'var(--accent)' }}>Expertise</span>
         </h2>
-        <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '4rem', fontWeight: 500 }}>
-          Methodology: Diagnose &rarr; Document &rarr; Resolve &rarr; Prevent
+        <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '4rem', fontWeight: 500, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
+          <span>Methodology:</span>
+          <span>Diagnose</span>
+          <ChevronRight size={14} aria-hidden="true" />
+          <span>Document</span>
+          <ChevronRight size={14} aria-hidden="true" />
+          <span>Resolve</span>
+          <ChevronRight size={14} aria-hidden="true" />
+          <span>Prevent</span>
         </p>
         
         <div style={{
