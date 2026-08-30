@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, Download } from 'lucide-react';
 
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
@@ -85,7 +85,7 @@ export default function Navbar({ theme, toggleTheme }) {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="desktop-nav" style={{ display: 'flex', gap: '1.5rem' }}>
+        <nav className="desktop-nav" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           {navItems.map((item) => (
             <motion.a
               key={item.label}
@@ -102,6 +102,33 @@ export default function Navbar({ theme, toggleTheme }) {
               {item.label}
             </motion.a>
           ))}
+
+          {/* Nav Download CV Pill */}
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="/assets/CV.pdf"
+            download="Lloyd_Jernell_Loterina_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '6px 14px',
+              background: 'var(--accent)',
+              color: '#FFFFFF',
+              borderRadius: '100px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              textDecoration: 'none',
+              boxShadow: '0 4px 12px rgba(20, 184, 166, 0.25)',
+              marginLeft: '0.25rem'
+            }}
+          >
+            <Download size={14} strokeWidth={2.5} />
+            <span>CV</span>
+          </motion.a>
         </nav>
 
         <motion.button
@@ -155,7 +182,7 @@ export default function Navbar({ theme, toggleTheme }) {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '2rem'
+              gap: '1.75rem'
             }}
           >
             {navItems.map((item, index) => (
@@ -170,7 +197,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   textDecoration: 'none',
                   color: 'var(--text)',
                   fontWeight: 700,
-                  fontSize: '2rem',
+                  fontSize: '1.8rem',
                   letterSpacing: '-0.02em'
                 }}
                 whileHover={{ color: 'var(--accent)', x: 10 }}
@@ -178,6 +205,34 @@ export default function Navbar({ theme, toggleTheme }) {
                 {item.label}
               </motion.a>
             ))}
+
+            <motion.a
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.length * 0.04 }}
+              href="/assets/CV.pdf"
+              download="Lloyd_Jernell_Loterina_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '12px 28px',
+                background: 'var(--accent)',
+                color: '#FFFFFF',
+                borderRadius: '100px',
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                textDecoration: 'none',
+                marginTop: '1rem',
+                boxShadow: '0 8px 24px rgba(20, 184, 166, 0.35)'
+              }}
+            >
+              <Download size={20} strokeWidth={2.5} />
+              <span>Download CV</span>
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>

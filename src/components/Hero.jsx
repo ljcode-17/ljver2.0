@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight, Sparkles, Download } from 'lucide-react';
 
 const featuredProjects = [
   {
@@ -450,14 +450,17 @@ export default function Hero({ theme }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.45 }}
-            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
+            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}
             className="hero-cta-btns"
           >
-            {/* Lumora Signature Primary Pill Button with Circle Arrow Badge */}
+            {/* Highly Visible Download CV Button */}
             <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              href="#projects"
+              whileHover={{ scale: 1.05, boxShadow: isDark ? '0 10px 30px rgba(20, 184, 166, 0.45)' : '0 10px 30px rgba(0, 0, 0, 0.25)' }}
+              whileTap={{ scale: 0.95 }}
+              href="/assets/CV.pdf"
+              download="Lloyd_Jernell_Loterina_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 padding: '8px 8px 8px 24px',
                 backgroundColor: isDark ? '#14B8A6' : '#0a0a0a',
@@ -468,11 +471,12 @@ export default function Hero({ theme }) {
                 fontSize: '0.9rem',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '14px',
-                boxShadow: isDark ? '0 8px 24px rgba(20, 184, 166, 0.35)' : '0 8px 24px rgba(0, 0, 0, 0.18)'
+                gap: '12px',
+                boxShadow: isDark ? '0 8px 24px rgba(20, 184, 166, 0.35)' : '0 8px 24px rgba(0, 0, 0, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
               }}
             >
-              <span>View Selected Work</span>
+              <span>Download CV</span>
               <div
                 style={{
                   width: 34,
@@ -486,16 +490,42 @@ export default function Hero({ theme }) {
                   flexShrink: 0
                 }}
               >
-                <ArrowUpRight size={16} strokeWidth={2.5} />
+                <Download size={16} strokeWidth={2.5} />
               </div>
             </motion.a>
 
+            {/* View Selected Work */}
+            <motion.a
+              whileHover={{ scale: 1.04, backgroundColor: isDark ? 'rgba(20, 184, 166, 0.15)' : 'rgba(0, 0, 0, 0.05)' }}
+              whileTap={{ scale: 0.96 }}
+              href="#projects"
+              style={{
+                padding: '14px 24px',
+                backgroundColor: isDark ? 'var(--card-bg)' : 'transparent',
+                color: 'var(--text)',
+                border: isDark ? '1px solid var(--border)' : '1px solid rgba(0, 0, 0, 0.18)',
+                borderRadius: '100px',
+                textDecoration: 'none',
+                fontWeight: 600,
+                fontSize: '0.9rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                backdropFilter: 'blur(10px)'
+              }}
+            >
+              <span>View Selected Work</span>
+              <ArrowUpRight size={16} strokeWidth={2} />
+            </motion.a>
+
+            {/* Get in Touch */}
             <motion.a
               whileHover={{ scale: 1.04, backgroundColor: isDark ? 'rgba(20, 184, 166, 0.15)' : 'rgba(0, 0, 0, 0.05)' }}
               whileTap={{ scale: 0.96 }}
               href="#contact"
               style={{
-                padding: '14px 28px',
+                padding: '14px 24px',
                 backgroundColor: isDark ? 'var(--card-bg)' : 'transparent',
                 color: 'var(--text)',
                 border: isDark ? '1px solid var(--border)' : '1px solid rgba(0, 0, 0, 0.18)',
