@@ -45,11 +45,10 @@ export default function CustomCursor({ theme }) {
       posRef.current.x += (mouseRef.current.x - posRef.current.x) * 0.25;
       posRef.current.y += (mouseRef.current.y - posRef.current.y) * 0.25;
 
-      const size = hoveredRef.current ? 60 : 40;
-      const halfSize = size / 2;
+      const scale = hoveredRef.current ? 1.4 : 1;
 
       if (outerRef.current) {
-        outerRef.current.style.transform = `translate3d(${posRef.current.x - halfSize}px, ${posRef.current.y - halfSize}px, 0)`;
+        outerRef.current.style.transform = `translate3d(${posRef.current.x - 20}px, ${posRef.current.y - 20}px, 0) scale(${scale})`;
       }
 
       if (innerRef.current) {
@@ -89,8 +88,8 @@ export default function CustomCursor({ theme }) {
           position: 'fixed',
           top: 0,
           left: 0,
-          width: isHovered ? 60 : 40,
-          height: isHovered ? 60 : 40,
+          width: 40,
+          height: 40,
           borderRadius: '50%',
           border: isHovered
             ? `2px solid ${isDark ? 'rgba(20, 184, 166, 1)' : 'rgba(10, 10, 10, 0.95)'}`
@@ -99,7 +98,7 @@ export default function CustomCursor({ theme }) {
           pointerEvents: 'none',
           zIndex: 1000000,
           willChange: 'transform',
-          transition: 'width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease',
+          transition: 'transform 0.18s cubic-bezier(0.2, 0, 0.2, 1), border-color 0.2s ease, background-color 0.2s ease',
         }}
       />
 

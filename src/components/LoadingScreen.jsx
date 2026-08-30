@@ -9,7 +9,7 @@ export default function LoadingScreen({ onComplete }) {
     document.body.style.overflow = 'hidden';
 
     const startTime = performance.now();
-    const duration = 1300;
+    const duration = 750;
 
     const easeInOutCubic = (t) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -28,7 +28,7 @@ export default function LoadingScreen({ onComplete }) {
         setTimeout(() => {
           document.body.style.overflow = previousOverflow;
           onComplete();
-        }, 400);
+        }, 150);
       }
     };
 

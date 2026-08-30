@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import ProjectModal from './ProjectModal';
+
+const ProjectModal = lazy(() => import('./ProjectModal'));
 
 const projectsData = [
   {
@@ -357,6 +358,8 @@ export default function Projects() {
                     transition={{ duration: 0.5 }}
                     src={project.image} 
                     alt={project.title} 
+                    loading="lazy"
+                    decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300/1E293B/FFFFFF?text=Project+Preview' }}
                   />
@@ -400,11 +403,15 @@ export default function Projects() {
         </motion.div>
       </motion.div>
 
-      <ProjectModal 
-        project={selectedProject} 
-        isOpen={!!selectedProject} 
-        onClose={() => setSelectedProject(null)} 
-      />
+      {selectedProject && (
+        <Suspense fallback={null}>
+          <ProjectModal 
+            project={selectedProject} 
+            isOpen={!!selectedProject} 
+            onClose={() => setSelectedProject(null)} 
+          />
+        </Suspense>
+      )}
 
       <style>{`
         .project-card:hover .project-hover-overlay {

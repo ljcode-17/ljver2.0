@@ -126,6 +126,8 @@ export default function Education() {
                   <img
                     src={item.logo}
                     alt={`${item.school} logo`}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: '100%',
                       height: '100%',

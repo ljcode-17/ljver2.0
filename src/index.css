@@ -124,18 +124,16 @@ body {
 }
 
 [data-theme='dark'] .dark-nightfall-layer-1 {
-  background: radial-gradient(85% 55% at 52% 0%, rgba(35,70,105,0.28) 0%, rgba(24,49,74,0.12) 38%, transparent 76%);
-  filter: blur(15px);
+  background: radial-gradient(85% 55% at 52% 0%, rgba(35,70,105,0.22) 0%, rgba(24,49,74,0.08) 45%, transparent 80%);
 }
 
 [data-theme='dark'] .dark-nightfall-layer-2 {
-  background: linear-gradient(180deg, rgba(54,88,120,0.12) 0%, transparent 45%, rgba(0,0,0,0.15) 100%);
+  background: linear-gradient(180deg, rgba(54,88,120,0.1) 0%, transparent 45%, rgba(0,0,0,0.15) 100%);
   opacity: 0.8;
 }
 
 [data-theme='dark'] .dark-aurora-layer-3 {
-  background: radial-gradient(ellipse 78% 20% at 51% 53%, rgba(65,183,155,0.18) 0%, rgba(30,102,91,0.08) 45%, transparent 82%);
-  filter: blur(35px);
+  background: radial-gradient(ellipse 78% 30% at 51% 53%, rgba(65,183,155,0.12) 0%, rgba(30,102,91,0.04) 55%, transparent 85%);
   opacity: 0.7;
 }
 
@@ -166,14 +164,12 @@ body {
 }
 
 [data-theme='light'] .aura-layer-1 {
-  background: radial-gradient(circle at 82% 25%, rgba(235, 130, 75, 0.18) 0%, rgba(240, 160, 110, 0.08) 40%, transparent 70%),
-              radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.9) 0%, transparent 60%);
-  filter: blur(40px);
+  background: radial-gradient(circle at 82% 25%, rgba(235, 130, 75, 0.12) 0%, rgba(240, 160, 110, 0.04) 50%, transparent 75%),
+              radial-gradient(circle at 25% 35%, rgba(255, 255, 255, 0.8) 0%, transparent 65%);
 }
 
 [data-theme='light'] .aura-layer-2 {
   background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(250, 249, 246, 0.9) 40%, rgba(244, 243, 239, 0.7) 100%);
-  filter: blur(30px);
 }
 
 [data-theme='light'] .aura-grain {
@@ -215,16 +211,23 @@ body::before {
 }
 
 /* Section Separation & Content Visibility Optimization */
+/* GPU Acceleration & Smooth Transition Enhancements */
 section {
   position: relative;
   z-index: 1;
   border-bottom: 1px solid var(--section-sep);
   padding: 120px 5%;
+  transform: translateZ(0);
 }
 
-section:not(#home) {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
+.project-card,
+.education-logo-card,
+.hero-project-card,
+.btn,
+.desktop-nav a {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 [data-theme='light'] section {

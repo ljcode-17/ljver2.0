@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
@@ -7,7 +7,8 @@ function Particles({ theme }) {
   const ref = useRef();
   
   const [positions] = useMemo(() => {
-    const count = 3000;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    const count = isMobile ? 1000 : 2000;
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
       const r = 12 * Math.cbrt(Math.random());
@@ -21,15 +22,16 @@ function Particles({ theme }) {
   }, []);
 
   useFrame((state) => {
-    ref.current.rotation.y = state.clock.elapsedTime * 0.05;
-    ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
+    if (!ref.current) return;
+    ref.current.rotation.y = state.clock.elapsedTime * 0.04;
+    ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.08) * 0.08;
   });
 
   const isDark = theme === 'dark';
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+      <Points ref={ref} positions={positions} stride={3} frustumCulled={true}>
         <PointMaterial
           transparent
           color={isDark ? "#14B8A6" : "#0D9488"}
@@ -45,24 +47,46 @@ function Particles({ theme }) {
 }
 
 export default function Hero3D({ theme }) {
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div style={{ 
-      position: 'absolute', 
-      top: 0, 
-      left: 0, 
-      width: '100%', 
-      height: '100vh', 
-      zIndex: 0, 
-      pointerEvents: 'none',
-      opacity: theme === 'dark' ? 1 : 0.8
-    }}>
-      <Canvas 
-        dpr={[1, 1.5]} 
-        gl={{ powerPreference: 'high-performance', antialias: false }} 
-        camera={{ position: [0, 0, 6] }}
-      >
-        <Particles theme={theme} />
-      </Canvas>
+    <div 
+      ref={containerRef}
+      style={{ 
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '100vh', 
+        zIndex: 0, 
+        pointerEvents: 'none',
+        opacity: theme === 'dark' ? 1 : 0.8
+      }}
+    >
+      {isVisible && (
+        <Canvas 
+          dpr={[1, Math.min(window.devicePixelRatio || 1, 1.5)]} 
+          gl={{ powerPreference: 'high-performance', antialias: false, alpha: true }} 
+          camera={{ position: [0, 0, 6] }}
+        >
+          <Particles theme={theme} />
+        </Canvas>
+      )}
     </div>
   );
 }
+
+

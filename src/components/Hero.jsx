@@ -63,6 +63,10 @@ export default function Hero({ theme }) {
       let height = 0;
       let points = [];
 
+      // Reusable offscreen mask canvas to avoid allocation inside 60FPS loop
+      const maskCanvas = document.createElement('canvas');
+      const maskCtx = maskCanvas.getContext('2d');
+
       const resize = () => {
         width = container.clientWidth || 0;
         height = container.clientHeight || 0;
@@ -72,6 +76,9 @@ export default function Hero({ theme }) {
         canvas.style.width = `${width}px`;
         canvas.style.height = `${height}px`;
         ctx.scale(dpr, dpr);
+
+        maskCanvas.width = Math.floor(width * dpr);
+        maskCanvas.height = Math.floor(height * dpr);
       };
 
       resize();
@@ -102,6 +109,9 @@ export default function Hero({ theme }) {
         }
 
         ctx.clearRect(0, 0, width, height);
+
+        if (points.length === 0) return;
+
         const maxAge = 60;
         const brushRadius = width <= 768 ? 80 : 120;
 
@@ -114,10 +124,12 @@ export default function Hero({ theme }) {
         const maskHeight = Math.floor(height * dpr);
 
         if (points.length > 0 && imgSecondary.complete && imgSecondary.naturalWidth !== 0 && maskWidth > 0 && maskHeight > 0) {
-          const maskCanvas = document.createElement('canvas');
-          maskCanvas.width = maskWidth;
-          maskCanvas.height = maskHeight;
-          const maskCtx = maskCanvas.getContext('2d');
+          if (maskCanvas.width !== maskWidth || maskCanvas.height !== maskHeight) {
+            maskCanvas.width = maskWidth;
+            maskCanvas.height = maskHeight;
+          }
+          maskCtx.clearRect(0, 0, maskWidth, maskHeight);
+          maskCtx.save();
           maskCtx.scale(dpr, dpr);
 
           points.forEach((p) => {
@@ -132,6 +144,7 @@ export default function Hero({ theme }) {
             maskCtx.arc(p.x, p.y, rad, 0, Math.PI * 2);
             maskCtx.fill();
           });
+          maskCtx.restore();
 
           ctx.save();
           ctx.drawImage(maskCanvas, 0, 0, width, height);
@@ -169,15 +182,29 @@ export default function Hero({ theme }) {
     const mobileInstance = setupCanvas(mobileCanvas, mobileContainer);
 
     let animationFrameId;
+    let isIntersecting = true;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isIntersecting = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+
+    if (desktopContainer) observer.observe(desktopContainer);
+
     const loop = () => {
-      if (desktopInstance) desktopInstance.render();
-      if (mobileInstance) mobileInstance.render();
+      if (isIntersecting) {
+        if (desktopInstance) desktopInstance.render();
+        if (mobileInstance) mobileInstance.render();
+      }
       animationFrameId = requestAnimationFrame(loop);
     };
     loop();
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       if (desktopInstance) desktopInstance.cleanup();
       if (mobileInstance) mobileInstance.cleanup();
     };
