@@ -114,7 +114,7 @@ const projectsData = [
     gallery: [
       "/assets/projects/art.png",
       "/assets/projects/kayumanggi.png",
-      "/assets/projects/Jm&Laica.png"
+      "/assets/projects/JmLaica.png"
     ],
     desc: "Cinematic web gallery showcasing cultural masterpieces.",
     problem: 'Navigating through vast art history and cultural masterpieces can be overwhelming without a structured and visual presentation.',
@@ -216,9 +216,9 @@ const projectsData = [
     title: 'JM & Laica Prenup Album',
     category: 'Web',
     tags: ['Web Application', 'Gallery', 'UI/UX'],
-    image: "/assets/projects/Jm&Laica.png",
+    image: "/assets/projects/JmLaica.png",
     gallery: [
-      "/assets/projects/Jm&Laica.png",
+      "/assets/projects/JmLaica.png",
       "/assets/projects/art.png",
       "/assets/projects/kayumanggi.png",
       "/assets/projects/silid.png"

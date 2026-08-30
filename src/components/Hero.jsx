@@ -28,7 +28,7 @@ const featuredProjects = [
     title: 'JM & Laica Prenup Album',
     category: 'Digital Gallery',
     desc: 'Editorial-style wedding prenup photo gallery built with React 19 and Tailwind CSS v4.',
-    image: '/assets/projects/Jm&Laica.png',
+    image: '/assets/projects/JmLaica.png',
     tag: 'React 19 + Tailwind'
   }
 ];

@@ -41,11 +41,11 @@ export default function CustomCursor({ theme }) {
     window.addEventListener('mouseover', onMouseOver, { passive: true });
 
     const render = () => {
-      // Smooth lerp for outer ring
-      posRef.current.x += (mouseRef.current.x - posRef.current.x) * 0.25;
-      posRef.current.y += (mouseRef.current.y - posRef.current.y) * 0.25;
+      // High-speed smooth lerp (0.85) for instant response without cursor lag/delay
+      posRef.current.x += (mouseRef.current.x - posRef.current.x) * 0.85;
+      posRef.current.y += (mouseRef.current.y - posRef.current.y) * 0.85;
 
-      const scale = hoveredRef.current ? 1.4 : 1;
+      const scale = hoveredRef.current ? 1.35 : 1;
 
       if (outerRef.current) {
         outerRef.current.style.transform = `translate3d(${posRef.current.x - 20}px, ${posRef.current.y - 20}px, 0) scale(${scale})`;
@@ -118,7 +118,7 @@ export default function CustomCursor({ theme }) {
           zIndex: 1000001,
           boxShadow: isDark ? '0 0 10px rgba(20, 184, 166, 0.6)' : 'none',
           willChange: 'transform',
-          transition: 'transform 0.15s ease-out, background-color 0.2s ease',
+          transition: 'background-color 0.2s ease',
         }}
       />
     </>
