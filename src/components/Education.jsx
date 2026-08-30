@@ -55,9 +55,29 @@ export default function Education() {
         transition={{ duration: 0.45, ease: "easeOut" }}
         style={{ maxWidth: '800px', margin: '0 auto' }}
       >
-        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', textAlign: 'center', marginBottom: '4rem', color: 'var(--text)' }}>
-          My <span style={{ color: 'var(--accent)' }}>Education</span>
-        </h2>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 14px',
+              background: 'var(--accent-light)',
+              color: 'var(--accent)',
+              borderRadius: '100px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              marginBottom: '1rem',
+              border: '1px solid var(--border)'
+            }}
+          >
+            04 / ACADEMIC BACKGROUND
+          </span>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
+            Education & <span style={{ color: 'var(--accent)' }}>Honors</span>
+          </h2>
+        </div>
         
         <div style={{ position: 'relative' }} className="education-timeline">
           <div style={{ position: 'absolute', left: '20px', top: 0, bottom: 0, width: '2px', background: 'var(--border)' }} className="education-timeline-line" />
@@ -142,7 +162,7 @@ export default function Education() {
       <style>{`
         .education-logo-card:hover {
           border-color: var(--accent) !important;
-          box-shadow: 0 14px 32px rgba(20, 184, 166, 0.16) !important;
+          box-shadow: 0 14px 32px var(--shadow) !important;
         }
 
         @media (max-width: 768px) {

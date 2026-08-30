@@ -31,19 +31,39 @@ export default function Skills() {
         viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', textAlign: 'center', marginBottom: '1rem', color: 'var(--text)' }}>
-          Technical <span style={{ color: 'var(--accent)' }}>Expertise</span>
-        </h2>
-        <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '4rem', fontWeight: 500, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
-          <span>Methodology:</span>
-          <span>Diagnose</span>
-          <ChevronRight size={14} aria-hidden="true" />
-          <span>Document</span>
-          <ChevronRight size={14} aria-hidden="true" />
-          <span>Resolve</span>
-          <ChevronRight size={14} aria-hidden="true" />
-          <span>Prevent</span>
-        </p>
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 14px',
+              background: 'var(--accent-light)',
+              color: 'var(--accent)',
+              borderRadius: '100px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              marginBottom: '1rem',
+              border: '1px solid var(--border)'
+            }}
+          >
+            03 / TECHNICAL EXPERTISE
+          </span>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: '0.75rem' }}>
+            Skills & <span style={{ color: 'var(--accent)' }}>Technologies</span>
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', fontWeight: 500, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <span>Methodology:</span>
+            <span>Diagnose</span>
+            <ChevronRight size={14} aria-hidden="true" />
+            <span>Document</span>
+            <ChevronRight size={14} aria-hidden="true" />
+            <span>Resolve</span>
+            <ChevronRight size={14} aria-hidden="true" />
+            <span>Prevent</span>
+          </p>
+        </div>
         
         <div style={{
           display: 'grid',
@@ -55,36 +75,38 @@ export default function Skills() {
           {skillCategories.map((cat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
-              whileHover={{ y: -5, borderColor: 'var(--accent)' }}
+              transition={{ duration: 0.45, delay: index * 0.08, ease: [0.215, 0.61, 0.355, 1] }}
+              whileHover={{ y: -6, borderColor: 'var(--accent)' }}
               style={{
                 background: 'var(--card-bg)',
-                backdropFilter: 'blur(10px)',
+                backdropFilter: 'blur(16px)',
                 border: '1px solid var(--border)',
-                borderRadius: '16px',
-                padding: '2rem',
-                transition: 'border-color 0.3s ease'
+                borderRadius: '24px',
+                padding: '2.25rem',
+                boxShadow: 'var(--shadow)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
             >
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', borderLeft: '4px solid var(--accent)', paddingLeft: '12px', color: 'var(--text)' }}>{cat.title}</h3>
-              {cat.desc && <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '12px' }}>{cat.desc}</p>}
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.75rem', borderLeft: '4px solid var(--accent)', paddingLeft: '12px', color: 'var(--text)', letterSpacing: '-0.01em' }}>{cat.title}</h3>
+              {cat.desc && <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1rem', lineHeight: 1.5 }}>{cat.desc}</p>}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                 {cat.chips.map(chip => (
                   <motion.span 
                     key={chip}
-                    whileHover={{ scale: 1.05, backgroundColor: 'var(--accent)', color: 'white' }}
+                    whileHover={{ scale: 1.05, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
                     style={{
-                      background: 'var(--bg-subtle)',
+                      background: 'var(--accent-light)',
                       border: '1px solid var(--border)',
                       padding: '8px 16px',
-                      borderRadius: '8px',
-                      fontSize: '0.9rem',
-                      fontWeight: 500,
+                      borderRadius: '100px',
+                      fontSize: '0.88rem',
+                      fontWeight: 600,
                       cursor: 'default',
-                      color: 'var(--text)'
+                      color: 'var(--text)',
+                      transition: 'all 0.2s ease'
                     }}
                   >
                     {chip}

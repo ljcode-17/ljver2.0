@@ -56,7 +56,11 @@ export default function Hero3D({ theme }) {
       pointerEvents: 'none',
       opacity: theme === 'dark' ? 1 : 0.8
     }}>
-      <Canvas camera={{ position: [0, 0, 6] }}>
+      <Canvas 
+        dpr={[1, 1.5]} 
+        gl={{ powerPreference: 'high-performance', antialias: false }} 
+        camera={{ position: [0, 0, 6] }}
+      >
         <Particles theme={theme} />
       </Canvas>
     </div>

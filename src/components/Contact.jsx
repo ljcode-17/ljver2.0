@@ -38,17 +38,35 @@ export default function Contact() {
     <section id="contact" style={{ padding: '120px 5%', background: 'var(--bg-subtle)', position: 'relative', zIndex: 1 }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <motion.div
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20px" }}
           transition={{ duration: 0.45, ease: "easeOut" }}
           style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '1.5rem', color: 'var(--text)' }}>
-            Let's <span style={{ color: 'var(--accent)' }}>Connect</span>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 14px',
+              background: 'var(--accent-light)',
+              color: 'var(--accent)',
+              borderRadius: '100px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              marginBottom: '1rem',
+              border: '1px solid var(--border)'
+            }}
+          >
+            06 / CONNECT
+          </span>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: '1rem' }}>
+            Let's Build <span style={{ color: 'var(--accent)' }}>Together</span>
           </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-            I'm currently open for junior opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
+            Currently open for junior opportunities, frontend roles, or UI/UX design collaboration. Reach out anytime!
           </p>
         </motion.div>
 
@@ -62,7 +80,7 @@ export default function Contact() {
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '12px', borderRadius: '12px', color: 'var(--accent)' }}>
+                <div style={{ background: 'var(--accent-light)', padding: '12px', borderRadius: '12px', color: 'var(--accent)' }}>
                   <Mail size={24} />
                 </div>
                 <div>
@@ -72,7 +90,7 @@ export default function Contact() {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '12px', borderRadius: '12px', color: 'var(--accent)' }}>
+                <div style={{ background: 'var(--accent-light)', padding: '12px', borderRadius: '12px', color: 'var(--accent)' }}>
                   <Phone size={24} />
                 </div>
                 <div>
@@ -82,7 +100,7 @@ export default function Contact() {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '12px', borderRadius: '12px', color: 'var(--accent)' }}>
+                <div style={{ background: 'var(--accent-light)', padding: '12px', borderRadius: '12px', color: 'var(--accent)' }}>
                   <MapPin size={24} />
                 </div>
                 <div>

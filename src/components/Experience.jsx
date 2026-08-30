@@ -37,9 +37,29 @@ export default function Experience() {
         transition={{ duration: 0.45, ease: "easeOut" }}
         style={{ maxWidth: '800px', margin: '0 auto' }}
       >
-        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', textAlign: 'center', marginBottom: '4rem', color: 'var(--text)' }}>
-          Experience & <span style={{ color: 'var(--accent)' }}>Involvement</span>
-        </h2>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 14px',
+              background: 'var(--accent-light)',
+              color: 'var(--accent)',
+              borderRadius: '100px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              marginBottom: '1rem',
+              border: '1px solid var(--border)'
+            }}
+          >
+            05 / PROFESSIONAL EXPERIENCE
+          </span>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
+            Experience & <span style={{ color: 'var(--accent)' }}>Roles</span>
+          </h2>
+        </div>
 
         <div style={{ position: 'relative' }}>
           <div style={{ position: 'absolute', left: '20px', top: 0, bottom: 0, width: '2px', background: 'var(--border)' }} />
@@ -47,29 +67,38 @@ export default function Experience() {
           {experience.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
-              style={{ position: 'relative', paddingLeft: '60px', marginBottom: '40px' }}
+              transition={{ duration: 0.45, delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              style={{ position: 'relative', paddingLeft: '60px', marginBottom: '44px' }}
             >
               <div style={{
                 position: 'absolute', left: '11px', top: 0, width: '20px', height: '20px',
                 background: 'var(--bg)', border: '4px solid var(--accent)', borderRadius: '50%', zIndex: 1
               }} />
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '4px', color: 'var(--text)' }}>{item.role}</h3>
-              <h4 style={{ fontSize: '1rem', color: 'var(--accent)', marginBottom: '8px' }}>{item.org}</h4>
-              <p style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '12px' }}>{item.period}</p>
-              <ul style={{ listStyle: 'none', padding: 0 }}>
-                {item.details.map((detail, dIdx) => (
-                  <li key={dIdx} style={{ position: 'relative', paddingLeft: '20px', marginBottom: '8px', fontSize: '0.95rem', color: 'var(--text)' }}>
-                    <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', display: 'inline-flex', alignItems: 'center' }}>
-                      <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
-                    </span>
-                    {detail}
-                  </li>
-                ))}
-              </ul>
+              <div style={{
+                background: 'var(--card-bg)',
+                backdropFilter: 'blur(16px)',
+                border: '1px solid var(--border)',
+                borderRadius: '24px',
+                padding: '2rem',
+                boxShadow: 'var(--shadow)'
+              }}>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '4px', color: 'var(--text)', letterSpacing: '-0.01em' }}>{item.role}</h3>
+                <h4 style={{ fontSize: '1.05rem', color: 'var(--accent)', fontWeight: 700, marginBottom: '8px' }}>{item.org}</h4>
+                <p style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '14px', letterSpacing: '0.02em' }}>{item.period}</p>
+                <ul style={{ listStyle: 'none', padding: 0 }}>
+                  {item.details.map((detail, dIdx) => (
+                    <li key={dIdx} style={{ position: 'relative', paddingLeft: '24px', marginBottom: '10px', fontSize: '0.94rem', color: 'var(--text)', lineHeight: 1.6 }}>
+                      <span style={{ position: 'absolute', left: 0, color: 'var(--accent)', display: 'inline-flex', alignItems: 'center', top: '3px' }}>
+                        <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
+                      </span>
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           ))}
         </div>

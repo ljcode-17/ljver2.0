@@ -15,14 +15,14 @@ import Contact from './components/Contact';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
   const toggleTheme = (origin) => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setTheme(nextTheme);
@@ -67,7 +67,7 @@ function App() {
   return (
     <>
       <CustomCursor theme={theme} />
-      
+
       <AnimatePresence>
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       </AnimatePresence>
@@ -78,23 +78,8 @@ function App() {
             <>
               <div className="dark-nightfall-layer-1" aria-hidden="true" />
               <div className="dark-nightfall-layer-2" aria-hidden="true" />
-              <div className="dark-nightfall-layer-3" aria-hidden="true" />
-
               <div className="dark-aurora-layer-3" aria-hidden="true" />
-              <div className="dark-aurora-layer-5" aria-hidden="true" />
-
-              <div className="dark-aura-grain" aria-hidden="true">
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                  <filter id="dark-aura-grain-filter">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch" />
-                    <feColorMatrix
-                      type="matrix"
-                      values="0.181 0.608 0.061 0 0.075 0.181 0.608 0.061 0 0.075 0.181 0.608 0.061 0 0.075 0 0 0 1 0"
-                    />
-                  </filter>
-                  <rect width="100%" height="100%" filter="url(#dark-aura-grain-filter)" />
-                </svg>
-              </div>
+              <div className="dark-aura-grain" aria-hidden="true" />
             </>
           )}
 
@@ -102,20 +87,7 @@ function App() {
             <>
               <div className="aura-layer-1" aria-hidden="true" />
               <div className="aura-layer-2" aria-hidden="true" />
-              <div className="aura-layer-3" aria-hidden="true" />
-              <div className="aura-layer-4" aria-hidden="true" />
-              <div className="aura-grain" aria-hidden="true">
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                  <filter id="aura-grain-filter">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch" />
-                    <feColorMatrix
-                      type="matrix"
-                      values="0.181 0.608 0.061 0 0.075 0.181 0.608 0.061 0 0.075 0.181 0.608 0.061 0 0.075 0 0 0 1 0"
-                    />
-                  </filter>
-                  <rect width="100%" height="100%" filter="url(#aura-grain-filter)" />
-                </svg>
-              </div>
+              <div className="aura-grain" aria-hidden="true" />
             </>
           )}
 

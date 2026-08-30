@@ -169,9 +169,29 @@ export default function About() {
         viewport={{ once: true, margin: "-20px" }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', textAlign: 'center', marginBottom: '4rem', color: 'var(--text)' }}>
-          About <span style={{ color: 'var(--accent)' }}>Me</span>
-        </h2>
+        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 14px',
+              background: 'var(--accent-light)',
+              color: 'var(--accent)',
+              borderRadius: '100px',
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              marginBottom: '1rem',
+              border: '1px solid var(--border)'
+            }}
+          >
+            01 / ABOUT ME
+          </span>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
+            Background & <span style={{ color: 'var(--accent)' }}>Perspective</span>
+          </h2>
+        </div>
         
         <div style={{
           display: 'grid',
@@ -185,25 +205,38 @@ export default function About() {
             return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
-              whileHover={{ y: -10, boxShadow: 'var(--shadow)', borderColor: 'var(--accent)' }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              whileHover={{ y: -6, boxShadow: 'var(--shadow)', borderColor: 'var(--accent)' }}
               style={{
                 background: 'var(--card-bg)',
-                backdropFilter: 'blur(10px)',
+                backdropFilter: 'blur(16px)',
                 border: `1px solid ${isSpeaking && speechParts[activePartIndex]?.cardIndex === index ? 'var(--accent)' : 'var(--border)'}`,
-                borderRadius: '16px',
+                borderRadius: '24px',
                 padding: '2.5rem',
-                transition: 'border-color 0.3s ease'
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
             >
-              <div style={{ marginBottom: '1.5rem', color: 'var(--accent)' }}>
-                <CardIcon size={34} strokeWidth={1.8} aria-hidden="true" />
+              <div
+                style={{
+                  marginBottom: '1.5rem',
+                  color: 'var(--accent)',
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '14px',
+                  background: 'var(--accent-light)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid var(--border)'
+                }}
+              >
+                <CardIcon size={26} strokeWidth={2} aria-hidden="true" />
               </div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text)' }}>{renderSpeechText(card.title, index * 2)}</h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>{renderSpeechText(card.desc, index * 2 + 1)}</p>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text)', letterSpacing: '-0.01em' }}>{renderSpeechText(card.title, index * 2)}</h3>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.65, fontSize: '0.95rem' }}>{renderSpeechText(card.desc, index * 2 + 1)}</p>
             </motion.div>
           );
           })}

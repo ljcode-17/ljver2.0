@@ -10,7 +10,7 @@ export default function Navbar({ theme, toggleTheme }) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -58,11 +58,32 @@ export default function Navbar({ theme, toggleTheme }) {
         justifyContent: 'space-between'
       }}
     >
-      <a href="#home" style={{ fontWeight: 800, fontSize: '1.5rem', color: 'var(--text)', textDecoration: 'none' }}>
-        <span style={{ color: 'var(--accent)' }}>LJ</span><span style={{ color: 'var(--text)', marginLeft: '4px' }}>CL</span>
+      <a href="#home" style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <span style={{ color: theme === 'dark' ? '#14B8A6' : '#E07A48', fontSize: '1.15rem' }}>✦</span>
+        <span><span style={{ color: 'var(--accent)' }}>LJ</span><span style={{ color: 'var(--text)', marginLeft: '2px' }}>CL</span></span>
       </a>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+        {/* Local time badge inspired by Lumora */}
+        <div
+          className="desktop-time-badge"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '6px 14px',
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border)',
+            borderRadius: '100px',
+            fontSize: '0.78rem',
+            fontWeight: 600,
+            color: 'var(--text-muted)',
+            backdropFilter: 'blur(8px)'
+          }}
+        >
+          Local time <strong style={{ color: 'var(--text)', marginLeft: '2px', marginRight: '4px' }}>{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</strong> • Quezon, PH
+        </div>
+
         {/* Desktop Nav */}
         <nav className="desktop-nav" style={{ display: 'flex', gap: '1.5rem' }}>
           {navItems.map((item) => (

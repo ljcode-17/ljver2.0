@@ -5,82 +5,162 @@ export default function LoadingScreen({ onComplete }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress(p => {
-        if (p >= 100) {
-          clearInterval(timer);
-          setTimeout(onComplete, 500); // Small delay before hiding
-          return 100;
-        }
-        return p + Math.floor(Math.random() * 15) + 5;
-      });
-    }, 150);
-    return () => clearInterval(timer);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const startTime = performance.now();
+    const duration = 1300;
+
+    const easeInOutCubic = (t) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    let frameId;
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progressRatio = Math.min(elapsed / duration, 1);
+      const easedProgress = Math.floor(easeInOutCubic(progressRatio) * 100);
+
+      setProgress(easedProgress);
+
+      if (progressRatio < 1) {
+        frameId = requestAnimationFrame(animate);
+      } else {
+        setTimeout(() => {
+          document.body.style.overflow = previousOverflow;
+          onComplete();
+        }, 400);
+      }
+    };
+
+    frameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      document.body.style.overflow = previousOverflow;
+    };
   }, [onComplete]);
+
+  const formattedCount = String(progress).padStart(3, '0');
 
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0, y: -50, filter: 'blur(10px)' }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
+      initial={{ y: '0%' }}
+      exit={{ y: '-100%' }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       style={{
         position: 'fixed',
         inset: 0,
-        backgroundColor: '#0F172A',
+        zIndex: 10000,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 9999,
-        color: '#F1F5F9'
+        gap: '2rem',
+        background: '#0A0A0A',
+        color: '#FFFFFF',
+        borderBottomLeftRadius: '2rem',
+        borderBottomRightRadius: '2rem',
+        pointerEvents: 'all'
       }}
     >
       <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: [0.95, 1.03, 1], opacity: 1 }}
-        transition={{ duration: 0.9, ease: 'easeInOut' }}
-        style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '1.5rem' }}
+        exit={{ opacity: 0, y: -12 }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1.25rem',
+          textAlign: 'center',
+          padding: '0 1.5rem'
+        }}
       >
-        <motion.div
-          animate={{ rotate: [0, 10, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 2.4, ease: 'easeInOut' }}
+        {/* Brand Logo Row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: 12,
+              background: 'linear-gradient(135deg, #14B8A6, #0D9488)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#FFFFFF',
+              fontWeight: 800,
+              fontSize: '1rem',
+              letterSpacing: '-0.02em',
+              boxShadow: '0 8px 24px rgba(20, 184, 166, 0.25)'
+            }}
+          >
+            LJ
+          </div>
+          <span style={{ fontWeight: 700, fontSize: '1.5rem', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
+            Lloyd Loteriña
+          </span>
+        </div>
+
+        {/* Supporting Bio Paragraph */}
+        <p
           style={{
-            width: 78,
-            height: 78,
-            borderRadius: 14,
-            background: 'linear-gradient(180deg, var(--accent), var(--accent-hover))',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 12px 34px rgba(20,184,166,0.18)'
+            maxWidth: '28ch',
+            fontSize: '0.875rem',
+            lineHeight: 1.5,
+            color: 'rgba(255, 255, 255, 0.55)',
+            fontWeight: 400
           }}
         >
-          <div style={{ color: 'white', fontWeight: 900, fontSize: '1.15rem', letterSpacing: '-0.02em' }}>LJCL</div>
-        </motion.div>
+          Frontend Developer & UI/UX Specialist crafting intuitive digital experiences.
+        </p>
 
-        <div style={{ textAlign: 'left' }}>
-          <motion.h1
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{ fontSize: '1.25rem', margin: 0, fontWeight: 800, color: '#F1F5F9' }}
+        {/* Progress Counter & Track */}
+        <div
+          style={{
+            width: 'min(22rem, 72vw)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem',
+            marginTop: '0.5rem'
+          }}
+        >
+          <div
+            style={{
+              height: '2px',
+              background: 'rgba(255, 255, 255, 0.15)',
+              borderRadius: '9999px',
+              overflow: 'hidden',
+              position: 'relative'
+            }}
           >
-            Lloyd Loteriña
-          </motion.h1>
-          <div style={{ fontSize: '0.85rem', color: '#94A3B8' }}>Portfolio</div>
+            <div
+              style={{
+                height: '100%',
+                width: `${progress}%`,
+                background: 'linear-gradient(90deg, #14B8A6, #22D3EE)',
+                borderRadius: '9999px',
+                transition: 'width 0.05s linear'
+              }}
+            />
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              fontFamily: 'monospace',
+              letterSpacing: '0.1em',
+              color: 'rgba(255, 255, 255, 0.7)'
+            }}
+          >
+            <span>INITIALIZING</span>
+            <span style={{ color: '#14B8A6' }}>{formattedCount} / 100</span>
+          </div>
         </div>
       </motion.div>
-
-      <div style={{ width: '260px', height: '6px', background: '#1f2937', borderRadius: 6, overflow: 'hidden' }}>
-        <motion.div
-          style={{ height: '100%', background: 'linear-gradient(90deg, rgba(20,184,166,0.95), rgba(20,184,166,0.6))' }}
-          initial={{ width: '0%' }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.25 }}
-        />
-      </div>
-      <div style={{ marginTop: '0.9rem', fontSize: '0.85rem', color: '#94A3B8' }}>
-        {Math.min(progress, 100)}%
-      </div>
     </motion.div>
   );
 }
+
