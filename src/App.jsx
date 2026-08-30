@@ -16,7 +16,7 @@ const Hero3D = lazy(() => import('./components/Hero3D'));
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     // Force browser to reset scroll to top (home page) on refresh/reload

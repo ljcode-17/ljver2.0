@@ -49,6 +49,12 @@ function Particles({ theme }) {
 export default function Hero3D({ theme }) {
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setReady(true), 150);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -76,7 +82,7 @@ export default function Hero3D({ theme }) {
         opacity: theme === 'dark' ? 1 : 0.8
       }}
     >
-      {isVisible && (
+      {isVisible && ready && (
         <Canvas 
           dpr={[1, Math.min(window.devicePixelRatio || 1, 1.5)]} 
           gl={{ powerPreference: 'high-performance', antialias: false, alpha: true }} 
