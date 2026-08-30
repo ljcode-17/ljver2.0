@@ -49,10 +49,10 @@ export default function Education() {
   return (
     <section id="education" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-20px" }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+        initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: "0px 0px 120px 0px" }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
         style={{ maxWidth: '800px', margin: '0 auto' }}
       >
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -85,10 +85,10 @@ export default function Education() {
           {education.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+              initial={{ opacity: 0.3, x: -25, y: 20 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "0px 0px 120px 0px" }}
+              transition={{ duration: 0.65, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
               style={{ position: 'relative', paddingLeft: '60px', marginBottom: '40px' }}
               className="education-item"
             >
@@ -103,11 +103,11 @@ export default function Education() {
                 alignItems: 'start'
               }} className="education-entry">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-20px' }}
+                  initial={{ opacity: 0.3, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "0px 0px 120px 0px" }}
                   whileHover={{ scale: 1.03, y: -2 }}
-                  transition={{ duration: 0.3, ease: 'easeOut', delay: index * 0.03 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: index * 0.03 }}
                   style={{
                     width: '88px',
                     height: '88px',

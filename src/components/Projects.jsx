@@ -255,10 +255,10 @@ export default function Projects() {
   return (
     <section id="projects" style={{ padding: '120px 5%', background: 'var(--bg-subtle)', position: 'relative', zIndex: 1 }}>
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-20px" }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+        initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: "0px 0px 120px 0px" }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
       >
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span
@@ -286,10 +286,10 @@ export default function Projects() {
 
         {/* Filters */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35, delay: 0.05 }}
+          initial={{ opacity: 0.3, y: 20, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "0px 0px 120px 0px" }}
+          transition={{ duration: 0.55, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
           style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '4rem', flexWrap: 'wrap' }}
         >
           {filters.map(f => (
@@ -333,11 +333,11 @@ export default function Projects() {
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-20px" }}
+                viewport={{ once: true, margin: "0px 0px 120px 0px" }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: index * 0.06, ease: [0.215, 0.61, 0.355, 1] }}
+                transition={{ duration: 0.65, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -8 }}
                 onClick={() => setSelectedProject(project)}
                 className="project-card"
