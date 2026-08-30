@@ -38,10 +38,10 @@ export default function Contact() {
     <section id="contact" style={{ padding: '120px 5%', background: 'var(--bg-subtle)', position: 'relative', zIndex: 1 }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <motion.div
-          initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
+          initial={{ opacity: 0, y: 60, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
           <span
@@ -73,10 +73,10 @@ export default function Contact() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem' }}>
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0.3, x: -25, y: 20 }}
+            initial={{ opacity: 0, x: -40, y: 50 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-            transition={{ duration: 0.65, delay: 0.04, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -132,10 +132,10 @@ export default function Contact() {
 
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0.3, x: 25, y: 20 }}
+            initial={{ opacity: 0, x: 40, y: 50 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-            transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
             style={{ 
               background: 'var(--card-bg)', 
               padding: '2.5rem', 

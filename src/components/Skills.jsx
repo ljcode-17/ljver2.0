@@ -26,10 +26,10 @@ export default function Skills() {
   return (
     <section id="skills" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
       <motion.div
-        initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
+        initial={{ opacity: 0, y: 60, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span
@@ -75,10 +75,10 @@ export default function Skills() {
           {skillCategories.map((cat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
+              initial={{ opacity: 0, y: 75, scale: 0.92 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-              transition={{ duration: 0.65, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, borderColor: 'var(--accent)' }}
               style={{
                 background: 'var(--card-bg)',

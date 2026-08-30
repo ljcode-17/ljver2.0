@@ -164,10 +164,10 @@ export default function About() {
   return (
     <section id="about" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
       <motion.div
-        initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
+        initial={{ opacity: 0, y: 60, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <span
@@ -205,10 +205,10 @@ export default function About() {
             return (
             <motion.div
               key={index}
-              initial={{ opacity: 0.3, y: 35, scale: 0.97 }}
+              initial={{ opacity: 0, y: 75, scale: 0.92 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-              transition={{ duration: 0.65, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, boxShadow: 'var(--shadow)', borderColor: 'var(--accent)' }}
               style={{
                 background: 'var(--card-bg)',
@@ -244,10 +244,10 @@ export default function About() {
 
         {isSupported && (
           <motion.div
-            initial={{ opacity: 0.3, y: 25, scale: 0.98 }}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "0px 0px 120px 0px" }}
-            transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.65, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             style={{
               display: 'flex',
               alignItems: 'center',
