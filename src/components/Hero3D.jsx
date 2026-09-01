@@ -87,6 +87,13 @@ export default function Hero3D({ theme }) {
           dpr={[1, Math.min(window.devicePixelRatio || 1, 1.5)]} 
           gl={{ powerPreference: 'high-performance', antialias: false, alpha: true }} 
           camera={{ position: [0, 0, 6] }}
+          onCreated={({ gl }) => {
+            const canvasEl = gl.domElement;
+            const handleContextLost = (event) => {
+              event.preventDefault();
+            };
+            canvasEl.addEventListener('webglcontextlost', handleContextLost, false);
+          }}
         >
           <Particles theme={theme} />
         </Canvas>

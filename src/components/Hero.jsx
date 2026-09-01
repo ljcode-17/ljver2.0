@@ -13,9 +13,9 @@ const featuredProjects = [
   {
     title: 'FuelWatch PH',
     category: 'Web Application',
-    desc: 'Crowdsourced fuel price monitoring platform with OpenStreetMap/Leaflet location integration.',
+    desc: 'Crowdsourced fuel price monitoring platform built with Python backend, Supabase database, and ReactJS.',
     image: '/assets/projects/fuel.png',
-    tag: 'React + Leaflet'
+    tag: 'Python + Supabase + React'
   },
   {
     title: 'MeatMaster System',
