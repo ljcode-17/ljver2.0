@@ -10,11 +10,11 @@ const projectsData = [
     title: 'MATHTatag – Capstone Project',
     category: 'Mobile',
     tags: ['Academic', 'Capstone'],
-    image: "/assets/projects/mathtatag.jpg",
+    image: "/assets/projects/mathtatag/main.webp",
     gallery: [
-      "/assets/projects/mathtatag.jpg",
-      "/assets/projects/fuel.png",
-      "/assets/projects/meat.png"
+      "/assets/projects/mathtatag/main.webp",
+      "/assets/projects/fuelwatch/main.webp",
+      "/assets/projects/meatmaster/main.webp"
     ],
     desc: "AI-integrated mobile learning app for mathematics.",
     problem: 'Grade 1 mathematics assessment often lacks interactive tools that allow teachers to monitor and analyze learner performance in real-time.',
@@ -45,11 +45,11 @@ const projectsData = [
     title: 'MeatMaster – Business Management System',
     category: 'Systems',
     tags: ['Academic Project', 'QMMS', 'Database'],
-    image: "/assets/projects/meat.png",
+    image: "/assets/projects/meatmaster/main.webp",
     gallery: [
-      "/assets/projects/meat.png",
-      "/assets/projects/cover.png",
-      "/assets/projects/fuel.png"
+      "/assets/projects/meatmaster/main.webp",
+      "/assets/projects/fortress-security/main.webp",
+      "/assets/projects/fuelwatch/main.webp"
     ],
     desc: "Comprehensive management system for meat stores to track orders, debts, and profits.",
     problem: 'Manual record-keeping in public markets often leads to costly errors in debt tracking, disorganized order management, and inaccurate profit calculations.',
@@ -77,11 +77,11 @@ const projectsData = [
     title: 'FuelWatch PH',
     category: 'Web',
     tags: ['Location-Aware', 'Crowdsourcing', 'Full-Stack'],
-    image: "/assets/projects/fuel.png",
+    image: "/assets/projects/fuelwatch/main.webp",
     gallery: [
-      "/assets/projects/fuel.png",
-      "/assets/projects/art.png",
-      "/assets/projects/kayumanggi.png"
+      "/assets/projects/fuelwatch/main.webp",
+      "/assets/projects/art-appreciation/main.webp",
+      "/assets/projects/kayumanggi/main.webp"
     ],
     desc: "Crowdsourced fuel price monitoring platform for the Philippines built with Python, Supabase, and ReactJS.",
     problem: 'Finding cheaper fuel prices nearby is often difficult for consumers due to the lack of real-time, transparent price data across different gasoline stations.',
@@ -111,11 +111,11 @@ const projectsData = [
     title: 'Art Appreciation Website',
     category: 'Web',
     tags: ['Academic Project', 'Solo'],
-    image: "/assets/projects/art.png",
+    image: "/assets/projects/art-appreciation/main.webp",
     gallery: [
-      "/assets/projects/art.png",
-      "/assets/projects/kayumanggi.png",
-      "/assets/projects/JmLaica.png"
+      "/assets/projects/art-appreciation/main.webp",
+      "/assets/projects/kayumanggi/main.webp",
+      "/assets/projects/jm-laica/main.webp"
     ],
     desc: "Cinematic web gallery showcasing cultural masterpieces.",
     problem: 'Navigating through vast art history and cultural masterpieces can be overwhelming without a structured and visual presentation.',
@@ -137,11 +137,11 @@ const projectsData = [
     title: 'Fortress Security Agency',
     category: 'Systems',
     tags: ['Academic Final Project', 'Database Administration'],
-    image: "/assets/projects/cover.png",
+    image: "/assets/projects/fortress-security/main.webp",
     gallery: [
-      "/assets/projects/cover.png",
-      "/assets/projects/meat.png",
-      "/assets/projects/mathtatag.jpg"
+      "/assets/projects/fortress-security/main.webp",
+      "/assets/projects/meatmaster/main.webp",
+      "/assets/projects/mathtatag/main.webp"
     ],
     desc: "C# Guard & Salary Management System with SQL DB.",
     problem: 'Security agencies often struggle with manual record-keeping for guard attendance, complex shift scheduling, and error-prone salary computations.',
@@ -161,11 +161,11 @@ const projectsData = [
     title: 'Kayumanggi E-Commerce Website',
     category: 'Web',
     tags: ['Frontend Project', 'Web Development'],
-    image: "/assets/projects/kayumanggi.png",
+    image: "/assets/projects/kayumanggi/main.webp",
     gallery: [
-      "/assets/projects/kayumanggi.png",
-      "/assets/projects/art.png",
-      "/assets/projects/fuel.png"
+      "/assets/projects/kayumanggi/main.webp",
+      "/assets/projects/art-appreciation/main.webp",
+      "/assets/projects/fuelwatch/main.webp"
     ],
     desc: "Frontend e-commerce platform with cultural aesthetics.",
     problem: 'Establishing a cohesive online visual identity for local Filipino products often requires a custom frontend that reflects cultural roots.',
@@ -185,11 +185,11 @@ const projectsData = [
     title: 'SILID',
     category: 'Multimedia',
     tags: ['Short Film', 'Thriller', 'Academic'],
-    image: "/assets/projects/silid.png",
+    image: "/assets/projects/silid/main.webp",
     gallery: [
-      "/assets/projects/silid.png",
-      "/assets/projects/cover.png",
-      "/assets/projects/art.png"
+      "/assets/projects/silid/main.webp",
+      "/assets/projects/fortress-security/main.webp",
+      "/assets/projects/art-appreciation/main.webp"
     ],
     desc: "A psychological thriller about a man trapped in a maddening time loop.",
     problem: "Ryan wakes up in his apartment, only to find himself trapped in a maddening, never-ending loop of the same day.",
@@ -217,12 +217,12 @@ const projectsData = [
     title: 'JM & Laica Prenup Album',
     category: 'Web',
     tags: ['Web Application', 'Gallery', 'UI/UX'],
-    image: "/assets/projects/JmLaica.png",
+    image: "/assets/projects/jm-laica/main.webp",
     gallery: [
-      "/assets/projects/JmLaica.png",
-      "/assets/projects/art.png",
-      "/assets/projects/kayumanggi.png",
-      "/assets/projects/silid.png"
+      "/assets/projects/jm-laica/main.webp",
+      "/assets/projects/art-appreciation/main.webp",
+      "/assets/projects/kayumanggi/main.webp",
+      "/assets/projects/silid/main.webp"
     ],
     desc: "A premium, responsive digital gallery application built with a modern web stack.",
     problem: 'To serve as a dedicated digital album and gallery showcasing the prenup photo collection for Laica and JM.',

@@ -7,28 +7,28 @@ const featuredProjects = [
     title: 'MATHTatag – Capstone',
     category: 'Mobile & AI',
     desc: 'AI-powered mathematics assessment & Filipino text-to-speech app for Grade 1 monitoring.',
-    image: '/assets/projects/mathtatag.jpg',
+    image: '/assets/projects/mathtatag/main.webp',
     tag: '1st Place STCIEERD Award'
   },
   {
     title: 'FuelWatch PH',
     category: 'Web Application',
     desc: 'Crowdsourced fuel price monitoring platform built with Python backend, Supabase database, and ReactJS.',
-    image: '/assets/projects/fuel.png',
+    image: '/assets/projects/fuelwatch/main.webp',
     tag: 'Python + Supabase + React'
   },
   {
     title: 'MeatMaster System',
     category: 'Systems & DB',
     desc: 'Management system for meat vendors tracking orders, customer debt, and real-time profits.',
-    image: '/assets/projects/meat.png',
+    image: '/assets/projects/meatmaster/main.webp',
     tag: 'Visual Basic + MySQL'
   },
   {
     title: 'JM & Laica Prenup Album',
     category: 'Digital Gallery',
     desc: 'Editorial-style wedding prenup photo gallery built with React 19 and Tailwind CSS v4.',
-    image: '/assets/projects/JmLaica.png',
+    image: '/assets/projects/jm-laica/main.webp',
     tag: 'React 19 + Tailwind'
   }
 ];
