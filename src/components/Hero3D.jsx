@@ -82,17 +82,23 @@ export default function Hero3D({ theme }) {
         opacity: theme === 'dark' ? 1 : 0.8
       }}
     >
-      {isVisible && ready && (
+      {ready && (
         <Canvas 
+          frameloop={isVisible ? 'always' : 'never'}
           dpr={[1, Math.min(window.devicePixelRatio || 1, 1.5)]} 
           gl={{ powerPreference: 'high-performance', antialias: false, alpha: true }} 
           camera={{ position: [0, 0, 6] }}
+          style={{ display: isVisible ? 'block' : 'none' }}
           onCreated={({ gl }) => {
             const canvasEl = gl.domElement;
             const handleContextLost = (event) => {
               event.preventDefault();
             };
+            const handleContextRestored = () => {
+              gl.resetState();
+            };
             canvasEl.addEventListener('webglcontextlost', handleContextLost, false);
+            canvasEl.addEventListener('webglcontextrestored', handleContextRestored, false);
           }}
         >
           <Particles theme={theme} />
