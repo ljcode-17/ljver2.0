@@ -77,14 +77,20 @@ export default function Experience() {
                 position: 'absolute', left: '11px', top: 0, width: '20px', height: '20px',
                 background: 'var(--bg)', border: '4px solid var(--accent)', borderRadius: '50%', zIndex: 1
               }} />
-              <div style={{
-                background: 'var(--card-bg)',
-                backdropFilter: 'blur(16px)',
-                border: '1px solid var(--border)',
-                borderRadius: '24px',
-                padding: '2rem',
-                boxShadow: 'var(--shadow)'
-              }}>
+              <motion.div
+                whileHover={{ y: -4, borderColor: 'var(--accent)' }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                style={{
+                  background: 'var(--card-bg)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '24px',
+                  padding: '2rem',
+                  boxShadow: 'var(--shadow)',
+                  transition: 'border-color 0.25s ease'
+                }}
+              >
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '4px', color: 'var(--text)', letterSpacing: '-0.01em' }}>{item.role}</h3>
                 <h4 style={{ fontSize: '1.05rem', color: 'var(--accent)', fontWeight: 700, marginBottom: '8px' }}>{item.org}</h4>
                 <p style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '14px', letterSpacing: '0.02em' }}>{item.period}</p>
@@ -98,7 +104,7 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>

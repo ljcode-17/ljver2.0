@@ -13,8 +13,7 @@ const projectsData = [
     image: "/assets/projects/mathtatag/main.webp",
     gallery: [
       "/assets/projects/mathtatag/main.webp",
-      "/assets/projects/fuelwatch/main.webp",
-      "/assets/projects/meatmaster/main.webp"
+      "/assets/projects/mathtatag/main.jpg"
     ],
     desc: "AI-integrated mobile learning app for mathematics.",
     problem: 'Grade 1 mathematics assessment often lacks interactive tools that allow teachers to monitor and analyze learner performance in real-time.',
@@ -48,8 +47,7 @@ const projectsData = [
     image: "/assets/projects/meatmaster/main.webp",
     gallery: [
       "/assets/projects/meatmaster/main.webp",
-      "/assets/projects/fortress-security/main.webp",
-      "/assets/projects/fuelwatch/main.webp"
+      "/assets/projects/meatmaster/main.png"
     ],
     desc: "Comprehensive management system for meat stores to track orders, debts, and profits.",
     problem: 'Manual record-keeping in public markets often leads to costly errors in debt tracking, disorganized order management, and inaccurate profit calculations.',
@@ -80,8 +78,7 @@ const projectsData = [
     image: "/assets/projects/fuelwatch/main.webp",
     gallery: [
       "/assets/projects/fuelwatch/main.webp",
-      "/assets/projects/art-appreciation/main.webp",
-      "/assets/projects/kayumanggi/main.webp"
+      "/assets/projects/fuelwatch/main.png"
     ],
     desc: "Crowdsourced fuel price monitoring platform for the Philippines built with Python, Supabase, and ReactJS.",
     problem: 'Finding cheaper fuel prices nearby is often difficult for consumers due to the lack of real-time, transparent price data across different gasoline stations.',
@@ -114,8 +111,7 @@ const projectsData = [
     image: "/assets/projects/art-appreciation/main.webp",
     gallery: [
       "/assets/projects/art-appreciation/main.webp",
-      "/assets/projects/kayumanggi/main.webp",
-      "/assets/projects/jm-laica/main.webp"
+      "/assets/projects/art-appreciation/main.png"
     ],
     desc: "Cinematic web gallery showcasing cultural masterpieces.",
     problem: 'Navigating through vast art history and cultural masterpieces can be overwhelming without a structured and visual presentation.',
@@ -140,8 +136,7 @@ const projectsData = [
     image: "/assets/projects/fortress-security/main.webp",
     gallery: [
       "/assets/projects/fortress-security/main.webp",
-      "/assets/projects/meatmaster/main.webp",
-      "/assets/projects/mathtatag/main.webp"
+      "/assets/projects/fortress-security/main.png"
     ],
     desc: "C# Guard & Salary Management System with SQL DB.",
     problem: 'Security agencies often struggle with manual record-keeping for guard attendance, complex shift scheduling, and error-prone salary computations.',
@@ -164,8 +159,7 @@ const projectsData = [
     image: "/assets/projects/kayumanggi/main.webp",
     gallery: [
       "/assets/projects/kayumanggi/main.webp",
-      "/assets/projects/art-appreciation/main.webp",
-      "/assets/projects/fuelwatch/main.webp"
+      "/assets/projects/kayumanggi/main.png"
     ],
     desc: "Frontend e-commerce platform with cultural aesthetics.",
     problem: 'Establishing a cohesive online visual identity for local Filipino products often requires a custom frontend that reflects cultural roots.',
@@ -188,8 +182,7 @@ const projectsData = [
     image: "/assets/projects/silid/main.webp",
     gallery: [
       "/assets/projects/silid/main.webp",
-      "/assets/projects/fortress-security/main.webp",
-      "/assets/projects/art-appreciation/main.webp"
+      "/assets/projects/silid/main.png"
     ],
     desc: "A psychological thriller about a man trapped in a maddening time loop.",
     problem: "Ryan wakes up in his apartment, only to find himself trapped in a maddening, never-ending loop of the same day.",
@@ -220,9 +213,7 @@ const projectsData = [
     image: "/assets/projects/jm-laica/main.webp",
     gallery: [
       "/assets/projects/jm-laica/main.webp",
-      "/assets/projects/art-appreciation/main.webp",
-      "/assets/projects/kayumanggi/main.webp",
-      "/assets/projects/silid/main.webp"
+      "/assets/projects/jm-laica/main.png"
     ],
     desc: "A premium, responsive digital gallery application built with a modern web stack.",
     problem: 'To serve as a dedicated digital album and gallery showcasing the prenup photo collection for Laica and JM.',
@@ -584,7 +575,7 @@ export default function Projects() {
                       }}
                     >
                       {/* Rectangular Screenshot Frame */}
-                      <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', borderRadius: '18px' }}>
+                      <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', borderRadius: '18px', background: '#0F172A' }}>
                         <img
                           src={project.image}
                           alt={project.title}
@@ -594,11 +585,25 @@ export default function Projects() {
                             width: '100%',
                             height: '100%',
                             objectFit: 'cover',
+                            display: 'block',
                             transition: 'filter 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
                             filter: isActive ? 'brightness(100%) contrast(100%)' : 'brightness(0.82) contrast(0.96)'
                           }}
                           onError={(e) => {
-                            e.target.src = 'https://via.placeholder.com/600x350/1E293B/FFFFFF?text=Project+Preview';
+                            const target = e.currentTarget;
+                            if (target.dataset.triedFallback === 'true') {
+                              target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='18' font-weight='bold'>Project Preview</text></svg>";
+                              return;
+                            }
+                            target.dataset.triedFallback = 'true';
+                            const currentSrc = target.src;
+                            if (currentSrc.endsWith('.webp')) {
+                              target.src = currentSrc.replace(/\.webp$/, '.png');
+                            } else if (currentSrc.endsWith('.png')) {
+                              target.src = currentSrc.replace(/\.png$/, '.jpg');
+                            } else {
+                              target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='18' font-weight='bold'>Project Preview</text></svg>";
+                            }
                           }}
                         />
 
@@ -897,7 +902,7 @@ export default function Projects() {
                     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
                 >
-                  <div style={{ height: '210px', width: '100%', overflow: 'hidden', position: 'relative' }}>
+                  <div style={{ height: '210px', width: '100%', overflow: 'hidden', position: 'relative', background: '#0F172A' }}>
                     <motion.img 
                       whileHover={{ scale: 1.06 }}
                       transition={{ duration: 0.5 }}
@@ -905,8 +910,23 @@ export default function Projects() {
                       alt={project.title} 
                       loading="lazy"
                       decoding="async"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      onError={(e) => { e.target.src = 'https://via.placeholder.com/400x300/1E293B/FFFFFF?text=Project+Preview' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (target.dataset.triedFallback === 'true') {
+                          target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='18' font-weight='bold'>Project Preview</text></svg>";
+                          return;
+                        }
+                        target.dataset.triedFallback = 'true';
+                        const currentSrc = target.src;
+                        if (currentSrc.endsWith('.webp')) {
+                          target.src = currentSrc.replace(/\.webp$/, '.png');
+                        } else if (currentSrc.endsWith('.png')) {
+                          target.src = currentSrc.replace(/\.png$/, '.jpg');
+                        } else {
+                          target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='18' font-weight='bold'>Project Preview</text></svg>";
+                        }
+                      }}
                     />
                     <div style={{
                       position: 'absolute',

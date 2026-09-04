@@ -38,9 +38,9 @@ export default function Navbar({ theme, toggleTheme }) {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.4 }}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.45, ease: [0.215, 0.61, 0.355, 1] }}
       style={{
         position: 'fixed',
         top: 0,
@@ -53,15 +53,22 @@ export default function Navbar({ theme, toggleTheme }) {
         zIndex: 1000,
         background: scrolled || mobileOpen ? 'var(--nav-bg)' : 'transparent',
         backdropFilter: scrolled || mobileOpen ? 'blur(16px)' : 'none',
-        borderBottom: scrolled || mobileOpen ? '1px solid var(--border)' : 'none',
-        transition: 'all 0.3s ease',
+        WebkitBackdropFilter: scrolled || mobileOpen ? 'blur(16px)' : 'none',
+        borderBottom: scrolled || mobileOpen ? '1px solid var(--border)' : '1px solid transparent',
+        transition: 'background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease',
         justifyContent: 'space-between'
       }}
     >
-      <a href="#home" style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <motion.a
+        href="#home"
+        whileHover={{ scale: 1.04 }}
+        whileTap={{ scale: 0.96 }}
+        transition={{ duration: 0.2 }}
+        style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+      >
         <span style={{ color: theme === 'dark' ? '#14B8A6' : '#E07A48', fontSize: '1.15rem' }}>✦</span>
         <span><span style={{ color: 'var(--accent)' }}>LJ</span><span style={{ color: 'var(--text)', marginLeft: '2px' }}>CL</span></span>
-      </a>
+      </motion.a>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
         {/* Local time badge inspired by Lumora */}
@@ -78,7 +85,8 @@ export default function Navbar({ theme, toggleTheme }) {
             fontSize: '0.78rem',
             fontWeight: 600,
             color: 'var(--text-muted)',
-            backdropFilter: 'blur(8px)'
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)'
           }}
         >
           Local time <strong style={{ color: 'var(--text)', marginLeft: '2px', marginRight: '4px' }}>{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</strong> • Quezon, PH
@@ -91,12 +99,14 @@ export default function Navbar({ theme, toggleTheme }) {
               key={item.label}
               href={item.href}
               whileHover={{ y: -2, color: 'var(--accent)' }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ duration: 0.2 }}
               style={{
                 textDecoration: 'none',
                 color: 'var(--text-muted)',
                 fontWeight: 500,
                 fontSize: '0.85rem',
-                transition: 'color 0.3s'
+                transition: 'color 0.25s ease'
               }}
             >
               {item.label}
@@ -105,9 +115,10 @@ export default function Navbar({ theme, toggleTheme }) {
 
           {/* Nav Download CV Pill */}
           <motion.a
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.95 }}
-            href="/assets/CV.pdf"
+            transition={{ duration: 0.2 }}
+            href="/assets/docs/Lloyd_Jernell_Loterina_CV.pdf"
             download="Lloyd_Jernell_Loterina_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -139,8 +150,9 @@ export default function Navbar({ theme, toggleTheme }) {
               y: rect.top + rect.height / 2
             });
           }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.12, rotate: 12 }}
+          whileTap={{ scale: 0.88 }}
+          transition={{ duration: 0.2 }}
           style={{
             background: 'none',
             border: 'none',
@@ -157,9 +169,15 @@ export default function Navbar({ theme, toggleTheme }) {
         </motion.button>
 
         {/* Mobile Nav Toggle */}
-        <div className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} style={{ display: 'none', cursor: 'pointer', zIndex: 1002, color: 'var(--text)' }}>
+        <motion.div 
+          className="mobile-toggle" 
+          onClick={() => setMobileOpen(!mobileOpen)} 
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          style={{ display: 'none', cursor: 'pointer', zIndex: 1002, color: 'var(--text)' }}
+        >
           {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-        </div>
+        </motion.div>
       </div>
 
       {/* Mobile Menu Overlay */}

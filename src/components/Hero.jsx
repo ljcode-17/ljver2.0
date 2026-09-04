@@ -53,7 +53,7 @@ export default function Hero({ theme }) {
     const imgPrimary = new Image();
     const imgSecondary = new Image();
     imgPrimary.src = theme === 'light' ? '/assets/lj1.png' : '/assets/lj2.0.png';
-    imgSecondary.src = '/assets/lj3.png';
+    imgSecondary.src = theme === 'light' ? '/assets/ljrobot1.png' : '/assets/ljrobot2.png';
 
     const setupCanvas = (canvas, container) => {
       if (!canvas || !container) return null;
@@ -136,8 +136,10 @@ export default function Hero({ theme }) {
             const alpha = Math.max(0, 1 - p.age / maxAge);
             const rad = brushRadius * (0.5 + alpha * 0.5);
             const grad = maskCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rad);
-            grad.addColorStop(0, `rgba(255, 255, 255, ${alpha * 0.75})`);
-            grad.addColorStop(0.5, `rgba(255, 255, 255, ${alpha * 0.4})`);
+            const coreAlpha = theme === 'light' ? alpha * 1.0 : alpha * 0.75;
+            const midAlpha = theme === 'light' ? alpha * 0.7 : alpha * 0.4;
+            grad.addColorStop(0, `rgba(255, 255, 255, ${coreAlpha})`);
+            grad.addColorStop(0.5, `rgba(255, 255, 255, ${midAlpha})`);
             grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
             maskCtx.fillStyle = grad;
             maskCtx.beginPath();
@@ -296,9 +298,9 @@ export default function Hero({ theme }) {
           inset: 0,
           width: '100%',
           height: '100%',
-          zIndex: 1,
+          zIndex: 2,
           pointerEvents: 'none',
-          opacity: isDark ? 0.88 : 0.55
+          opacity: isDark ? 0.95 : 1.0
         }}
       />
 
@@ -307,11 +309,11 @@ export default function Hero({ theme }) {
         style={{
           position: 'absolute',
           inset: 0,
-          zIndex: 2,
+          zIndex: 1,
           pointerEvents: 'none',
           background: isDark
             ? 'linear-gradient(180deg, rgba(16,14,11,0.45) 0%, rgba(16,14,11,0.25) 45%, rgba(16,14,11,0.65) 100%)'
-            : 'linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.18) 45%, rgba(255,255,255,0.65) 100%)'
+            : 'linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 45%, rgba(255,255,255,0.45) 100%)'
         }}
       />
 
@@ -408,7 +410,7 @@ export default function Hero({ theme }) {
             <canvas
               ref={mobileCanvasRef}
               className="mobile-portrait-canvas"
-              style={{ opacity: isDark ? 0.88 : 0.55 }}
+              style={{ opacity: isDark ? 0.95 : 1.0 }}
             />
           </div>
 
@@ -457,7 +459,7 @@ export default function Hero({ theme }) {
             <motion.a
               whileHover={{ scale: 1.05, boxShadow: isDark ? '0 10px 30px rgba(20, 184, 166, 0.45)' : '0 10px 30px rgba(0, 0, 0, 0.25)' }}
               whileTap={{ scale: 0.95 }}
-              href="/assets/CV.pdf"
+              href="/assets/docs/Lloyd_Jernell_Loterina_CV.pdf"
               download="Lloyd_Jernell_Loterina_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"

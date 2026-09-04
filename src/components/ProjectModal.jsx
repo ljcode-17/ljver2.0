@@ -198,7 +198,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   border: '1px solid var(--border)',
                   boxShadow: '0 12px 30px rgba(0,0,0,0.15)',
                   position: 'relative',
-                  background: '#0a0a0a'
+                  background: '#0F172A'
                 }}
               >
                 <AnimatePresence mode="wait">
@@ -206,9 +206,9 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                     key={currentHeroImage}
                     src={currentHeroImage}
                     alt={`${project.title} Preview`}
-                    initial={{ opacity: 0.4, scale: 1.02 }}
+                    initial={{ opacity: 0.5, scale: 1.01 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0.4 }}
+                    exit={{ opacity: 0.5 }}
                     transition={{ duration: 0.25 }}
                     style={{
                       width: '100%',
@@ -217,7 +217,20 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                       display: 'block'
                     }}
                     onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/800x450/1E293B/FFFFFF?text=Project+Preview';
+                      const target = e.currentTarget;
+                      if (target.dataset.triedFallback === 'true') {
+                        target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='22' font-weight='bold'>Project Preview</text></svg>";
+                        return;
+                      }
+                      target.dataset.triedFallback = 'true';
+                      const currentSrc = target.src;
+                      if (currentSrc.endsWith('.webp')) {
+                        target.src = currentSrc.replace(/\.webp$/, '.png');
+                      } else if (currentSrc.endsWith('.png')) {
+                        target.src = currentSrc.replace(/\.png$/, '.jpg');
+                      } else {
+                        target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='22' font-weight='bold'>Project Preview</text></svg>";
+                      }
                     }}
                   />
                 </AnimatePresence>
@@ -225,7 +238,12 @@ export default function ProjectModal({ project, isOpen, onClose }) {
 
               {/* Gallery Screenshots Switcher */}
               {galleryImages.length > 0 && (
-                <div style={{ marginBottom: '1.75rem' }}>
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.05 }}
+                  style={{ marginBottom: '1.75rem' }}
+                >
                   <h4
                     style={{
                       color: 'var(--text)',
@@ -254,7 +272,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                         <motion.button
                           key={imgIdx}
                           onClick={() => setSelectedImage(imgUrl)}
-                          whileHover={{ scale: 1.04 }}
+                          whileHover={{ scale: 1.04, y: -2 }}
                           whileTap={{ scale: 0.96 }}
                           style={{
                             height: '78px',
@@ -262,7 +280,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                             overflow: 'hidden',
                             border: isSelected ? '2px solid var(--accent)' : '1px solid var(--border)',
                             cursor: 'pointer',
-                            background: 'var(--bg-subtle)',
+                            background: '#0F172A',
                             padding: 0,
                             position: 'relative',
                             outline: 'none',
@@ -277,43 +295,72 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                               width: '100%',
                               height: '100%',
                               objectFit: 'cover',
+                              display: 'block',
                               opacity: isSelected ? 1 : 0.75,
                               transition: 'opacity 0.2s'
                             }}
                             onError={(e) => {
-                              e.target.src = 'https://via.placeholder.com/300x200/1E293B/FFFFFF?text=Screenshot+' + (imgIdx + 1);
+                              const target = e.currentTarget;
+                              if (target.dataset.triedFallback === 'true') {
+                                target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='14' font-weight='bold'>Screenshot</text></svg>";
+                                return;
+                              }
+                              target.dataset.triedFallback = 'true';
+                              const currentSrc = target.src;
+                              if (currentSrc.endsWith('.webp')) {
+                                target.src = currentSrc.replace(/\.webp$/, '.png');
+                              } else if (currentSrc.endsWith('.png')) {
+                                target.src = currentSrc.replace(/\.png$/, '.jpg');
+                              } else {
+                                target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'><rect width='100%' height='100%' fill='%230F172A'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2314B8A6' font-family='sans-serif' font-size='14' font-weight='bold'>Screenshot</text></svg>";
+                              }
                             }}
                           />
                         </motion.button>
                       );
                     })}
                   </div>
-                </div>
+                </motion.div>
               )}
 
               {/* Overview */}
               {project.problem && (
-                <div style={{ marginBottom: '1.5rem' }}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.1 }}
+                  style={{ marginBottom: '1.5rem' }}
+                >
                   <h4 style={{ color: 'var(--accent)', marginBottom: '0.35rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Overview
                   </h4>
                   <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, fontSize: '0.92rem' }}>{project.problem}</p>
-                </div>
+                </motion.div>
               )}
 
               {/* Solution */}
               {project.solution && (
-                <div style={{ marginBottom: '1.5rem' }}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.15 }}
+                  style={{ marginBottom: '1.5rem' }}
+                >
                   <h4 style={{ color: 'var(--accent)', marginBottom: '0.35rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Story & Solution
                   </h4>
                   <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, fontSize: '0.92rem' }}>{project.solution}</p>
-                </div>
+                </motion.div>
               )}
 
               {/* Key Features */}
               {project.features && (
-                <div style={{ marginBottom: '1.5rem' }}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.2 }}
+                  style={{ marginBottom: '1.5rem' }}
+                >
                   <h4 style={{ color: 'var(--accent)', marginBottom: '0.65rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Key Features
                   </h4>
@@ -327,12 +374,17 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               )}
 
               {/* Responsibilities */}
               {project.responsibilities && (
-                <div style={{ marginBottom: '1.5rem' }}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.25 }}
+                  style={{ marginBottom: '1.5rem' }}
+                >
                   <h4 style={{ color: 'var(--accent)', marginBottom: '0.65rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     My Contributions & Roles
                   </h4>
@@ -346,21 +398,29 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               )}
 
               {/* Learnings */}
               {project.learnings && (
-                <div style={{ marginBottom: '1.5rem' }}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.3 }}
+                  style={{ marginBottom: '1.5rem' }}
+                >
                   <h4 style={{ color: 'var(--accent)', marginBottom: '0.35rem', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Key Takeaways & Learnings
                   </h4>
                   <p style={{ color: 'var(--text-muted)', lineHeight: 1.6, fontSize: '0.92rem' }}>{project.learnings}</p>
-                </div>
+                </motion.div>
               )}
 
               {/* Footer Tech & Links */}
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: 0.35 }}
                 style={{
                   borderTop: '1px solid var(--border)',
                   paddingTop: '1.25rem',
@@ -472,7 +532,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                     </motion.a>
                   )}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

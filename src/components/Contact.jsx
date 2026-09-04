@@ -112,18 +112,26 @@ export default function Contact() {
 
             <div style={{ marginTop: '3rem', display: 'flex', gap: '1rem' }}>
               <motion.a 
-                whileHover={{ scale: 1.1, backgroundColor: 'var(--accent)' }}
+                whileHover={{ scale: 1.1, y: -2, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ duration: 0.2 }}
                 href="https://www.linkedin.com/in/lloyd-jernell-loterina" 
                 target="_blank"
-                style={{ background: 'var(--bg-subtle)', color: 'var(--text)', padding: '12px', borderRadius: '12px', transition: '0.3s', border: '1px solid var(--border)' }}
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                style={{ background: 'var(--card-bg)', color: 'var(--text)', padding: '12px', borderRadius: '12px', transition: 'background 0.3s, color 0.3s', border: '1px solid var(--border)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 <Linkedin size={24} />
               </motion.a>
               <motion.a 
-                whileHover={{ scale: 1.1, backgroundColor: 'var(--accent)' }}
+                whileHover={{ scale: 1.1, y: -2, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ duration: 0.2 }}
                 href="https://github.com/ljcode-17" 
                 target="_blank"
-                style={{ background: 'var(--bg-subtle)', color: 'var(--text)', padding: '12px', borderRadius: '12px', transition: '0.3s', border: '1px solid var(--border)' }}
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                style={{ background: 'var(--card-bg)', color: 'var(--text)', padding: '12px', borderRadius: '12px', transition: 'background 0.3s, color 0.3s', border: '1px solid var(--border)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 <Github size={24} />
               </motion.a>
