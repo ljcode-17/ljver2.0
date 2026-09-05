@@ -730,15 +730,15 @@ export default function Hero({ theme }) {
           }}
         >
           <div className="status-item">
-            <span style={{ color: 'var(--accent)' }}>GPA 1.53</span> • ACADEMIC AWARDEE
+            <span style={{ color: isDark ? '#14B8A6' : '#0D9488', fontWeight: 800 }}>GPA 1.53</span> • ACADEMIC AWARDEE
           </div>
 
           <div className="status-item">
-            LOCATION: <span style={{ color: 'var(--text)' }}>QUEZON, PHILIPPINES</span>
+            LOCATION: <span style={{ color: 'var(--text)', fontWeight: 800 }}>QUEZON, PHILIPPINES</span>
           </div>
 
           <div className="status-item">
-            STATUS: <span style={{ color: '#10B981' }}>AVAILABLE FOR ROLES</span>
+            STATUS: <span style={{ color: isDark ? '#10B981' : '#059669', fontWeight: 800 }}>AVAILABLE FOR ROLES</span>
           </div>
 
           <div className="status-item scroll-hint" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
