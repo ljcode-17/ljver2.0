@@ -8,8 +8,12 @@ export default function LoadingScreen({ onComplete }) {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
+    // Preload DarkMode Logo for immediate render
+    const logoImg = new Image();
+    logoImg.src = '/assets/Logos/DarkMode Logo.png';
+
     const startTime = performance.now();
-    const duration = 750;
+    const duration = 850;
 
     const easeInOutCubic = (t) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -28,7 +32,7 @@ export default function LoadingScreen({ onComplete }) {
         setTimeout(() => {
           document.body.style.overflow = previousOverflow;
           onComplete();
-        }, 150);
+        }, 120);
       }
     };
 
@@ -55,68 +59,143 @@ export default function LoadingScreen({ onComplete }) {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '2rem',
-        background: '#0A0A0A',
+        background: '#070A0F',
+        backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(20, 184, 166, 0.12) 0%, rgba(7, 10, 15, 0.96) 60%, #070A0F 100%)',
         color: '#FFFFFF',
         borderBottomLeftRadius: '2rem',
         borderBottomRightRadius: '2rem',
-        pointerEvents: 'all'
+        pointerEvents: 'all',
+        overflow: 'hidden'
       }}
     >
+      {/* Subtle Ambient Background Grid Detail */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.035,
+          backgroundImage: `linear-gradient(#FFFFFF 1px, transparent 1px), linear-gradient(90deg, #FFFFFF 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
+          pointerEvents: 'none'
+        }}
+      />
+
       <motion.div
-        exit={{ opacity: 0, y: -12 }}
+        exit={{ opacity: 0, y: -16, scale: 0.98 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '1.25rem',
+          gap: '1.5rem',
           textAlign: 'center',
-          padding: '0 1.5rem'
+          padding: '0 1.5rem',
+          maxWidth: '440px',
+          position: 'relative',
+          zIndex: 2
         }}
       >
-        {/* Brand Logo Row */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div
-            style={{
-              width: 44,
-              height: 44,
-              borderRadius: 12,
-              background: 'linear-gradient(135deg, #14B8A6, #0D9488)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#FFFFFF',
-              fontWeight: 800,
-              fontSize: '1rem',
-              letterSpacing: '-0.02em',
-              boxShadow: '0 8px 24px rgba(20, 184, 166, 0.25)'
-            }}
-          >
-            LJ
-          </div>
-          <span style={{ fontWeight: 700, fontSize: '1.5rem', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
-            Lloyd Loteriña
-          </span>
-        </div>
-
-        {/* Supporting Bio Paragraph */}
-        <p
+        {/* Top Micro Status Tag */}
+        <div
           style={{
-            maxWidth: '28ch',
-            fontSize: '0.875rem',
-            lineHeight: 1.5,
-            color: 'rgba(255, 255, 255, 0.55)',
-            fontWeight: 400
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '5px 14px',
+            background: 'rgba(255, 255, 255, 0.04)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '100px',
+            fontSize: '0.68rem',
+            fontWeight: 700,
+            letterSpacing: '0.12em',
+            color: '#14B8A6',
+            textTransform: 'uppercase',
+            backdropFilter: 'blur(8px)'
           }}
         >
-          Frontend Developer & UI/UX Specialist crafting intuitive digital experiences.
-        </p>
+          <span
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: '50%',
+              backgroundColor: '#14B8A6',
+              boxShadow: '0 0 8px #14B8A6'
+            }}
+          />
+          LLOYD LOTERIÑA • PORTFOLIO 2.0
+        </div>
+
+        {/* Immersive DarkMode Logo Presentation */}
+        <div
+          style={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '0.5rem',
+            marginTop: '0.2rem',
+            marginBottom: '0.2rem'
+          }}
+        >
+          {/* Logo Glow Halo */}
+          <div
+            style={{
+              position: 'absolute',
+              width: '130px',
+              height: '130px',
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(20, 184, 166, 0.28) 0%, rgba(20, 184, 166, 0) 70%)',
+              filter: 'blur(16px)',
+              pointerEvents: 'none'
+            }}
+          />
+
+          <img
+            src="/assets/Logos/DarkMode Logo.png"
+            alt="Lloyd Loteriña Official Logo"
+            style={{
+              height: '58px',
+              width: 'auto',
+              maxHeight: '58px',
+              objectFit: 'contain',
+              position: 'relative',
+              zIndex: 1,
+              filter: 'drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7))'
+            }}
+          />
+        </div>
+
+        {/* Sophisticated Intro & Role Identity */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', alignItems: 'center' }}>
+          <h1
+            style={{
+              fontSize: 'clamp(1.25rem, 3.5vw, 1.55rem)',
+              fontWeight: 800,
+              letterSpacing: '-0.02em',
+              color: '#FFFFFF',
+              lineHeight: 1.2
+            }}
+          >
+            Frontend Developer &amp; UI/UX Specialist
+          </h1>
+
+          <p
+            style={{
+              fontSize: 'clamp(0.82rem, 2.2vw, 0.92rem)',
+              lineHeight: 1.55,
+              color: 'rgba(255, 255, 255, 0.62)',
+              fontWeight: 400,
+              maxWidth: '34ch'
+            }}
+          >
+            Crafting intuitive digital experiences with editorial precision &amp; modern engineering.
+          </p>
+        </div>
 
         {/* Progress Counter & Track */}
         <div
           style={{
-            width: 'min(22rem, 72vw)',
+            width: 'min(22rem, 80vw)',
             display: 'flex',
             flexDirection: 'column',
             gap: '0.75rem',
@@ -125,8 +204,8 @@ export default function LoadingScreen({ onComplete }) {
         >
           <div
             style={{
-              height: '2px',
-              background: 'rgba(255, 255, 255, 0.15)',
+              height: '3px',
+              background: 'rgba(255, 255, 255, 0.1)',
               borderRadius: '9999px',
               overflow: 'hidden',
               position: 'relative'
@@ -136,8 +215,9 @@ export default function LoadingScreen({ onComplete }) {
               style={{
                 height: '100%',
                 width: `${progress}%`,
-                background: 'linear-gradient(90deg, #14B8A6, #22D3EE)',
+                background: 'linear-gradient(90deg, #14B8A6 0%, #3B82F6 100%)',
                 borderRadius: '9999px',
+                boxShadow: '0 0 12px rgba(20, 184, 166, 0.6)',
                 transition: 'width 0.05s linear'
               }}
             />
@@ -148,19 +228,22 @@ export default function LoadingScreen({ onComplete }) {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              fontSize: '0.75rem',
+              fontSize: '0.72rem',
               fontWeight: 600,
               fontFamily: 'monospace',
-              letterSpacing: '0.1em',
-              color: 'rgba(255, 255, 255, 0.7)'
+              letterSpacing: '0.12em',
+              color: 'rgba(255, 255, 255, 0.6)'
             }}
           >
-            <span>INITIALIZING</span>
-            <span style={{ color: '#14B8A6' }}>{formattedCount} / 100</span>
+            <span>INITIALIZING SYSTEM</span>
+            <span style={{ color: '#14B8A6', fontWeight: 700 }}>
+              {formattedCount} / 100
+            </span>
           </div>
         </div>
       </motion.div>
     </motion.div>
   );
 }
+
 
