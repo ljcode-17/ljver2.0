@@ -58,10 +58,12 @@ export default function Hero({ theme }) {
     const setupCanvas = (canvas, container) => {
       if (!canvas || !container) return null;
       const ctx = canvas.getContext('2d', { willReadFrequently: true });
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       let width = 0;
       let height = 0;
       let points = [];
+      let lastX = -999;
+      let lastY = -999;
 
       // Reusable offscreen mask canvas to avoid allocation inside 60FPS loop
       const maskCanvas = document.createElement('canvas');
@@ -71,8 +73,8 @@ export default function Hero({ theme }) {
         width = container.clientWidth || 0;
         height = container.clientHeight || 0;
         if (width <= 0 || height <= 0) return;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
         canvas.style.width = `${width}px`;
         canvas.style.height = `${height}px`;
         ctx.scale(dpr, dpr);
@@ -89,8 +91,13 @@ export default function Hero({ theme }) {
         const x = clientX - rect.left;
         const y = clientY - rect.top;
         if (x >= 0 && x <= width && y >= 0 && y <= height) {
-          points.push({ x, y, age: 0 });
-          if (points.length > 40) points.shift();
+          const distSq = (x - lastX) ** 2 + (y - lastY) ** 2;
+          if (distSq > 36) { // Only push point if cursor moved at least 6px
+            points.push({ x, y, age: 0 });
+            lastX = x;
+            lastY = y;
+            if (points.length > 18) points.shift();
+          }
         }
       };
 
@@ -108,12 +115,15 @@ export default function Hero({ theme }) {
           if (width <= 0 || height <= 0) return;
         }
 
+        if (points.length === 0) {
+          ctx.clearRect(0, 0, width, height);
+          return;
+        }
+
         ctx.clearRect(0, 0, width, height);
 
-        if (points.length === 0) return;
-
-        const maxAge = 60;
-        const brushRadius = width <= 768 ? 80 : 120;
+        const maxAge = 50;
+        const brushRadius = width <= 768 ? 70 : 110;
 
         for (let i = points.length - 1; i >= 0; i--) {
           points[i].age += 1;
@@ -197,8 +207,13 @@ export default function Hero({ theme }) {
 
     const loop = () => {
       if (isIntersecting) {
-        if (desktopInstance) desktopInstance.render();
-        if (mobileInstance) mobileInstance.render();
+        // Render ONLY the active canvas depending on viewport width (never both!)
+        const isDesktop = window.innerWidth > 1024;
+        if (isDesktop && desktopInstance) {
+          desktopInstance.render();
+        } else if (!isDesktop && mobileInstance) {
+          mobileInstance.render();
+        }
       }
       animationFrameId = requestAnimationFrame(loop);
     };
