@@ -153,10 +153,11 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               </div>
 
               <motion.button
-                whileHover={{ scale: 1.1, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
                 aria-label="Close dialog"
+                className="modal-close-btn"
                 style={{
                   background: 'var(--bg-subtle)',
                   border: '1px solid var(--border)',

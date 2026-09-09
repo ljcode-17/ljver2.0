@@ -503,7 +503,7 @@ export default function Hero({ theme }) {
               href="#projects"
               style={{
                 padding: '14px 24px',
-                backgroundColor: isDark ? 'var(--card-bg)' : 'transparent',
+                backgroundColor: isDark ? 'rgba(30, 41, 59, 0.7)' : 'rgba(0, 0, 0, 0)',
                 color: 'var(--text)',
                 border: isDark ? '1px solid var(--border)' : '1px solid rgba(0, 0, 0, 0.18)',
                 borderRadius: '100px',
@@ -528,7 +528,7 @@ export default function Hero({ theme }) {
               href="#contact"
               style={{
                 padding: '14px 24px',
-                backgroundColor: isDark ? 'var(--card-bg)' : 'transparent',
+                backgroundColor: isDark ? 'rgba(30, 41, 59, 0.7)' : 'rgba(0, 0, 0, 0)',
                 color: 'var(--text)',
                 border: isDark ? '1px solid var(--border)' : '1px solid rgba(0, 0, 0, 0.18)',
                 borderRadius: '100px',

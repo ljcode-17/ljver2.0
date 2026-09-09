@@ -567,3 +567,31 @@ section {
     gap: 1.5rem !important;
   }
 }
+
+/* ================================================================= */
+/* SCROLL REVEAL UTILITIES & REDUCED MOTION SAFETY                   */
+/* ================================================================= */
+.reveal-up,
+.reveal-left,
+.reveal-right {
+  will-change: opacity, transform;
+}
+
+.social-hover-btn:hover,
+.coverflow-nav-btn:hover,
+.modal-close-btn:hover {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+

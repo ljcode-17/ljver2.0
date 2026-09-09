@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Pause, Play, Square, Volume2, Code2, Palette, Wrench, CheckCircle2 } from 'lucide-react';
+import { revealUp } from '../lib/animations';
 
 export default function About() {
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -165,12 +166,9 @@ export default function About() {
   };
 
   return (
-    <section id="about" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
+    <section id="about" className="reveal-up" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        {...revealUp(0)}
       >
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <span
@@ -211,10 +209,7 @@ export default function About() {
             return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.215, 0.61, 0.355, 1] }}
+              {...revealUp(index * 0.1)}
               whileHover={{ y: -6, boxShadow: 'var(--shadow)', borderColor: 'var(--accent)' }}
               style={{
                 background: 'var(--card-bg)',
@@ -265,10 +260,7 @@ export default function About() {
 
         {isSupported && (
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.45, delay: 0.1, ease: "easeOut" }}
+            {...revealUp(0.3)}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -282,7 +274,7 @@ export default function About() {
             <motion.button
               type="button"
               onClick={startSpeaking}
-              whileHover={{ y: -2, backgroundColor: 'var(--accent-hover)' }}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
               aria-label="Listen to my introduction"
               title="Listen to my introduction"
@@ -297,7 +289,8 @@ export default function About() {
                 borderRadius: '50%',
                 background: 'var(--accent)',
                 color: 'white',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'background-color 0.2s ease'
               }}
             >
               <Volume2 size={18} aria-hidden="true" />

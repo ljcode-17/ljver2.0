@@ -94,7 +94,9 @@ export default function CustomCursor({ theme }) {
           border: isHovered
             ? `2px solid ${isDark ? 'rgba(20, 184, 166, 1)' : 'rgba(10, 10, 10, 0.95)'}`
             : `1px solid ${isDark ? 'rgba(20, 184, 166, 0.35)' : 'rgba(0, 0, 0, 0.25)'}`,
-          backgroundColor: isHovered ? (isDark ? 'rgba(20, 184, 166, 0.08)' : 'rgba(0, 0, 0, 0.05)') : 'transparent',
+          backgroundColor: isHovered
+            ? (isDark ? 'rgba(20, 184, 166, 0.08)' : 'rgba(0, 0, 0, 0.05)')
+            : (isDark ? 'rgba(20, 184, 166, 0)' : 'rgba(0, 0, 0, 0)'),
           pointerEvents: 'none',
           zIndex: 1000000,
           willChange: 'transform',

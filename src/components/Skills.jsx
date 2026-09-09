@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, Cable, Wrench, Cpu, Smartphone, Network, Sparkles, FileText, Code2 } from 'lucide-react';
+import { revealUp } from '../lib/animations';
 
 const skillCategories = [
   {
@@ -68,12 +69,9 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
+    <section id="skills" className="reveal-up" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        {...revealUp(0)}
       >
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span
@@ -119,10 +117,7 @@ export default function Skills() {
           {skillCategories.map((cat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.45, delay: index * 0.08, ease: [0.215, 0.61, 0.355, 1] }}
+              {...revealUp(index * 0.1)}
               whileHover={{ y: -6, borderColor: 'var(--accent)' }}
               style={{
                 background: 'var(--card-bg)',

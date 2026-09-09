@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { revealUp, revealLeft } from '../lib/animations';
 
 const experience = [
   {
@@ -36,12 +37,9 @@ const experience = [
 
 export default function Experience() {
   return (
-    <section id="experience" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
+    <section id="experience" className="reveal-up" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        {...revealUp(0)}
         style={{ maxWidth: '840px', margin: '0 auto' }}
       >
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -77,11 +75,9 @@ export default function Experience() {
           {experience.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.45, delay: index * 0.08, ease: [0.215, 0.61, 0.355, 1] }}
+              {...revealLeft(index * 0.1)}
               style={{ position: 'relative', paddingLeft: '60px', marginBottom: '48px' }}
+              className="reveal-left"
             >
               {/* Timeline Indicator Dot */}
               <div style={{

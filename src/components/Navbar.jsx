@@ -11,6 +11,13 @@ export default function Navbar({ theme, toggleTheme }) {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Preload logo assets for smooth, instant theme switching
+    const imgLight = new Image();
+    imgLight.src = '/assets/Logos/LightMode Logo.png';
+    const imgDark = new Image();
+    imgDark.src = '/assets/Logos/DarkMode Logo.png';
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -64,10 +71,25 @@ export default function Navbar({ theme, toggleTheme }) {
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.96 }}
         transition={{ duration: 0.2 }}
-        style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+        aria-label="Lloyd Jernell Loteriña Home"
+        style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}
       >
-        <span style={{ color: theme === 'dark' ? '#14B8A6' : '#E07A48', fontSize: '1.15rem' }}>✦</span>
-        <span><span style={{ color: 'var(--accent)' }}>LJ</span><span style={{ color: 'var(--text)', marginLeft: '2px' }}>CL</span></span>
+        <motion.img
+          key={theme}
+          initial={{ opacity: 0.85 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          src={theme === 'dark' ? '/assets/Logos/DarkMode Logo.png' : '/assets/Logos/LightMode Logo.png'}
+          alt="Lloyd Jernell Loteriña Logo"
+          style={{
+            height: '42px',
+            width: 'auto',
+            maxHeight: '42px',
+            objectFit: 'contain',
+            display: 'block'
+          }}
+          className="navbar-brand-logo"
+        />
       </motion.a>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -259,6 +281,12 @@ export default function Navbar({ theme, toggleTheme }) {
         @media (max-width: 1024px) {
           .desktop-nav { display: none !important; }
           .mobile-toggle { display: block !important; }
+        }
+        @media (max-width: 640px) {
+          .navbar-brand-logo {
+            height: 36px !important;
+            max-height: 36px !important;
+          }
         }
       `}</style>
     </motion.header>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { revealUp, revealLeft } from '../lib/animations';
 
 const education = [
   {
@@ -47,12 +48,9 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
+    <section id="education" className="reveal-up" style={{ padding: '120px 5%', position: 'relative', zIndex: 1, background: 'var(--bg-subtle)' }}>
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        {...revealUp(0)}
         style={{ maxWidth: '800px', margin: '0 auto' }}
       >
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -85,12 +83,9 @@ export default function Education() {
           {education.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
+              {...revealLeft(index * 0.1)}
               style={{ position: 'relative', paddingLeft: '60px', marginBottom: '40px' }}
-              className="education-item"
+              className="education-item reveal-left"
             >
               <div style={{ 
                 position: 'absolute', left: '11px', top: 0, width: '20px', height: '20px', 
@@ -103,11 +98,8 @@ export default function Education() {
                 alignItems: 'start'
               }} className="education-entry">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
                   whileHover={{ scale: 1.03, y: -2 }}
-                  transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.03 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
                   style={{
                     width: '88px',
                     height: '88px',

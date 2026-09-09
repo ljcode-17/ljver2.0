@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle2, AlertCircle, Loader2, KeyRound, ExternalLink } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { revealUp, revealLeft, revealRight } from '../lib/animations';
 
 export default function Contact() {
   const form = useRef();
@@ -161,13 +162,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: '120px 5%', background: 'var(--bg-subtle)', position: 'relative', zIndex: 1 }}>
+    <section id="contact" className="reveal-up" style={{ padding: '120px 5%', background: 'var(--bg-subtle)', position: 'relative', zIndex: 1 }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          {...revealUp(0)}
           style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
           <span
@@ -199,10 +197,8 @@ export default function Contact() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem' }}>
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.45, delay: 0.05, ease: [0.215, 0.61, 0.355, 1] }}
+            {...revealLeft(0.1)}
+            className="reveal-left"
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -238,25 +234,27 @@ export default function Contact() {
 
             <div style={{ marginTop: '3rem', display: 'flex', gap: '1rem' }}>
               <motion.a 
-                whileHover={{ scale: 1.1, y: -2, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
+                whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ duration: 0.2 }}
                 href="https://www.linkedin.com/in/lloyd-jernell-loterina" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
+                className="social-hover-btn"
                 style={{ background: 'var(--card-bg)', color: 'var(--text)', padding: '12px', borderRadius: '12px', transition: 'background 0.3s, color 0.3s', border: '1px solid var(--border)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 <Linkedin size={24} />
               </motion.a>
               <motion.a 
-                whileHover={{ scale: 1.1, y: -2, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
+                whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.92 }}
                 transition={{ duration: 0.2 }}
                 href="https://github.com/ljcode-17" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
+                className="social-hover-btn"
                 style={{ background: 'var(--card-bg)', color: 'var(--text)', padding: '12px', borderRadius: '12px', transition: 'background 0.3s, color 0.3s', border: '1px solid var(--border)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 <Github size={24} />
@@ -266,10 +264,8 @@ export default function Contact() {
 
           {/* Form Container */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.45, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+            {...revealRight(0.2)}
+            className="reveal-right"
             style={{ 
               background: 'var(--card-bg)', 
               padding: '2.5rem', 

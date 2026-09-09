@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Layers, LayoutGrid, Maximize2, ExternalLink, Sparkles } from 'lucide-react';
+import { revealUp, SCROLL_EASE, SCROLL_VIEWPORT } from '../lib/animations';
 
 const ProjectModal = lazy(() => import('./ProjectModal'));
 
@@ -295,12 +296,9 @@ export default function Projects() {
   const currentActiveProject = filtered[safeActiveIndex] || filtered[0];
 
   return (
-    <section id="projects" style={{ padding: '100px 5%', background: 'var(--bg-subtle)', position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+    <section id="projects" className="reveal-up" style={{ padding: '100px 5%', background: 'var(--bg-subtle)', position: 'relative', zIndex: 1, overflow: 'hidden' }}>
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        {...revealUp(0)}
         style={{ maxWidth: '1320px', margin: '0 auto' }}
       >
         {/* Section Header */}
@@ -422,10 +420,7 @@ export default function Projects() {
 
         {/* Category Filters */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.35, delay: 0.05 }}
+          {...revealUp(0.15)}
           style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}
         >
           {filters.map(f => (
@@ -669,10 +664,11 @@ export default function Projects() {
               }}
             >
               <motion.button
-                whileHover={{ scale: 1.1, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={handlePrev}
                 aria-label="Previous project"
+                className="coverflow-nav-btn"
                 style={{
                   background: 'var(--card-bg)',
                   border: '1px solid var(--border)',
@@ -713,10 +709,11 @@ export default function Projects() {
               </div>
 
               <motion.button
-                whileHover={{ scale: 1.1, backgroundColor: 'var(--accent)', color: '#FFFFFF' }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={handleNext}
                 aria-label="Next project"
+                className="coverflow-nav-btn"
                 style={{
                   background: 'var(--card-bg)',
                   border: '1px solid var(--border)',
@@ -883,11 +880,11 @@ export default function Projects() {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.45, delay: index * 0.06, ease: [0.215, 0.61, 0.355, 1] }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={SCROLL_VIEWPORT}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1, delay: (index % 3) * 0.1, ease: SCROLL_EASE }}
                   whileHover={{ y: -8 }}
                   onClick={() => setSelectedProject(project)}
                   className="project-card"
