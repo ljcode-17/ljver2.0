@@ -235,6 +235,39 @@ const projectsData = [
     learnings: 'Created a cohesive visual experience across all devices and utilized a modern web stack including React v19 and Tailwind CSS v4.',
     link: 'https://jm-laica051526-4-ever.vercel.app/',
     linkText: 'Visit Gallery'
+  },
+  {
+    id: 9,
+    title: 'ManyBooks — Reimagining a Digital Reading Experience',
+    category: 'UI/UX',
+    tags: ['UI/UX Design', 'HCI', 'Canva', 'Website Redesign'],
+    image: "/assets/projects/manybooks/2.png",
+    gallery: [
+      "/assets/projects/manybooks/2.png",
+      "/assets/projects/manybooks/3.png",
+      "/assets/projects/manybooks/4.png"
+    ],
+    desc: "An independently conceptualized UI/UX redesign of ManyBooks for Human-Computer Interaction, reimagining an outdated reading platform through modern visual hierarchy and user-centered design.",
+    problem: 'ManyBooks — Reimagining a Digital Reading Experience is an independently conceptualized UI/UX redesign project developed during my second year of college as part of our Human-Computer Interaction (HCI) coursework in Academic Year 2023–2024. The project originated from an academic challenge to critically examine an existing website with an outdated visual interface and envision a more contemporary, intuitive, and user-centered alternative. I selected ManyBooks as an opportunity to explore how thoughtful interface design, cohesive visual storytelling, and purposeful information architecture could transform the presentation of a digital reading platform.',
+    solution: 'Using Canva as my primary design environment, I conceptualized and crafted the interface from the ground up, developing original layouts, visual compositions, and design components that reflected my personal creative direction. Rather than focusing exclusively on visual aesthetics, my design approach emphasized the relationship between presentation and usability — exploring how organized content, clearer navigation, consistent visual elements, and an approachable interface could contribute to a more seamless and engaging browsing experience.',
+    features: [
+      'User-Centered Design: Prioritizing intuitive interaction patterns and clear presentation of information',
+      'Visual Hierarchy: Establishing purposeful relationships between headings, content, imagery, and interface elements',
+      'Interface Consistency: Creating cohesive visual patterns and reusable design components across all screens',
+      'Navigation Clarity: Exploring more understandable, accessible pathways through website content and categories',
+      'Visual Refinement: Reimagining the interface through a contemporary, elegant, and organized design language',
+      'Comprehensive Screen Suite: Reconceptualized homepage storefront, hero carousel, book showcase, and detailed product view'
+    ],
+    tech: ['Canva', 'UI/UX Design', 'Human-Computer Interaction (HCI)', 'Information Architecture', 'Design Systems'],
+    role: 'UI/UX Designer (Academic Project)',
+    responsibilities: [
+      'Independently conceptualized the creative direction and visual architecture for the ManyBooks platform',
+      'Designed all interface concepts, visual arrangements, layouts, and components from scratch using Canva',
+      'Restructured information architecture, search interface, and category navigation for better usability',
+      'Created high-fidelity design screens for the storefront, curated book showcases, and item detail pages',
+      'Applied core Human-Computer Interaction principles to balance visual aesthetics with intuitive user experience'
+    ],
+    learnings: 'Applied Human-Computer Interaction principles beyond theoretical classroom discussions to an independent design challenge. Strengthened visual hierarchy, layout composition, and user-centered design thinking, reinforcing that exceptional interface design is defined not solely by aesthetics, but by how thoughtfully it enables people to interact with information.'
   }
 ];
 
@@ -258,7 +291,7 @@ export default function Projects() {
     setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }, []);
 
-  const filters = ['All', 'Web', 'Mobile', 'Systems', 'Multimedia'];
+  const filters = ['All', 'Web', 'Mobile', 'Systems', 'Multimedia', 'UI/UX'];
   const filtered = filter === 'All' ? projectsData : projectsData.filter(p => p.category === filter);
   const total = filtered.length;
 

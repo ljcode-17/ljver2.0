@@ -32,6 +32,29 @@ const experience = [
       "Assisted in Firebase database configuration, AI (Google Gemini API) prompt integration, and TTS accessibility testing.",
       "Facilitated cross-functional collaboration between developers, UI designers, and academic evaluators."
     ]
+  },
+  {
+    role: "Administrative Support Assistant",
+    org: "Batino Security Agency Inc.",
+    badge: "Administrative Experience",
+    logo: "/assets/batino.png",
+    period: "2020 – 2024",
+    skills: [
+      "Administrative Support",
+      "Document Preparation",
+      "Billing Documentation",
+      "Contract Documentation",
+      "Office Administration",
+      "Attention to Detail",
+      "Organizational Discipline"
+    ],
+    details: [
+      "Provided administrative and documentation support for branch office operations, assisting in the preparation, formatting, and printing of essential business records.",
+      "Edited, updated, and formatted billing documents for agency operations, maintaining document precision and presentation for administrative processing.",
+      "Updated and verified contract dates and administrative details in service agreements between the agency and its clients with careful attention to consistency.",
+      "Prepared, edited, and printed Certificates of Employment for security guards and agency personnel in accordance with established requirements.",
+      "Developed strong organizational discipline, meticulous attention to detail, and a thorough understanding of operational document workflows."
+    ]
   }
 ];
 
