@@ -11,10 +11,18 @@ const projectsData = [
     title: 'MATHTatag – Capstone Project',
     category: 'Mobile',
     tags: ['Academic', 'Capstone'],
-    image: "/assets/projects/mathtatag/main.webp",
+    image: "/assets/projects/mathtatag/1.jpg",
     gallery: [
-      "/assets/projects/mathtatag/main.webp",
+      "/assets/projects/mathtatag/1.jpg",
+      "/assets/projects/mathtatag/2.jpg",
+      "/assets/projects/mathtatag/3.jpg",
       "/assets/projects/mathtatag/main.jpg"
+    ],
+    galleryLabels: [
+      "App Showcase & Overview",
+      "Teacher Dashboard",
+      "Learner Assessment Interface",
+      "Brand & Logo Design"
     ],
     desc: "AI-integrated mobile learning app for mathematics.",
     problem: 'Grade 1 mathematics assessment often lacks interactive tools that allow teachers to monitor and analyze learner performance in real-time.',
@@ -268,6 +276,100 @@ const projectsData = [
       'Applied core Human-Computer Interaction principles to balance visual aesthetics with intuitive user experience'
     ],
     learnings: 'Applied Human-Computer Interaction principles beyond theoretical classroom discussions to an independent design challenge. Strengthened visual hierarchy, layout composition, and user-centered design thinking, reinforcing that exceptional interface design is defined not solely by aesthetics, but by how thoughtfully it enables people to interact with information.'
+  },
+  {
+    id: 10,
+    title: 'StudyFlow',
+    subtitle: 'AI-Powered Study Planner — Mobile UI/UX Design Concept',
+    category: 'UI/UX',
+    categoryDisplay: 'UI/UX Design',
+    tags: ['Mobile App Design', 'UI/UX Design', 'Study Planner'],
+    image: "/assets/projects/Study/1.png",
+    gallery: [
+      "/assets/projects/Study/1.png",
+      "/assets/projects/Study/2.png",
+      "/assets/projects/Study/3.png"
+    ],
+    galleryLabels: [
+      "StudyFlow Project Showcase",
+      "Core UI Screens",
+      "Figma Canvas & Workspace"
+    ],
+    desc: "A student-focused mobile app design concept that brings together academic planning, progress tracking, and AI-assisted learning in a clean, intuitive interface. Designed in Figma with an emphasis on visual clarity, organized workflows, and a cohesive mobile experience.",
+    problem: "StudyFlow is a mobile UI/UX design concept created to explore a more organized and engaging approach to student productivity. The project envisions a centralized study companion where students can view their academic responsibilities, monitor study-related progress, manage upcoming tasks, and access an AI-assisted learning interface.",
+    solution: "Designed in Figma, StudyFlow emphasizes simplicity, visual consistency, and clear navigation. Its interface combines soft gradients, rounded components, organized information cards, and thoughtfully arranged screen layouts to create a modern and approachable student experience. The concept includes a personalized home dashboard, a conversational AI study assistant screen, and a study planner that presents academic tasks within a calendar-inspired interface.",
+    features: [
+      'Personalized Home Dashboard: Displays daily study time summaries, completed task counts, a study streak indicator, and an AI study tip card.',
+      'Conversational AI Study Assistant: Visualizes a chat-based learning interface demonstrating concept breakdown, Feynman Technique explanations, and study method guidance.',
+      'Structured Study Planner: Combines date navigation, pending assignment summaries, total study time counters, and individual assignment cards.',
+      'Card-Based Information Hierarchy: Uses soft pastel surfaces, gentle shadows, and comfortable spacing to organize information without visual clutter.',
+      'Mobile-First Visual Consistency: Cohesive design system built around purple, lavender, pink, and light blue pastel accents with rounded corners and labeled navigation.'
+    ],
+    designObjectives: {
+      primary: 'To conceptualize a mobile application interface that helps students organize academic activities, understand their study progress, and explore AI-supported learning through a unified digital experience.',
+      goals: [
+        'Create a visually organized and approachable mobile dashboard',
+        'Present academic information using clear visual hierarchy',
+        'Explore how task management and study planning can work together',
+        'Conceptualize an AI chat interface for study-related questions',
+        'Establish a consistent visual identity across multiple screens',
+        'Make the interface easy to understand through recognizable icons, labeled navigation, and structured content'
+      ]
+    },
+    screens: [
+      {
+        title: 'Home Dashboard',
+        heading: 'A Personalized Overview of Student Productivity',
+        desc: 'The StudyFlow home dashboard presents academic information in a centralized and visually organized layout. It includes a personalized greeting, summary cards for study-related activity, an AI study tip section, quick-access feature cards, and a monthly planning preview. The dashboard uses clearly separated content areas to help users identify important information without overwhelming the screen.',
+        elements: ['Personalized greeting and profile display', 'Study time summary (2h 48m)', 'Completed task summary (5 Tasks)', 'Study streak indicator (12 Days)', 'AI study tip card', 'Quick-action shortcuts (AI Chat, Steps, Study Time)', 'Monthly calendar preview']
+      },
+      {
+        title: 'AI Study Assistant',
+        heading: 'Exploring Conversational Learning Support',
+        desc: 'The AI Study Assistant screen visualizes a conversational interface where students could ask study-related questions and receive learning guidance. The screen demonstrates a chat-based layout with distinct message bubbles, readable text areas, and a message input section. The example conversation explores study techniques and explanations of learning methods such as the Feynman Technique.',
+        elements: ['Chat header and navigation controls', 'User and assistant message bubbles', 'Example study-related conversation', 'Message input interface', 'Voice and interaction icons']
+      },
+      {
+        title: 'Study Planner',
+        heading: 'Bringing Structure to Academic Responsibilities',
+        desc: 'The Study Planner screen explores how students could organize assignments and study activities within a calendar-oriented interface. It combines date navigation, task summaries, and individual assignment cards in a single view. The design uses contrasting card styles, status indicators, and recognizable icons to distinguish pending tasks, study time, and completed activities.',
+        elements: ['Calendar date navigation (March 2026)', 'Selected date indicator', 'Pending assignment summary (5 Tasks)', 'Total study time summary (2h 36min)', 'Assignment cards (Capstone, UI/UX, Frontend)', 'Task status indicators', 'Bottom navigation bar', 'Floating add-task button']
+      }
+    ],
+    designApproach: [
+      {
+        title: 'Visual Hierarchy',
+        desc: 'StudyFlow uses different card sizes, typography weights, and content groupings to distinguish primary information from supporting details. The dashboard prioritizes study summaries and quick actions, while the planner emphasizes upcoming responsibilities and task status.'
+      },
+      {
+        title: 'Color and Visual Identity',
+        desc: 'The interface features a soft pastel palette with purple, lavender, pink, and light blue accents. Subtle gradients and rounded surfaces create a modern, approachable visual style while helping distinguish interface components.'
+      },
+      {
+        title: 'Consistency',
+        desc: 'Repeated card styles, icon treatments, spacing patterns, and navigation elements establish a cohesive visual language across the three screens.'
+      },
+      {
+        title: 'Mobile-First Presentation',
+        desc: 'The layouts are designed for smartphone-sized screens, with vertically organized content and familiar mobile interface patterns.'
+      },
+      {
+        title: 'Student-Centered Concept',
+        desc: 'The interface is conceptualized around common academic activities, including reviewing tasks, tracking study time, and seeking study-related guidance.'
+      }
+    ],
+    tech: ['Figma', 'UI/UX Design', 'Mobile App Design', 'Visual Hierarchy', 'Interface Layout Design', 'Design Consistency'],
+    role: 'UI/UX Designer & Mobile Concept Creator',
+    responsibilities: [
+      'UI/UX Design and mobile application concept development in Figma',
+      'Visual interface design and screen layout composition across all 3 key screens',
+      'Formulated information architecture for the dashboard, conversational AI chat, and calendar planner',
+      'Established cohesive pastel color harmonies, rounded card components, and typography hierarchy',
+      'Designed polished presentation showcase mockups highlighting core features and mobile flows'
+    ],
+    learnings: 'Explored how UI design can translate common student needs into a cohesive mobile application concept while balancing functionality, visual appeal, and ease of navigation. Strengthened visual hierarchy, layout composition, and user-centered design thinking.',
+    link: 'https://www.figma.com/design/UyJVSKqQzac9DjPMiEGOPq/Untitled?node-id=0-1&t=pxGXFYOVGzobO8Gn-1',
+    linkText: 'View on Figma'
   }
 ];
 
@@ -292,7 +394,7 @@ export default function Projects() {
   }, []);
 
   const filters = ['All', 'Web', 'Mobile', 'Systems', 'Multimedia', 'UI/UX'];
-  const filtered = filter === 'All' ? projectsData : projectsData.filter(p => p.category === filter);
+  const filtered = filter === 'All' ? projectsData : projectsData.filter(p => p.category === filter || (filter === 'UI/UX' && (p.category === 'UI/UX' || p.category === 'UI/UX Design')));
   const total = filtered.length;
 
   // Reset activeIndex when filter changes
@@ -806,11 +908,18 @@ export default function Projects() {
                           border: '1px solid var(--border)'
                         }}
                       >
-                        {currentActiveProject.category}
+                        {currentActiveProject.categoryDisplay || currentActiveProject.category}
                       </span>
-                      <h3 style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)', fontWeight: 800, color: 'var(--text)', margin: 0, letterSpacing: '-0.01em' }}>
-                        {currentActiveProject.title}
-                      </h3>
+                      <div>
+                        <h3 style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.45rem)', fontWeight: 800, color: 'var(--text)', margin: 0, letterSpacing: '-0.01em' }}>
+                          {currentActiveProject.title}
+                        </h3>
+                        {currentActiveProject.subtitle && (
+                          <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginTop: '2px' }}>
+                            {currentActiveProject.subtitle}
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
@@ -857,7 +966,7 @@ export default function Projects() {
                             gap: '5px'
                           }}
                         >
-                          <ExternalLink size={15} /> Demo
+                          <ExternalLink size={15} /> {currentActiveProject.linkText || 'Demo'}
                         </motion.a>
                       )}
                     </div>
@@ -986,11 +1095,91 @@ export default function Projects() {
                         borderRadius: '100px',
                         border: '1px solid var(--border)'
                       }}>
-                        {project.category}
+                        {project.categoryDisplay || project.category}
                       </span>
                     </div>
-                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--text)', letterSpacing: '-0.01em' }}>{project.title}</h3>
+                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: project.subtitle ? '0.25rem' : '0.75rem', color: 'var(--text)', letterSpacing: '-0.01em' }}>
+                      {project.title}
+                    </h3>
+                    {project.subtitle && (
+                      <p style={{ fontSize: '0.82rem', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.65rem' }}>
+                        {project.subtitle}
+                      </p>
+                    )}
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>{project.desc}</p>
+
+                    {/* Tech Badges / Tags */}
+                    {project.tech && project.tech.length > 0 && (
+                      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '1rem' }}>
+                        {project.tech.slice(0, 3).map((t, idx) => (
+                          <span
+                            key={idx}
+                            style={{
+                              background: 'var(--bg-subtle)',
+                              color: 'var(--text-muted)',
+                              fontSize: '0.72rem',
+                              fontWeight: 600,
+                              padding: '3px 9px',
+                              borderRadius: '100px',
+                              border: '1px solid var(--border)'
+                            }}
+                          >
+                            {t}
+                          </span>
+                        ))}
+                        {project.tech.length > 3 && (
+                          <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', alignSelf: 'center' }}>
+                            +{project.tech.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Primary & Secondary Actions */}
+                    <div style={{ display: 'flex', gap: '0.6rem', marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border)', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <span style={{
+                        fontSize: '0.82rem',
+                        fontWeight: 700,
+                        color: 'var(--accent)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '5px'
+                      }}>
+                        View Project <ArrowRight size={14} />
+                      </span>
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                            color: 'var(--text-muted)',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            textDecoration: 'none',
+                            padding: '4px 10px',
+                            borderRadius: '100px',
+                            background: 'var(--bg-subtle)',
+                            border: '1px solid var(--border)',
+                            transition: 'color 0.2s ease, border-color 0.2s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.color = 'var(--text)';
+                            e.currentTarget.style.borderColor = 'var(--accent)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.color = 'var(--text-muted)';
+                            e.currentTarget.style.borderColor = 'var(--border)';
+                          }}
+                        >
+                          <ExternalLink size={13} /> {project.linkText || 'Demo'}
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}

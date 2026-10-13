@@ -7,7 +7,7 @@ const featuredProjects = [
     title: 'MATHTatag – Capstone',
     category: 'Mobile & AI',
     desc: 'AI-powered mathematics assessment & Filipino text-to-speech app for Grade 1 monitoring.',
-    image: '/assets/projects/mathtatag/main.webp',
+    image: '/assets/projects/mathtatag/1.jpg',
     tag: '1st Place STCIEERD Award'
   },
   {
