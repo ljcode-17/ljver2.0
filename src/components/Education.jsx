@@ -7,9 +7,11 @@ const education = [
   {
     logo: '/assets/schools/PUP.png',
     degree: "Bachelor of Science in Information Technology",
+    honor: "Cum Laude",
     school: "Polytechnic University of the Philippines – Lopez Campus",
-    period: "2022 – Present | Current GPA: 1.53",
+    period: "2022 – 2026",
     details: [
+      "Graduated Cum Laude — Academic Distinction",
       "President’s Lister (2022 & 2025)",
       "Dean’s Lister (2022 – 2024)",
       "Academic Awardee (S.Y. 2022–2023)",
@@ -132,7 +134,29 @@ export default function Education() {
                 </motion.div>
 
                 <div className="education-copy">
-                  <h3 style={{ fontSize: '1.25rem', marginBottom: '4px', color: 'var(--text)' }}>{item.degree}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                    <h3 style={{ fontSize: '1.25rem', margin: 0, color: 'var(--text)' }}>{item.degree}</h3>
+                    {item.honor && (
+                      <span
+                        style={{
+                          background: 'var(--accent-light)',
+                          color: 'var(--accent)',
+                          border: '1px solid var(--accent)',
+                          fontSize: '0.74rem',
+                          fontWeight: 800,
+                          padding: '3px 10px',
+                          borderRadius: '100px',
+                          letterSpacing: '0.05em',
+                          textTransform: 'uppercase',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px'
+                        }}
+                      >
+                        ★ {item.honor}
+                      </span>
+                    )}
+                  </div>
                   <h4 style={{ fontSize: '1rem', color: 'var(--accent)', marginBottom: '8px' }}>{item.school}</h4>
                   <p style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '12px', overflowWrap: 'anywhere' }}>{item.period}</p>
                   {item.details.length > 0 && (

@@ -407,7 +407,7 @@ export default function Hero({ theme }) {
                   flexShrink: 0
                 }}
               />
-              BSIT GRADUATE • GPA 1.53 • PRESIDENT'S LISTER
+              BSIT GRADUATE (CUM LAUDE) • PRESIDENT'S LISTER
             </span>
           </motion.div>
 
@@ -706,7 +706,7 @@ export default function Hero({ theme }) {
               justifyItems: 'end'
             }}>
               <span>⊙ PUP Lopez Campus</span>
-              <span>⊙ GPA 1.53 (Highest)</span>
+              <span>⊙ Cum Laude Graduate</span>
               <span>⊙ STCIEERD 1st Place R&D</span>
               <span>⊙ 3x President's Lister</span>
             </div>
@@ -745,7 +745,7 @@ export default function Hero({ theme }) {
           }}
         >
           <div className="status-item">
-            <span style={{ color: isDark ? '#14B8A6' : '#0D9488', fontWeight: 800 }}>GPA 1.53</span> • ACADEMIC AWARDEE
+            <span style={{ color: isDark ? '#14B8A6' : '#0D9488', fontWeight: 800 }}>CUM LAUDE</span> • ACADEMIC AWARDEE
           </div>
 
           <div className="status-item">
