@@ -52,8 +52,8 @@ export default function Hero({ theme }) {
 
     const imgPrimary = new Image();
     const imgSecondary = new Image();
-    imgPrimary.src = theme === 'light' ? '/assets/lj1.png' : '/assets/lj2.0.png';
-    imgSecondary.src = theme === 'light' ? '/assets/ljrobot1.png' : '/assets/ljrobot2.png';
+    imgPrimary.src = theme === 'light' ? '/assets/lj26.png' : '/assets/lj2.0.png';
+    imgSecondary.src = theme === 'light' ? '/assets/ljAI.png' : '/assets/ljrobot2.png';
 
     const setupCanvas = (canvas, container) => {
       if (!canvas || !container) return null;
@@ -290,7 +290,7 @@ export default function Hero({ theme }) {
         }}
       >
         <img
-          src={isDark ? '/assets/lj2.0.png' : '/assets/lj1.png'}
+          src={isDark ? '/assets/lj2.0.png' : '/assets/lj26.png'}
           alt="Lloyd Jernell Loteriña Hero Background"
           style={{
             width: '100%',
@@ -414,7 +414,7 @@ export default function Hero({ theme }) {
           {/* 📷 Dedicated Hero Portrait Visual Component (Moved ABOVE Name for Mobile & Tablet) */}
           <div ref={mobileStageRef} className="mobile-portrait-stage">
             <img
-              src={isDark ? '/assets/lj2.0.png' : '/assets/lj1.png'}
+              src={isDark ? '/assets/lj2.0.png' : '/assets/lj26.png'}
               alt="Lloyd Jernell Loteriña Hero Portrait"
               className="mobile-portrait-img"
               style={{

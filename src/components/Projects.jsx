@@ -52,11 +52,25 @@ const projectsData = [
     id: 7,
     title: 'MeatMaster – Business Management System',
     category: 'Systems',
-    tags: ['Academic Project', 'QMMS', 'Database'],
+    tags: ['Academic Project', 'QMMS', 'Database', 'Desktop App'],
     image: "/assets/projects/meatmaster/main.webp",
     gallery: [
       "/assets/projects/meatmaster/main.webp",
-      "/assets/projects/meatmaster/main.png"
+      "/assets/projects/meatmaster/dashboard.png",
+      "/assets/projects/meatmaster/orders-records.png",
+      "/assets/projects/meatmaster/profit-expenses.png"
+    ],
+    galleryLabels: [
+      "Welcome & Splash Screen",
+      "Main Navigation Dashboard",
+      "Stock & Order Records",
+      "Profit & Expenses Ledger"
+    ],
+    galleryCaptions: [
+      "Welcome & Splash Interface — High-impact landing screen with the Meat Shop brand identity and entry flow.",
+      "Main Navigation Dashboard — Central hub with modules for Inventory management, Order transactions, and Profit analytics.",
+      "Stock & Order Records — Tabular management screen with date-range picker, supplier information, and paid/unpaid debt tracking.",
+      "Profit & Expenses Ledger — Automated financial overview displaying daily profit calculations, total expenses, and monthly sales totals."
     ],
     desc: "Comprehensive management system for meat stores to track orders, debts, and profits.",
     problem: 'Manual record-keeping in public markets often leads to costly errors in debt tracking, disorganized order management, and inaccurate profit calculations.',
@@ -67,6 +81,32 @@ const projectsData = [
         'Profit & Loss Dashboard',
         'Inventory Monitoring & Status Updates',
         'Integrated Visual Basic UI with MySQL'
+    ],
+    screens: [
+      {
+        title: 'Welcome & Splash Screen',
+        heading: 'Brand Identity & Entry Flow',
+        desc: 'The opening visual screen introducing the Meat Shop brand, featuring fresh meat imagery, culinary aesthetics, and a streamlined entry point to the system.',
+        elements: ['Meat Shop brand logo', 'Promotional tagline', 'Continue navigation button', 'Themed culinary visual background']
+      },
+      {
+        title: 'Main Navigation Dashboard',
+        heading: 'Core Module Selection Hub',
+        desc: 'The central system menu providing quick access to the three critical business operations: Inventory, Order processing, and Profit tracking.',
+        elements: ['Inventory management card', 'Order processing tile', 'Profit analytics shortcut', 'Header status & profile controls']
+      },
+      {
+        title: 'Stock & Order Records',
+        heading: 'Inventory & Credit Transaction Management',
+        desc: 'A comprehensive operational interface for recording daily livestock purchases, kilo weights, amounts, supplier contact info, and managing paid vs. unpaid customer credits.',
+        elements: ['Supplier & stock data grid', 'Calendar date filter', 'Paid and unpaid debt buttons', 'Live slaughter weight tracking', 'Update and delete controls']
+      },
+      {
+        title: 'Profit & Expenses Ledger',
+        heading: 'Real-Time Financial Clarity & Profit Calculations',
+        desc: 'An automated ledger that calculates daily and monthly profits against operating expenses, giving vendors immediate insight into their financial health.',
+        elements: ['Daily profit KPI display', 'Total operating expenses summary', 'Monthly sales metrics', 'Historical daily ledger table']
+      }
     ],
     tech: ['Visual Basic 2022', 'MySQL Workbench', 'VS Code'],
     role: 'Group Leader, Lead Developer & UI/UX Designer',
@@ -370,6 +410,210 @@ const projectsData = [
     learnings: 'Explored how UI design can translate common student needs into a cohesive mobile application concept while balancing functionality, visual appeal, and ease of navigation. Strengthened visual hierarchy, layout composition, and user-centered design thinking.',
     link: 'https://www.figma.com/design/UyJVSKqQzac9DjPMiEGOPq/Untitled?node-id=0-1&t=pxGXFYOVGzobO8Gn-1',
     linkText: 'View on Figma'
+  },
+  {
+    id: 11,
+    title: 'The Recipe Link — Website UI Redesign',
+    subtitle: 'Academic UI/UX Redesign Concept • AY 2023–2024 (2nd Year College)',
+    category: 'UI/UX',
+    categoryDisplay: 'Academic UI/UX Project',
+    tags: ['UI/UX Redesign', 'Academic Project', 'Interface Design', 'Case Study'],
+    image: "/assets/projects/cookUI/good1.png",
+    gallery: [
+      "/assets/projects/cookUI/badUI.jpg",
+      "/assets/projects/cookUI/good1.png",
+      "/assets/projects/cookUI/good2.png",
+      "/assets/projects/cookUI/good3.png"
+    ],
+    galleryLabels: [
+      "Original Website (Before)",
+      "Redesigned Homepage (After)",
+      "Recipe Browsing & Discovery",
+      "Individual Recipe Details"
+    ],
+    galleryCaptions: [
+      "Original Website (Before) — The legacy Recipe Link website interface with dense information, limited visual hierarchy, and dated styling.",
+      "My Redesigned Concept (Homepage) — Modernized header, refined red-and-neutral visual theme, prominent search bar, and curated categories (Quick and Easy, Dinner, Healthy, 5 Ingredients).",
+      "My Redesigned Concept (Recipe Discovery) — Structured browsing layout with featured recipe cards, latest recipes sidebar, high-resolution food photography, and clear ratings.",
+      "My Redesigned Concept (Recipe Details) — Dedicated recipe presentation featuring prominent food imagery, organized ingredient checklists, rating overview, and action buttons."
+    ],
+    desc: "An early academic UI/UX redesign concept from my second year of college evaluating and modernizing The Recipe Link's legacy interface through cleaner visual hierarchy, structured recipe discovery, and user-friendly navigation.",
+    problem: "The Recipe Link — Website UI Redesign is an early academic design exercise completed during my second year as a BS Information Technology student in Academic Year 2023–2024. The original website featured an older visual appearance, densely arranged information, minimal visual distinction between sections, and a layout that made browsing and discovering recipes less intuitive. The academic challenge was to critically evaluate an existing interface, identify visible design bottlenecks, and explore how intentional user interface design could create a more modern, appetizing, and approachable cooking platform.",
+    solution: "I conceptualized and designed a modernized web interface that replaces the cluttered legacy presentation with a clean, structured, and visually engaging culinary experience. Using a refined red-and-neutral visual theme, the redesign establishes clear visual hierarchy by utilizing large, high-quality food photography as primary focal points. It introduces an organized header with a prominent search bar, categorized recipe browsing (Quick and Easy, Dinner, Healthy, 5 Ingredients), a structured content discovery section with featured cards and a latest-recipes sidebar, and a dedicated individual recipe details page designed for effortless reading in the kitchen.",
+    features: [
+      'Visual Hierarchy & Modernization: Replaced the original dense, dated presentation with deliberate spacing, structured alignment, and a refined red-and-neutral culinary theme.',
+      'Navigation & Recipe Discovery: Redesigned the header with a prominent search bar and categorized navigation (Quick and Easy, Dinner, Healthy, 5 Ingredients) to speed up recipe exploration.',
+      'Structured Content Organization: Introduced image-based recipe cards, featured culinary highlights, and a latest-recipes sidebar to minimize cognitive clutter.',
+      'Dedicated Recipe Detail Page: Designed a dedicated recipe presentation with large hero imagery, ingredients checklist, ratings, and a prominent Save Recipe action button.',
+      'Before-and-After Comparison: Directly contrasts the legacy interface against the modernized concept to visibly demonstrate interface clarity and layout evolution.'
+    ],
+    designObjectives: {
+      primary: 'To evaluate an existing legacy recipe website, identify visible design weaknesses in layout and hierarchy, and propose a more organized, appetizing, and user-friendly interface concept.',
+      goals: [
+        'Evaluate visible usability and layout weaknesses of the original legacy Recipe Link website',
+        'Establish clear visual hierarchy prioritizing vibrant food imagery, readable typography, and ratings',
+        'Design prominent search and category navigation to make browsing and discovering recipes intuitive',
+        'Structure dedicated single-recipe details for comfortable kitchen readability and ingredient reference',
+        'Practice foundational UI/UX principles (spacing, alignment, contrast, visual weight) as a 2nd year student'
+      ]
+    },
+    screens: [
+      {
+        title: 'Original Website Interface',
+        heading: 'The Legacy Baseline (Before Redesign)',
+        desc: 'The original Recipe Link website featured an older visual layout with densely arranged information, minimal typographic contrast, and small thumbnails that made recipe browsing and navigation tedious for home cooks.',
+        elements: ['Dense text-heavy presentation', 'Limited visual hierarchy', 'Legacy header & navigation', 'Small, crowded imagery', 'Subdued culinary appeal']
+      },
+      {
+        title: 'Redesigned Homepage & Header',
+        heading: 'Modern Culinary Hero & Category Filtering',
+        desc: 'The redesigned homepage welcomes users with a cohesive red-and-neutral visual palette, prominent search bar, accessible category chips (Quick and Easy, Dinner, Healthy, 5 Ingredients), and a welcoming culinary introduction.',
+        elements: ['Prominent recipe search bar', 'Category filter pills', 'Modernized header navigation', 'Refined red-and-neutral theme', 'Welcoming brand identity']
+      },
+      {
+        title: 'Recipe Browsing & Content Section',
+        heading: 'Structured Cards & Latest Recipes Sidebar',
+        desc: 'Organizes recipe discovery through visual cards with high-impact food photography, clear recipe titles, user ratings, and brief descriptions, paired with a structured latest-recipes sidebar for frictionless exploration.',
+        elements: ['Image-first recipe cards', 'Star ratings & review counts', 'Curated featured recipes', 'Latest recipes sidebar', 'Balanced whitespace & grid alignment']
+      },
+      {
+        title: 'Individual Recipe Details Page',
+        heading: 'Dedicated Culinary Presentation & Ingredient Guide',
+        desc: 'A dedicated recipe screen featuring a large hero food image, recipe title, user ratings, structured ingredients checklist, and a Save Recipe action button optimized for clear reading during food preparation.',
+        elements: ['Large hero food photography', 'Clear recipe title & ratings', 'Organized ingredients checklist', 'Save Recipe button', 'Comfortable reading flow']
+      }
+    ],
+    designApproach: [
+      {
+        title: 'Visual Hierarchy & Modernization',
+        desc: 'Replaced uniform text blocks with intentional typographic scale, deliberate spacing, and appetizing food photography that immediately anchors user attention.'
+      },
+      {
+        title: 'Intuitive Navigation & Discovery',
+        desc: 'Elevated search into a central header feature and introduced top-level category pills to make finding recipes fast and effortless.'
+      },
+      {
+        title: 'Refined Visual Theme',
+        desc: 'Applied a curated culinary red accent paired with warm neutral backgrounds to give the platform a modern, welcoming, and appetizing atmosphere.'
+      },
+      {
+        title: 'Scannable Card Architecture',
+        desc: 'Grouped recipe metadata (image, title, rating, description) into distinct card containers with consistent padding and boundaries to eliminate visual clutter.'
+      },
+      {
+        title: 'Academic Learning Exercise',
+        desc: 'Executed as a hands-on project during second year college to translate theoretical UI principles into practical, visible interface improvements.'
+      }
+    ],
+    tech: ['UI/UX Design', 'Academic Redesign', 'Visual Hierarchy', 'Wireframing & Layout', 'Information Architecture', 'Before/After Analysis'],
+    role: 'UI/UX Designer (Academic Redesign Project)',
+    responsibilities: [
+      'Evaluated the original Recipe Link website to identify layout, spacing, and visual hierarchy weaknesses',
+      'Conceptualized and crafted the redesigned interface screens for the homepage, browsing grid, and recipe details',
+      'Established an appetizing red-and-neutral color scheme, modern typography hierarchy, and card components',
+      'Structured recipe categories (Quick & Easy, Dinner, Healthy, 5 Ingredients) to streamline discovery',
+      'Documented design growth and visual improvements as an early milestone in my UI/UX learning journey'
+    ],
+    learnings: 'I created this project during my second year of college while still building my UI/UX foundations. It served as a valuable practical exercise in analyzing an existing website, recognizing interface shortcomings, and applying core principles of visual hierarchy, deliberate spacing, layout composition, typography, and scannable content organization. While the design represents a meaningful step forward in my early learning journey, I recognize that there is always room for growth—particularly in design system consistency, accessibility standards, responsive edge cases, and deeper user research methodologies.'
+  },
+  {
+    id: 12,
+    title: 'Smart Home Control System',
+    subtitle: 'Academic UI/UX Dashboard Concept • Centralized Home Automation',
+    category: 'UI/UX',
+    categoryDisplay: 'Academic UI/UX Project',
+    tags: ['UI/UX Design', 'Dashboard Design', 'Smart Home Concept', 'Academic Project'],
+    image: "/assets/projects/homeUI/main.png",
+    gallery: [
+      "/assets/projects/homeUI/main.png",
+      "/assets/projects/homeUI/home1.jpg",
+      "/assets/projects/homeUI/home2.jpg"
+    ],
+    galleryLabels: [
+      "Project Overview & Mockup",
+      "Centralized Dashboard",
+      "Favorites & Quick Access"
+    ],
+    galleryCaptions: [
+      "Project Showcase & Desktop Mockup — Presentation concept visualizing the Smart Home Control System dashboard on an iMac desktop setup.",
+      "Centralized Smart Home Dashboard — Unified control center featuring thermostat slider, device toggles, room navigation, power metrics, live camera feeds, and environmental data.",
+      "Favorites & Quick Access Screen — Streamlined device dashboard providing rapid control over frequently used appliances, lighting, door locks, and air conditioning."
+    ],
+    desc: "Smart Home Control System is a UI/UX dashboard design concept created for an academic task, exploring how users can monitor and control household devices, room settings, environmental data, and home activity through a clean, centralized smart home interface.",
+    problem: "The Smart Home Control System is an academic UI/UX design concept created to explore a centralized interface for managing smart home devices and household information. In modern connected households, users frequently encounter fragmented interfaces and disjointed apps to control disparate devices—ranging from climate and lighting to security cameras and energy tracking. The objective of this project was to conceptualize a cohesive, modern, and user-friendly dashboard interface that unifies multi-room controls, environmental metrics, and household activity into a single, intuitive control center.",
+    solution: "I conceptualized and designed a comprehensive dark-themed dashboard interface that brings home automation and monitoring together into a streamlined digital experience. The interface features a centralized main dashboard with a large circular thermostat controller, quick-action device toggles (cooler, lights, smart TV), room status cards, a live multi-camera preview, energy consumption statistics, media playback controls, and environmental readouts. Additionally, the concept includes a dedicated Favorites screen that prioritizes frequently used appliances and door locks for frictionless everyday interaction.",
+    features: [
+      'Centralized Smart Home Dashboard: Single-view control center displaying home climate, room statuses, live camera previews, and household activity.',
+      'Thermostat & Climate Regulation: Large circular thermostat component with temperature readout (20°C Celsius), time remaining, and smooth adjustment slider.',
+      'Room-Based Management Cards: Modular cards organizing device counts across Living Room, Kitchen, Bedroom, Bathroom, and Dining Room with an Add Room action.',
+      'Live Camera Feeds: Multi-room camera monitoring window with live recording indicators and camera switching for Living Room, Bedroom, Backyard, and Office.',
+      'Energy & Power Analytics: Bar chart visualization tracking monthly power statistics and individual device consumption (Smart Lamp, Speaker).',
+      'Environmental & Weather Insights: Real-time weather card (temperature, conditions, 5-day forecast), wind speed indicators, and humidity metrics.',
+      'Dedicated Favorites Screen: Streamlined interface prioritizing frequently used devices including Smart TV, Washer, Terrace Doorlock, Lights, Kitchen Pendant, and Air Conditioning.',
+      'Modern Dark-Themed Aesthetic: Tech-oriented dark UI with rounded card surfaces, high-contrast typography, and intuitive iconography.'
+    ],
+    designObjectives: {
+      primary: 'To design a centralized, user-friendly smart home dashboard concept that unifies household device controls, room management, live monitoring, and environmental data into an intuitive interface.',
+      goals: [
+        'Consolidate scattered home automation features into a single, cohesive dashboard layout',
+        'Establish a clear visual hierarchy using modular card containers of varying scale and priority',
+        'Design an interactive climate control module with circular thermostat visual feedback',
+        'Provide a dedicated Favorites view for instant access to high-frequency household appliances',
+        'Create a polished dark-themed visual language tailored for modern connected living environments'
+      ]
+    },
+    screens: [
+      {
+        title: 'Showcase & Mockup Presentation',
+        heading: 'Desktop Environment Context',
+        desc: 'The desktop mockup visualizes the Smart Home Control System in a realistic contemporary workspace environment, showcasing how the dark dashboard balances with modern home interior design.',
+        elements: ['Full desktop environment showcase', 'High-fidelity dashboard presentation', 'Clean branding & typography', 'Visual proportion demonstration']
+      },
+      {
+        title: 'Main Control Dashboard',
+        heading: 'Centralized Multi-Room & Environmental Hub',
+        desc: 'The primary management interface displaying circular thermostat climate controls, quick appliance toggles, multi-room status cards, power consumption statistics, weather updates, media playback, live camera streams, and household member statuses.',
+        elements: ['Circular thermostat controller (20°C)', 'Room cards (Living, Kitchen, Bedroom, Bath, Dining)', 'Device power statistics & bar charts', 'Live camera stream with room tabs', 'Weather & 5-day forecast widget', 'Media playback controller', 'Household user profile list', 'Left navigation sidebar']
+      },
+      {
+        title: 'Favorites & Quick Access Screen',
+        heading: 'Priority Device Access & Quick Toggles',
+        desc: 'A streamlined view prioritizing frequently used devices and security locks, allowing users to toggle lighting, entertainment, door locks, and air conditioning without navigating through room submenus.',
+        elements: ['Top status summary pills (Weather, Lights on, Washer timer, Lock state)', 'Living Room TV card & power toggle', 'Laundry Room Washer card with timer', 'Terrace Doorlock status card', 'Living Room Lights card', 'Kitchen Pendant light card', 'Bedroom 1 Air Con card']
+      }
+    ],
+    designApproach: [
+      {
+        title: 'Information Architecture',
+        desc: 'Organized dense smart home functionality into distinct card containers with dedicated sizes, preventing cognitive overload.'
+      },
+      {
+        title: 'Dark-Themed Visual Style',
+        desc: 'Utilized deep gray panels with high-contrast colored accents (yellow, green, blue, pink) for a modern, sleek aesthetic.'
+      },
+      {
+        title: 'Familiar Digital Cues',
+        desc: 'Blended intuitive physical elements (circular dial, power toggles, room illustrations) with digital dashboard simplicity.'
+      },
+      {
+        title: 'Fast Access Prioritization',
+        desc: 'Divided the concept into an exhaustive main dashboard for complete home visibility and a focused Favorites view for instant daily actions.'
+      },
+      {
+        title: 'Academic Design Exercise',
+        desc: 'Developed as a classroom concept exploring interface organization, usability, and visual coherence in home automation software.'
+      }
+    ],
+    tech: ['UI/UX Design', 'Dashboard Design', 'Interface Layout Design', 'Visual Hierarchy', 'Information Organization', 'Smart Home Concept'],
+    role: 'UI/UX Designer (Academic Concept Project)',
+    responsibilities: [
+      'Conceptualized and structured the overall dashboard layout and information architecture',
+      'Designed all interface components including the thermostat dial, room cards, and data widgets',
+      'Created the streamlined Favorites screen for high-frequency device interaction',
+      'Established a cohesive dark-themed visual design system with high-contrast accents and iconography',
+      'Produced the presentation desktop mockup showcasing the concept in a realistic setting'
+    ],
+    learnings: 'Developed as an academic class task to explore smart home interface design. This project enhanced my ability to structure complex, multi-faceted dashboards with diverse data types (sensors, controls, media, video, energy charts) while maintaining clean visual hierarchy, comfortable spacing, and intuitive navigation patterns.'
   }
 ];
 
@@ -388,9 +632,15 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1200
+  );
 
   useEffect(() => {
     setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const filters = ['All', 'Web', 'Mobile', 'Systems', 'Multimedia', 'UI/UX'];
@@ -594,7 +844,16 @@ export default function Projects() {
         {/* VIEW 1: MODERN 16:9 RECTANGULAR 3D COVERFLOW VIEW */}
         {/* =================================================== */}
         {viewMode === 'coverflow' && total > 0 && (
-          <div style={{ position: 'relative', width: '100%', maxWidth: '1100px', margin: '0 auto' }}>
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: '960px',
+              margin: '0 auto',
+              overflow: 'hidden',
+              padding: '0.5rem 0'
+            }}
+          >
             {/* 3D Stage / Canvas */}
             <div
               style={{
@@ -602,12 +861,12 @@ export default function Projects() {
                 WebkitPerspective: '1200px',
                 perspectiveOrigin: '50% 50%',
                 position: 'relative',
-                height: 'clamp(210px, 36vh, 320px)',
+                height: 'clamp(210px, 34vw, 320px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'visible',
-                padding: '15px 0',
+                padding: '12px 0',
                 touchAction: 'pan-y'
               }}
             >
@@ -617,7 +876,7 @@ export default function Projects() {
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
                 onDragEnd={(e, info) => {
-                  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+                  const isMobile = windowWidth < 640;
                   const threshold = isMobile ? 25 : 35;
                   const velocityThreshold = 180;
                   if (info.offset.x < -threshold || info.velocity.x < -velocityThreshold) {
@@ -642,20 +901,26 @@ export default function Projects() {
                   const offset = getOffset(index, safeActiveIndex, total);
                   const isVisible = Math.abs(offset) <= 2;
                   const isActive = offset === 0;
+                  const isAdjacent = Math.abs(offset) === 1;
 
                   if (!isVisible && total > 4) return null;
 
                   // 16:9 Rectangular Transform Metrics
-                  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-                  const isTablet = typeof window !== 'undefined' && window.innerWidth >= 640 && window.innerWidth < 1024;
+                  // Refined angles and translations so adjacent cards subtly peek out (~10-20%)
+                  // and cards farther away (|offset| >= 2) are completely hidden/faded out.
+                  const isMobile = windowWidth < 640;
+                  const isTablet = windowWidth >= 640 && windowWidth < 1024;
                   
-                  const rotationAngle = isMobile ? 16 : isTablet ? 20 : 24;
-                  const translateXPercentage = isMobile ? offset * 50 : isTablet ? offset * 58 : offset * 64;
-                  const translateYPixel = isActive ? -6 : Math.abs(offset) * 5;
-                  const translateZDistance = -Math.abs(offset) * (isMobile ? 80 : 130);
-                  const scaleVal = isActive ? 1.02 : Math.max(0.76, 0.94 - Math.abs(offset) * 0.16);
-                  const opacityVal = isActive ? 1 : Math.max(0.4, 0.84 - Math.abs(offset) * 0.3);
-                  const zIndexVal = 30 - Math.abs(offset) * 8;
+                  // Gentle perspective tilt without distortion
+                  const rotationAngle = isMobile ? 4 : isTablet ? 7 : 9;
+                  // Precise translation so only 10-20% peeks behind the active hero
+                  const translateXPercentage = isMobile ? offset * 14 : isTablet ? offset * 18 : offset * 22;
+                  const translateYPixel = isActive ? 0 : 4;
+                  const translateZDistance = isActive ? 20 : isAdjacent ? -80 : -180;
+                  const scaleVal = isActive ? 1.0 : isAdjacent ? 0.88 : 0.74;
+                  const opacityVal = isActive ? 1 : isAdjacent ? (isMobile ? 0.25 : 0.55) : 0;
+                  const zIndexVal = isActive ? 30 : isAdjacent ? 15 : 1;
+                  const pointerEventsVal = isActive || isAdjacent ? 'auto' : 'none';
 
                   return (
                     <motion.div
@@ -664,7 +929,7 @@ export default function Projects() {
                         e.stopPropagation();
                         if (isActive) {
                           setSelectedProject(project);
-                        } else {
+                        } else if (isAdjacent) {
                           setActiveIndex(index);
                         }
                       }}
@@ -684,8 +949,8 @@ export default function Projects() {
                       }}
                       style={{
                         position: 'absolute',
-                        width: 'clamp(270px, 62vw, 480px)',
-                        height: 'clamp(160px, 35vw, 280px)',
+                        width: 'clamp(280px, 52vw, 480px)',
+                        height: 'clamp(170px, 32vw, 290px)',
                         aspectRatio: '16 / 9.5',
                         borderRadius: '20px',
                         background: 'var(--card-bg)',
@@ -693,11 +958,12 @@ export default function Projects() {
                         WebkitBackdropFilter: 'blur(16px)',
                         border: isActive ? '2px solid #14B8A6' : '1px solid var(--border)',
                         boxShadow: isActive
-                          ? '0 20px 50px -10px rgba(0, 0, 0, 0.4), 0 0 25px rgba(20, 184, 166, 0.3)'
-                          : 'var(--shadow)',
+                          ? '0 20px 45px -10px rgba(0, 0, 0, 0.45), 0 0 25px rgba(20, 184, 166, 0.25)'
+                          : '0 10px 25px -10px rgba(0, 0, 0, 0.35)',
                         transformStyle: 'preserve-3d',
                         zIndex: zIndexVal,
-                        cursor: 'pointer',
+                        cursor: isActive ? 'pointer' : isAdjacent ? 'pointer' : 'default',
+                        pointerEvents: pointerEventsVal,
                         overflow: 'hidden',
                         userSelect: 'none',
                         willChange: 'transform, opacity',
@@ -709,7 +975,7 @@ export default function Projects() {
                         <img
                           src={project.image}
                           alt={project.title}
-                          loading={isActive || Math.abs(offset) <= 1 ? "eager" : "lazy"}
+                          loading={isActive || isAdjacent ? "eager" : "lazy"}
                           decoding="async"
                           style={{
                             width: '100%',
@@ -717,7 +983,7 @@ export default function Projects() {
                             objectFit: 'cover',
                             display: 'block',
                             transition: 'filter 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-                            filter: isActive ? 'brightness(100%) contrast(100%)' : 'brightness(0.82) contrast(0.96)'
+                            filter: isActive ? 'brightness(100%) contrast(100%)' : 'brightness(0.68) contrast(0.95)'
                           }}
                           onError={(e) => {
                             const target = e.currentTarget;
@@ -737,6 +1003,20 @@ export default function Projects() {
                           }}
                         />
 
+                        {/* Inactive Card Depth Dimmer Overlay */}
+                        {!isActive && (
+                          <div
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              background: 'rgba(15, 23, 42, 0.35)',
+                              borderRadius: '18px',
+                              pointerEvents: 'none',
+                              transition: 'opacity 0.35s ease'
+                            }}
+                          />
+                        )}
+
                         {/* Subtle Active Badge Overlay */}
                         <div
                           style={{
@@ -750,6 +1030,7 @@ export default function Projects() {
                             alignItems: 'center',
                             justifyContent: 'space-between',
                             opacity: isActive ? 1 : 0,
+                            pointerEvents: isActive ? 'auto' : 'none',
                             transition: 'opacity 0.35s ease'
                           }}
                         >

@@ -52,6 +52,10 @@ export default function ProjectModal({ project, isOpen, onClose }) {
 
   const getAltText = (imgUrl) => {
     if (!imgUrl) return 'Project Preview';
+    if (project?.gallery && project?.galleryCaptions) {
+      const idx = project.gallery.indexOf(imgUrl);
+      if (idx !== -1 && project.galleryCaptions[idx]) return project.galleryCaptions[idx];
+    }
     if (imgUrl.includes('/mathtatag/1.jpg')) {
       return 'MATHTatag Mobile Learning App Showcase featuring role-based dashboards and Grade 1 math assessment.';
     }
@@ -73,11 +77,36 @@ export default function ProjectModal({ project, isOpen, onClose }) {
     if (imgUrl.includes('/Study/3.png')) {
       return 'Figma Workspace: StudyFlow design canvas in Figma showing screen frames, layout grids, and component assets.';
     }
+    if (imgUrl.includes('badUI.jpg')) {
+      return 'The Recipe Link legacy website interface before redesign';
+    }
+    if (imgUrl.includes('good1.png')) {
+      return 'The Recipe Link redesigned homepage with hero search and categories';
+    }
+    if (imgUrl.includes('good2.png')) {
+      return 'The Recipe Link redesigned recipe browsing and content discovery section';
+    }
+    if (imgUrl.includes('good3.png')) {
+      return 'The Recipe Link redesigned individual recipe details presentation';
+    }
+    if (imgUrl.includes('/homeUI/main.png')) {
+      return 'Smart Home Control System desktop presentation mockup';
+    }
+    if (imgUrl.includes('home1.jpg')) {
+      return 'Smart Home Control System centralized dashboard interface';
+    }
+    if (imgUrl.includes('home2.jpg')) {
+      return 'Smart Home Control System favorites and quick access controls screen';
+    }
     return `${project?.title || 'Project'} Preview`;
   };
 
   const getImageCaption = (imgUrl) => {
     if (!imgUrl) return null;
+    if (project?.gallery && project?.galleryCaptions) {
+      const idx = project.gallery.indexOf(imgUrl);
+      if (idx !== -1 && project.galleryCaptions[idx]) return project.galleryCaptions[idx];
+    }
     if (imgUrl.includes('/mathtatag/1.jpg')) {
       return 'MATHTatag Mobile Mathematics Learning Application — Overview & role-based login mockup.';
     }
@@ -98,6 +127,27 @@ export default function ProjectModal({ project, isOpen, onClose }) {
     }
     if (imgUrl.includes('/Study/3.png')) {
       return 'Figma Design Workspace — Canvas frames, component structure, and design assets in Figma.';
+    }
+    if (imgUrl.includes('badUI.jpg')) {
+      return 'Original Website (Before) — The legacy Recipe Link website interface with dense information, limited visual hierarchy, and dated styling.';
+    }
+    if (imgUrl.includes('good1.png')) {
+      return 'My Redesigned Concept (Homepage) — Modernized header, refined red-and-neutral visual theme, prominent search bar, and curated categories (Quick and Easy, Dinner, Healthy, 5 Ingredients).';
+    }
+    if (imgUrl.includes('good2.png')) {
+      return 'My Redesigned Concept (Recipe Discovery) — Structured browsing layout with featured recipe cards, latest recipes sidebar, high-resolution food photography, and clear ratings.';
+    }
+    if (imgUrl.includes('good3.png')) {
+      return 'My Redesigned Concept (Recipe Details) — Dedicated recipe presentation featuring prominent food imagery, organized ingredient checklists, rating overview, and action buttons.';
+    }
+    if (imgUrl.includes('/homeUI/main.png')) {
+      return 'Project Showcase & Desktop Mockup — Presentation concept visualizing the Smart Home Control System dashboard on an iMac desktop setup.';
+    }
+    if (imgUrl.includes('home1.jpg')) {
+      return 'Centralized Smart Home Dashboard — Unified control center featuring thermostat slider, device toggles, room navigation, power metrics, live camera feeds, and environmental data.';
+    }
+    if (imgUrl.includes('home2.jpg')) {
+      return 'Favorites & Quick Access Screen — Streamlined device dashboard providing rapid control over frequently used appliances, lighting, door locks, and air conditioning.';
     }
     return null;
   };
@@ -269,7 +319,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   style={{
                     position: 'absolute',
                     inset: -12,
-                    backgroundImage: `url(${currentHeroImage})`,
+                    backgroundImage: `url("${currentHeroImage}")`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     filter: 'blur(26px) brightness(0.35)',

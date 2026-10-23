@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 export default function CustomCursor({ theme }) {
   const outerRef = useRef(null);
@@ -6,8 +7,11 @@ export default function CustomCursor({ theme }) {
   const mouseRef = useRef({ x: -100, y: -100 });
   const posRef = useRef({ x: -100, y: -100 });
   const isHoveredRef = useRef(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     // Disable custom cursor on mobile, touchscreens, or coarse pointer devices
     const isTouch =
       'ontouchstart' in window ||
@@ -33,9 +37,12 @@ export default function CustomCursor({ theme }) {
           target.closest('a') ||
           target.closest('button') ||
           target.closest('.project-card') ||
+          target.closest('.modal-close-btn') ||
           target.closest('input') ||
           target.closest('textarea') ||
-          target.getAttribute('role') === 'button')
+          target.getAttribute('role') === 'button' ||
+          target.closest('[role="button"]') ||
+          target.getAttribute('aria-label') === 'Close dialog')
       ) {
         if (!isHoveredRef.current) {
           isHoveredRef.current = true;
@@ -83,11 +90,11 @@ export default function CustomCursor({ theme }) {
 
   const isDark = theme === 'dark';
 
-  return (
+  const cursorContent = (
     <>
       <style>{`
         @media (min-width: 769px) and (pointer: fine) {
-          body, a, button, [role="button"], [role="dialog"], input, textarea {
+          *, *::before, *::after {
             cursor: none !important;
           }
         }
@@ -104,43 +111,62 @@ export default function CustomCursor({ theme }) {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          border: 1px solid ${isDark ? 'rgba(20, 184, 166, 0.35)' : 'rgba(0, 0, 0, 0.25)'};
+          border: 1.5px solid ${isDark ? 'rgba(20, 184, 166, 0.65)' : 'rgba(10, 10, 10, 0.8)'};
+          box-shadow: ${
+            isDark
+              ? '0 0 12px rgba(20, 184, 166, 0.4), inset 0 0 6px rgba(20, 184, 166, 0.2)'
+              : '0 0 0 1px rgba(255, 255, 255, 0.85), 0 2px 8px rgba(0, 0, 0, 0.25)'
+          };
           background-color: transparent;
-          pointer-events: none;
-          z-index: 1000000;
+          pointer-events: none !important;
+          z-index: 2147483647 !important;
           will-change: transform;
           /* CRITICAL: NO transition on transform to prevent fighting requestAnimationFrame! */
-          transition: border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+          transition: border-color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
         }
 
         .custom-cursor-outer.hovered {
           border: 2px solid ${isDark ? 'rgba(20, 184, 166, 1)' : 'rgba(10, 10, 10, 0.95)'};
-          background-color: ${isDark ? 'rgba(20, 184, 166, 0.08)' : 'rgba(0, 0, 0, 0.05)'};
+          box-shadow: ${
+            isDark
+              ? '0 0 20px rgba(20, 184, 166, 0.6), inset 0 0 8px rgba(20, 184, 166, 0.3)'
+              : '0 0 0 1.5px rgba(255, 255, 255, 0.95), 0 4px 14px rgba(0, 0, 0, 0.35)'
+          };
+          background-color: ${isDark ? 'rgba(20, 184, 166, 0.12)' : 'rgba(0, 0, 0, 0.08)'};
         }
 
         .custom-cursor-inner {
           position: fixed;
           top: 0;
           left: 0;
-          width: 6px;
-          height: 6px;
+          width: 7px;
+          height: 7px;
           background-color: ${isDark ? '#14B8A6' : '#0A0A0A'};
+          border: 1px solid ${isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.95)'};
           border-radius: 50%;
-          pointer-events: none;
-          z-index: 1000001;
-          box-shadow: ${isDark ? '0 0 10px rgba(20, 184, 166, 0.6)' : 'none'};
+          pointer-events: none !important;
+          z-index: 2147483647 !important;
+          box-shadow: ${
+            isDark
+              ? '0 0 10px rgba(20, 184, 166, 0.8), 0 0 2px rgba(0, 0, 0, 0.5)'
+              : '0 0 0 1px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.4)'
+          };
           will-change: transform;
-          transition: background-color 0.2s ease, opacity 0.2s ease;
+          transition: background-color 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
         }
       `}</style>
 
       {/* Outer Ring */}
-      <div ref={outerRef} className="custom-cursor custom-cursor-outer" />
+      <div ref={outerRef} className="custom-cursor custom-cursor-outer" aria-hidden="true" />
 
       {/* Inner Dot */}
-      <div ref={innerRef} className="custom-cursor custom-cursor-inner" />
+      <div ref={innerRef} className="custom-cursor custom-cursor-inner" aria-hidden="true" />
     </>
   );
+
+  if (!mounted || typeof document === 'undefined') return null;
+
+  return ReactDOM.createPortal(cursorContent, document.body);
 }
 
 
