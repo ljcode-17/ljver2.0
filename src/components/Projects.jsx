@@ -157,10 +157,36 @@ const projectsData = [
     title: 'Art Appreciation Website',
     category: 'Web',
     tags: ['Academic Project', 'Solo'],
-    image: "/assets/projects/art-appreciation/main.webp",
+    image: "/assets/projects/art-appreciation/home.png",
     gallery: [
-      "/assets/projects/art-appreciation/main.webp",
-      "/assets/projects/art-appreciation/main.png"
+      "/assets/projects/art-appreciation/home.png",
+      "/assets/projects/art-appreciation/highlight.png",
+      "/assets/projects/art-appreciation/visual-art.png",
+      "/assets/projects/art-appreciation/performing-art.png",
+      "/assets/projects/art-appreciation/literary-art.png",
+      "/assets/projects/art-appreciation/expressionism.png",
+      "/assets/projects/art-appreciation/mission-vision.png",
+      "/assets/projects/art-appreciation/creator.png"
+    ],
+    galleryLabels: [
+      "Home & Featured Favorites",
+      "Artwork Spotlight (Michelangelo)",
+      "Visual Arts Collection",
+      "Performing Arts Showcase",
+      "Literary Arts Archive",
+      "Expressionism Movement & Stories",
+      "Academic Mission & Vision",
+      "Website Creator Profile"
+    ],
+    galleryCaptions: [
+      "Home Landing & Featured Favorites — Curated showcase displaying iconic masterpieces including Girl with a Pearl Earring, Starry Night, and Mona Lisa.",
+      "Artwork Spotlight — Detailed view of Michelangelo's 'The Creation of Adam' fresco painting with interactive category links.",
+      "Visual Arts Collection — Responsive gallery grid categorizing world-renowned paintings from The Scream to The Great Wave off Kanagawa.",
+      "Performing Arts Showcase — Cultural performance section highlighting theatrical traditions like Noh Theatre, Sarsuwela, Kabuki, Ballet, and Opera.",
+      "Literary Arts Archive — Curated archive of classical literature ranging from The Epic of Gilgamesh and Hamlet to Rizal's Noli Me Tangere.",
+      "Stories & Movement Spotlight — Dedicated banner and narrative exploration section focusing on the Expressionism art movement.",
+      "Educational Mission & Vision — Academic statement outlining the goal to foster deeper cultural heritage and artistic appreciation.",
+      "Website Creator Profile — Personal developer profile featuring Lloyd Jernell C. Loterina as sole developer and designer."
     ],
     desc: "Cinematic web gallery showcasing cultural masterpieces.",
     problem: 'Navigating through vast art history and cultural masterpieces can be overwhelming without a structured and visual presentation.',
@@ -262,7 +288,27 @@ const projectsData = [
     image: "/assets/projects/jm-laica/main.webp",
     gallery: [
       "/assets/projects/jm-laica/main.webp",
-      "/assets/projects/jm-laica/main.png"
+      "/assets/projects/jm-laica/hero-concept.png",
+      "/assets/projects/jm-laica/collection-intro.png",
+      "/assets/projects/jm-laica/featured-concepts.png",
+      "/assets/projects/jm-laica/carousel-slider.png",
+      "/assets/projects/jm-laica/gallery-filters.png"
+    ],
+    galleryLabels: [
+      "Landing Hero & Cover",
+      "Roadside Minimal Concept",
+      "The Collection & Metrics",
+      "Featured Concepts Grid",
+      "Cinematic Photo Carousel",
+      "Filterable Photo Gallery"
+    ],
+    galleryCaptions: [
+      "Landing Hero — Editorial entrance with ambient background music player and romantic spring aesthetic.",
+      "Roadside Minimal Concept — Story showcase highlighting the raw, candid roadside aesthetic with modern typography.",
+      "The Collection & Story Metrics — Curated collection overview highlighting 4 artistic concepts, 100+ candid frames, and scenic locations.",
+      "Featured Concepts — Dedicated concept tiles for Soft Garden Romance, Endless Roadside Paths, Golden Hour Waves, and Golden Night Magic.",
+      "Cinematic Carousel Slider — Interactive center-focused photo slider with responsive pagination and navigation controls.",
+      "Curated Gallery & Filters — Dynamic concept-filtered masonry gallery allowing seamless browsing across all photo categories."
     ],
     desc: "A premium, responsive digital gallery application built with a modern web stack.",
     problem: 'To serve as a dedicated digital album and gallery showcasing the prenup photo collection for Laica and JM.',

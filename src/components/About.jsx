@@ -15,7 +15,7 @@ export default function About() {
     { 
       Icon: Code2,
       title: "Frontend Development & Engineering", 
-      desc: "Cum Laude BSIT Graduate & Award-Winning Developer specializing in ReactJS, JavaScript (ES6+), HTML5, and CSS3. I translate complex business requirements into high-performance, pixel-perfect, and responsive web applications.",
+      desc: "Cum Laude BSIT Graduate & Dedicated Frontend Developer specializing in ReactJS, JavaScript (ES6+), HTML5, and CSS3. I translate complex business requirements into high-performance, pixel-perfect, and responsive web applications.",
       tag: "Cum Laude • ReactJS • Web Systems"
     },
     { 
