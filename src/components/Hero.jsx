@@ -4,11 +4,11 @@ import { ArrowUpRight, ArrowRight, ChevronLeft, ChevronRight, Sparkles, Download
 
 const featuredProjects = [
   {
-    title: 'MATHTatag – Capstone',
-    category: 'Mobile & AI',
-    desc: 'AI-powered mathematics assessment & Filipino text-to-speech app for Grade 1 monitoring.',
+    title: 'MATHtatag – Best Capstone',
+    category: 'Mobile Application',
+    desc: 'Awarded Best Capstone & STCIEERD Research Champion. Mobile math learning app with Filipino TTS and performance monitoring for Grade 1.',
     image: '/assets/projects/mathtatag/1.jpg',
-    tag: '1st Place STCIEERD Award'
+    tag: 'Best Capstone • STCIEERD Champion'
   },
   {
     title: 'FuelWatch PH',
@@ -707,7 +707,7 @@ export default function Hero({ theme }) {
             }}>
               <span>⊙ PUP Lopez Campus</span>
               <span>⊙ Cum Laude Graduate</span>
-              <span>⊙ STCIEERD 1st Place R&D</span>
+              <span>⊙ STCIEERD Research Champion</span>
               <span>⊙ 3x President's Lister</span>
             </div>
           </motion.div>

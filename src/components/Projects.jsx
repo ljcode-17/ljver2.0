@@ -8,9 +8,11 @@ const ProjectModal = lazy(() => import('./ProjectModal'));
 const projectsData = [
   {
     id: 1,
-    title: 'MATHTatag – Capstone Project',
+    title: 'MATHtatag – Best Capstone Project',
+    subtitle: 'Best Capstone Project & STCIEERD Research Champion • Mobile Math Learning App with Filipino TTS & Performance Monitoring',
     category: 'Mobile',
-    tags: ['Academic', 'Capstone'],
+    categoryDisplay: 'Mobile Application Development',
+    tags: ['Best Capstone', 'STCIEERD Research Champion', 'Academic Capstone', 'Mobile App', 'React Native', 'TypeScript', 'EdTech', 'PUP Lopez'],
     image: "/assets/projects/mathtatag/1.jpg",
     gallery: [
       "/assets/projects/mathtatag/1.jpg",
@@ -19,34 +21,448 @@ const projectsData = [
       "/assets/projects/mathtatag/main.jpg"
     ],
     galleryLabels: [
-      "App Showcase & Overview",
-      "Teacher Dashboard",
-      "Learner Assessment Interface",
-      "Brand & Logo Design"
+      "App Overview & Role Selection",
+      "Teacher Dashboard & Analytics",
+      "Learner Assessment & Filipino TTS",
+      "Brand Identity & Mascot"
     ],
-    desc: "AI-integrated mobile learning app for mathematics.",
-    problem: 'Grade 1 mathematics assessment often lacks interactive tools that allow teachers to monitor and analyze learner performance in real-time.',
-    solution: 'Developed an academic capstone mobile learning application featuring role-based dashboards for teachers to create assessments and analyze results. Integrates Filipino text-to-speech for better accessibility.',
+    galleryCaptions: [
+      "MATHtatag Mobile Learning Application — Showcase featuring role-based entry (Learner, Teacher, Parent) aligned with the Philippine MATATAG Curriculum for Grade 1.",
+      "Teacher Dashboard & Monitoring — Classroom management interface displaying student rosters, assessment scores, performance analytics, and quarterly tracking.",
+      "Learner Assessment & Filipino TTS Interface — Interactive math exercise with Filipino voice assistance, touch-friendly questions, and instant automated scoring.",
+      "Brand & App Visual Identity — Custom educational character illustration, friendly mascot, and playful UI identity designed specifically for young learners."
+    ],
+    desc: "Awarded Best Capstone Project & STCIEERD Research Champion. Mobile mathematics learning application with Filipino text-to-speech and performance monitoring for Grade 1 Mathematics under the Philippine MATATAG Curriculum.",
+    problem: 'Early mathematics education builds foundational numeracy, yet Grade 1 learners frequently experience challenges with abstract concepts, text-dense written instructions, and independent practice. Simultaneously, teachers and parents require convenient, real-time ways to evaluate assessment results and track learner progress.',
+    solution: 'MATHtatag combines interactive Grade 1 mathematics exercises, AI-powered Filipino text-to-speech audio narration (ElevenLabs API), automated scoring, and real-time cloud monitoring (Firebase Realtime Database) into a unified mobile application supporting both classroom learning and parental involvement.',
     features: [
-        'AI-Powered Assessment Question Generation (Gemini Integration)',
-        'Implemented assessment and performance monitoring features',
-        'Integrated Filipino text-to-speech for accessibility',
-        'Role-based dashboards for real-time data analysis',
-        'Tested and evaluated for academic system requirements'
+      'Interactive Grade 1 Mathematics Assessments aligned with the MATATAG Curriculum',
+      'Filipino Text-to-Speech (ElevenLabs TTS API) providing audio-assisted question narration',
+      'Instant automated assessment scoring and real-time performance feedback',
+      'Role-based dashboards for Learners, Teachers, Parents, and Administrators',
+      'Real-time synchronization of class rosters, exercises, student responses, and analytics',
+      'Secure email/password authentication (Firebase Auth) and cloud media storage (Firebase Storage)',
+      'Touch gestures, item reordering, and drag-and-drop question types via Gesture Handler & Reanimated'
     ],
-    tech: ['React Native', 'Firebase', 'Google Gemini AI', 'TTS Integration'],
+    tech: ['TypeScript', 'JavaScript (ES6)', 'React Native', 'Expo SDK 54', 'Expo Router', 'Firebase Realtime DB', 'ElevenLabs TTS API', 'Reanimated', 'Gesture Handler'],
     role: 'Documentation Lead, Quality Assurance (QA), and UI Contributor',
     responsibilities: [
-        'Lead student for project documentation and research writing',
-        'Assisted in AI Integration (Gemini) for assessment generation',
-        'Conducted Quality Assurance (QA) testing and debugging',
-        'Co-contributed to the UI design and layout',
-        'Assisted in data management and Firebase integration'
+      'Authored and structured comprehensive technical documentation (Chapters 1–5) for the capstone manuscript and research writing',
+      'Established QA testing protocols, designed test cases, and conducted debugging across mobile flows on Expo Go and Android Emulator',
+      'Co-contributed to UI/UX design, visual layouts in Canva and Figma, and child-friendly component ergonomics',
+      'Assisted in data structure organization and Firebase Realtime Database / Authentication configuration',
+      'Assisted in testing and integrating ElevenLabs Filipino text-to-speech accessibility features',
+      'Facilitated team collaboration between development, UI design, and academic defense evaluations'
     ],
-    learnings: 'Gained hands-on experience in application logic, team collaboration, and the importance of accurate documentation and QA in a capstone project.',
+    learnings: 'Strengthened mobile application QA methodologies, TypeScript data handling, cloud database synchronization with Firebase, accessibility-driven child UI design, and rigorous academic research documentation under strict standards.',
     link: 'https://youtu.be/57dUWe2xdW8?si=bLKdqaVKnmJc0cqk',
     linkText: 'View Demo',
-    docs: 'https://drive.google.com/file/d/1lEh74F7UE75ghFOumWsRKNu7Ekdev4K8/view?usp=drive_link'
+    docs: 'https://drive.google.com/file/d/1lEh74F7UE75ghFOumWsRKNu7Ekdev4K8/view?usp=drive_link',
+    caseStudy: {
+      meta: {
+        projectName: 'MATHtatag',
+        fullDescription: 'Mobile Mathematics Learning Application with Filipino Text-to-Speech and Performance Monitoring for Grade 1 Mathematics',
+        category: 'Mobile Application Development',
+        projectType: 'Academic Capstone Project',
+        institution: 'Polytechnic University of the Philippines – Lopez, Quezon Campus',
+        degree: 'Bachelor of Science in Information Technology (BSIT)',
+        curriculum: 'Philippine MATATAG Curriculum (DepEd Grade 1 Mathematics)',
+        collaboration: 'Collaborative Academic Capstone Project',
+        honors: [
+          'Awarded Best Capstone Project — BSIT Program (PUP Lopez Campus)',
+          'STCIEERD Research Champion (1st Place) — 2nd Undergraduate R&D Category (Batangas State University)',
+          '2nd Placer — 7th Multi-Disciplinary In-House Review & Colloquium (PUP Lopez)',
+          'Academic Capstone Defense Passed — Graduated Cum Laude'
+        ]
+      },
+      overview: {
+        summary: 'MATHtatag was awarded Best Capstone Project and recognized as the STCIEERD Research Champion. It is a mobile mathematics learning application developed as an academic capstone project to support Grade 1 Mathematics education under the Philippine MATATAG Curriculum. The application combines interactive mathematics assessments, Filipino text-to-speech instructions, automated scoring, and role-based performance monitoring for learners, teachers, and parents.',
+        context: 'The project explores how mobile technology can make foundational mathematics practice more engaging and accessible while providing teachers and guardians with convenient ways to review learner progress. Through MATHtatag, our team sought to develop a practical educational technology solution that supports classroom learning and parental involvement.',
+        scopeNote: 'MATHtatag is intended to support classroom instruction and home learning, not replace teachers or conventional educational methods.'
+      },
+      problemStatement: {
+        intro: 'Early mathematics education is vital because it establishes essential numeracy skills that support children\'s future academic learning. However, young learners and educators face tangible educational hurdles during foundational mathematics instruction:',
+        challenges: [
+          {
+            title: 'Foundational Comprehension & Abstract Concepts',
+            desc: 'Young Grade 1 learners frequently experience difficulty transitioning from concrete physical objects to abstract mathematical symbols, basic addition, subtraction, and number relationships without guided interactive visual aids.'
+          },
+          {
+            title: 'Reading & Language Barriers in Written Instructions',
+            desc: 'Beginning readers in Grade 1 are still developing literacy skills. Text-dense assessment instructions can prevent children from demonstrating their true mathematical ability simply because they struggle to read the written prompt.'
+          },
+          {
+            title: 'Engagement & Independent Learning Support',
+            desc: 'Traditional static paper worksheets often struggle to sustain young learners\' attention. Furthermore, when practicing independently at home, learners lack immediate corrective feedback to guide their understanding.'
+          },
+          {
+            title: 'Assessment Overhead & Monitoring Friction',
+            desc: 'Teachers manage large class sizes where manual paper grading and score tallying consume valuable instructional time. Meanwhile, parents and guardians often lack accessible, timely visibility into their children\'s learning progress.'
+          }
+        ],
+        framingNote: 'These points represent the educational needs and design motivations addressed by the project. The application was engineered to address these challenges through child-centered interactive design and cloud synchronization.'
+      },
+      objectives: {
+        general: 'To develop a mobile mathematics learning and performance-monitoring application that supports Grade 1 learners, teachers, and parents in mathematics education aligned with the MATATAG Curriculum.',
+        specific: [
+          'Develop an interactive mobile interface suitable for Grade 1 learners with child-friendly visuals, intuitive touch navigation, and minimal cognitive load.',
+          'Provide digital mathematics assessments aligned with the competencies and learning standards of the Grade 1 MATATAG Curriculum.',
+          'Integrate Filipino text-to-speech (TTS) functionality to assist early-grade learners in understanding instructions through clear spoken narration.',
+          'Implement automated assessment scoring to calculate exercise scores immediately and eliminate manual grading overhead.',
+          'Provide dedicated role-based user experiences tailored for learners, teachers, parents/guardians, and administrators.',
+          'Present learner performance information through intuitive dashboards and monitoring views for timely progress evaluation.',
+          'Support convenient, real-time cross-device access to learner progress information using cloud database synchronization.'
+        ]
+      },
+      targetUsers: [
+        {
+          role: 'Grade 1 Learners',
+          badge: 'Primary End-Users',
+          purpose: 'Engage with digital mathematics activities, listen to audio-guided instructions, and complete assessments.',
+          capabilities: [
+            'Access curriculum-aligned Grade 1 mathematics activities and assessments',
+            'Listen to spoken Filipino instructions and question narration via audio buttons',
+            'Interact via intuitive touch gestures, item reordering, and drag-and-drop mechanics',
+            'Receive instant visual feedback and score summaries upon exercise completion'
+          ]
+        },
+        {
+          role: 'Teachers',
+          badge: 'Educators & Evaluators',
+          purpose: 'Manage class groups, monitor assessment submissions, and evaluate class-wide mathematical performance.',
+          capabilities: [
+            'Review and manage registered student lists and classroom sections',
+            'Access real-time assessment scores and automated evaluation records',
+            'Analyze learner performance trends to identify topics requiring remedial guidance',
+            'Monitor student submission completion rates across assigned exercises'
+          ]
+        },
+        {
+          role: 'Parents & Guardians',
+          badge: 'Home Learning Partners',
+          purpose: 'Follow and support their child\'s mathematics learning journey from home.',
+          capabilities: [
+            'Access a dedicated parent dashboard showing their child\'s performance overview',
+            'Review scores and completion history from assigned mathematics activities',
+            'Identify areas where their child excels or needs additional home practice',
+            'Stay actively informed on academic progress without waiting for quarterly report cards'
+          ]
+        },
+        {
+          role: 'Administrators',
+          badge: 'System Governance',
+          purpose: 'Manage authorized system access and verify platform security where supported.',
+          capabilities: [
+            'Validate authorized teacher and administrative credentials',
+            'Ensure secure access controls and system configuration stability',
+            'Support database integrity and account provisioning'
+          ]
+        }
+      ],
+      coreFeatures: [
+        {
+          title: 'Interactive Grade 1 Mathematics Assessments',
+          tag: 'Curriculum-Aligned Numeracy',
+          description: 'Digitized exercises structured specifically around foundational Grade 1 mathematics competencies under the Philippine MATATAG Curriculum, incorporating matching, counting, number recognition, and basic operations with colorful visual representations.'
+        },
+        {
+          title: 'Filipino Text-to-Speech (ElevenLabs API)',
+          tag: 'Accessibility & Audio Support',
+          description: 'Spoken Filipino audio narration generated through the ElevenLabs Text-to-Speech API. By offering audio guidance for every written prompt, the app ensures that Grade 1 learners with emerging reading skills can independently understand exercise instructions.'
+        },
+        {
+          title: 'Instant Automated Assessment Scoring',
+          tag: 'Automated Evaluation',
+          description: 'Calculates scores immediately upon exercise completion, giving children prompt feedback on their performance while automatically recording structured results in the cloud database to eliminate manual grading for teachers.'
+        },
+        {
+          title: 'Learner Performance Monitoring Dashboards',
+          tag: 'Progress Tracking',
+          description: 'Visual monitoring interfaces that organize individual and class-level mathematics assessment outcomes, making performance records accessible to teachers for classroom tracking and to parents for home reinforcement.'
+        },
+        {
+          title: 'Role-Based Architecture & Screen Navigation',
+          tag: 'Multi-Role UX',
+          description: 'Dedicated workflows and file-based screen routing powered by Expo Router, cleanly separating the learner experience from teacher analytics, parent views, and administrative controls.'
+        },
+        {
+          title: 'Real-Time Cloud Synchronization',
+          tag: 'Firebase Realtime DB',
+          description: 'Synchronizes class rosters, exercise banks, student answers, and parent dashboard analytics instantly across devices via Firebase Realtime Database, ensuring seamless data updates across mobile clients.'
+        },
+        {
+          title: 'Secure Authentication & Cloud Media Storage',
+          tag: 'Firebase Services',
+          description: 'Employs Firebase Authentication for email/password validation of educators and administrators, paired with Firebase Storage for cloud hosting of exercise graphics, audio assets, and TTS voice files.'
+        },
+        {
+          title: 'Gesture-Driven Child Interactions',
+          tag: 'Gesture Handler & Reanimated',
+          description: 'Utilizes React Native Gesture Handler and React Native Reanimated to deliver fluid 60fps touch gestures, item reordering, and tactile drag-and-drop exercises tailored to young children\'s motor skills.'
+        }
+      ],
+      myRoles: {
+        title: 'Documentation Lead, Quality Assurance (QA), and UI Contributor',
+        intro: 'Within our four-member collaborative academic capstone team, I was formally assigned as the Documentation Lead, Quality Assurance (QA) Contributor, and UI Contributor. My responsibilities focused on ensuring research rigor, system quality, user interface clarity, and data integration.',
+        contributions: [
+          {
+            area: 'Technical Documentation & Research Writing',
+            desc: 'Served as the lead student author for our comprehensive 5-chapter capstone manuscript. Formulated the Problem Statement, Educational Context, Literature & System Review, Technical Methodology, System Architecture, Results Analysis, and Recommendations according to rigorous PUP academic standards.'
+          },
+          {
+            area: 'Quality Assurance (QA) & Test Case Execution',
+            desc: 'Formulated systematic QA test plans and executed extensive test cases across learner and teacher application flows. Identified critical edge-case bugs in input handling, screen transitions, and score calculations; logged reproducible defect reports; and retested builds on Expo Go and Android Emulator.'
+          },
+          {
+            area: 'Mobile UI/UX Design & Child-Centered Layouts',
+            desc: 'Co-contributed to user interface design in Figma and Canva. Designed wireframes, selected high-contrast child-friendly color harmonies, established readable typographic hierarchy, and optimized touch targets to accommodate the developing motor skills of Grade 1 learners.'
+          },
+          {
+            area: 'Data Management & Firebase Cloud Assistance',
+            desc: 'Assisted in structuring NoSQL data nodes within Firebase Realtime Database (class rosters, student submissions, exercise schema, score logs) and supported the configuration of Firebase Authentication security rules.'
+          },
+          {
+            area: 'Text-to-Speech Accessibility & Audio Testing',
+            desc: 'Assisted in testing the integration of ElevenLabs Filipino voice prompts, verifying speech naturalness, pronunciation clarity for math terms, and audio playback synchronization with on-screen quiz questions.'
+          },
+          {
+            area: 'Academic Colloquium & Defense Preparation',
+            desc: 'Coordinated defense presentations, prepared technical slide decks, and co-defended the system architecture before academic panelists, contributing to our 1st Place STCIEERD research award and 2nd Place Colloquium honor.'
+          }
+        ],
+        teamRoster: [
+          { name: 'Ken P. Cas', role: 'Project Leader & Backend Developer' },
+          { name: 'Lloyd Jernell Loteriña', role: 'Documentation Lead, Quality Assurance (QA), and UI Contributor' },
+          { name: 'Engelbert Morales', role: 'UI/UX Lead, Quality Assurance, and Documentation' },
+          { name: 'Cedick Artiaga', role: 'Developer' }
+        ],
+        teamworkStatement: 'MATHtatag was a collaborative team capstone endeavor. I did not personally write every line of code or single-handedly build every feature; rather, each member brought specialized strengths. My primary ownership centered on documentation leadership, QA testing, user interface collaboration, and data verification, working closely alongside our project leader, UI lead, and fellow developers.',
+        skillsDeveloped: [
+          'Academic research methodology and 5-chapter manuscript authoring',
+          'Mobile QA test planning, test case formulation, and defect lifecycle tracking',
+          'Child-oriented mobile UI/UX design and accessibility ergonomics',
+          'TypeScript data modeling and React Native component lifecycle',
+          'Firebase Realtime Database synchronization and cloud rule management',
+          'Collaborative Git workflows, peer reviews, and academic presentation defense'
+        ]
+      },
+      techStack: {
+        languages: [
+          {
+            name: 'TypeScript',
+            type: 'Primary Programming Language',
+            desc: 'Used as the main development language for the mobile application. Provided strict static typing to ensure code reliability, eliminate runtime type errors, and maintain structured data handling across complex real-time mobile flows.'
+          },
+          {
+            name: 'JavaScript (ES6)',
+            type: 'Programming Language',
+            desc: 'Used alongside TypeScript for dynamic UI component logic, state helpers, and integration with third-party React Native ecosystem libraries.'
+          }
+        ],
+        frameworks: [
+          {
+            name: 'React Native',
+            type: 'Core Mobile Framework',
+            desc: 'The foundational cross-platform mobile application framework utilized to develop the native Android application with responsive, high-performance UI components.'
+          },
+          {
+            name: 'Expo SDK 54',
+            type: 'Mobile Platform & Toolchain',
+            desc: 'Provides core native modules, audio playback drivers, file system handlers, and unified compilation toolchains powering the mobile app development lifecycle.'
+          },
+          {
+            name: 'Expo Router',
+            type: 'File-Based Navigation',
+            desc: 'File-based navigation framework providing clean, predictable routing across login flows, role-based dashboards, and interactive exercise views.'
+          },
+          {
+            name: 'React Native Reanimated',
+            type: 'Animation Library',
+            desc: 'Powers smooth, hardware-accelerated 60fps interface animations, card transitions, and visual feedback for young learners.'
+          },
+          {
+            name: 'React Native Gesture Handler',
+            type: 'Touch & Gesture Library',
+            desc: 'Provides declarative native touch handling, powering interactive touch gestures, item reordering, and drag-and-drop question mechanics.'
+          }
+        ],
+        backend: [
+          {
+            name: 'Firebase Realtime Database',
+            type: 'Cloud NoSQL Database',
+            desc: 'Synchronizes application data in real time across devices, including class rosters, exercises, student responses, score logs, and parent dashboard analytics. (Used specifically instead of Firestore).'
+          },
+          {
+            name: 'Firebase Authentication',
+            type: 'Identity & Access Management',
+            desc: 'Provides secure email and password authentication, session management, and credential validation for teachers and administrators.'
+          },
+          {
+            name: 'Firebase Storage',
+            type: 'Cloud Object Storage',
+            desc: 'Stores application media assets, including exercise illustrations, visual graphics, audio recordings, and cached TTS voice files.'
+          }
+        ],
+        apis: [
+          {
+            name: 'ElevenLabs Text-to-Speech API',
+            type: 'Voice Synthesis Integration',
+            desc: 'Used to generate natural, AI-powered Filipino voice instructions and question narration. Intended as an accessibility bridge to assist Grade 1 learners who are still developing reading comprehension.'
+          }
+        ],
+        tools: [
+          {
+            name: 'Visual Studio Code (VS Code)',
+            type: 'Code Editor & IDE',
+            desc: 'Main development environment used for writing TypeScript code, debugging, managing extensions, and organizing the project codebase.'
+          },
+          {
+            name: 'Expo Go',
+            type: 'Real-Time Mobile Testing',
+            desc: 'Employed for rapid on-device testing, hot-reloading, and real-time interface validation on physical Android smartphones during development sprints.'
+          },
+          {
+            name: 'Android Studio / Emulator',
+            type: 'Device Emulation & Testing',
+            desc: 'Used to test layout responsiveness, touch accuracy, and device compatibility across varied Android screen sizes and OS specifications.'
+          },
+          {
+            name: 'EAS (Expo Application Services)',
+            type: 'Cloud Build & Packaging',
+            desc: 'Cloud build service utilized to compile and generate standalone Android APK and AAB binaries for device testing and academic presentation.'
+          },
+          {
+            name: 'Git & GitHub',
+            type: 'Version Control & Collaboration',
+            desc: 'Utilized for source control, feature branching, code review, change history tracking, and collaborative multi-developer synchronization.'
+          },
+          {
+            name: 'Canva & Figma',
+            type: 'UI/UX & Asset Design',
+            desc: 'Design platforms utilized to craft interface wireframes, screen mockups, brand assets, app icons, and child-friendly illustration graphics.'
+          }
+        ]
+      },
+      developmentProcess: [
+        {
+          step: '01',
+          title: 'Problem Identification & Curriculum Alignment',
+          desc: 'Investigated early childhood mathematics learning hurdles in Grade 1, reviewed DepEd MATATAG Curriculum competencies, and established project requirements for foundational numeracy support.'
+        },
+        {
+          step: '02',
+          title: 'Feature Scoping & Role-Based Architecture',
+          desc: 'Defined multi-role user journeys for Learners, Teachers, Parents, and Administrators. Mapped functional requirements, permissions, and cloud database relationships.'
+        },
+        {
+          step: '03',
+          title: 'UI/UX Prototyping & Young-Learner Asset Design',
+          desc: 'Designed wireframes and screen mockups in Figma and Canva. Established a vibrant, child-friendly color scheme, large touch targets, readable typography, and the MATHtatag mascot character.'
+        },
+        {
+          step: '04',
+          title: 'Mobile Development with React Native & TypeScript',
+          desc: 'Implemented the application frontend using React Native, TypeScript, Expo SDK 54, and Expo Router, structuring modular UI components and state management routines.'
+        },
+        {
+          step: '05',
+          title: 'Backend & Cloud Database Integration',
+          desc: 'Configured Firebase Realtime Database schemas for live synchronization of class rosters and submissions, established Firebase Auth role guards, and connected Firebase Storage.'
+        },
+        {
+          step: '06',
+          title: 'Filipino TTS Voice & Gesture Integration',
+          desc: 'Integrated ElevenLabs API to synthesize spoken Filipino audio prompts. Implemented gesture-driven drag-and-drop and item reordering via Gesture Handler and Reanimated.'
+        },
+        {
+          step: '07',
+          title: 'Systematic Quality Assurance & Mobile Debugging',
+          desc: 'Executed comprehensive QA test cases on Expo Go and Android Emulator. Logged and resolved defects regarding input validation, audio playback lag, and screen responsiveness.'
+        },
+        {
+          step: '08',
+          title: 'EAS Android Packaging & Capstone Defense',
+          desc: 'Compiled release Android builds via EAS. Completed the comprehensive 5-chapter academic documentation, presented the system before panels, and participated in research colloquiums.'
+        }
+      ],
+      challenges: [
+        {
+          challenge: 'Designing Accessible UX for Beginning Readers',
+          context: 'Grade 1 children possess developing motor skills and early literacy, making standard textual menus and dense layouts difficult to navigate.',
+          solution: 'Co-designed an image-first, audio-supported interface with oversized touchable targets, intuitive iconography, visual progress indicators, and one-tap voice narration.'
+        },
+        {
+          challenge: 'Role-Based Routing & Access Control',
+          context: 'The app needed to serve four distinct user personas (Learner, Teacher, Parent, Admin) without code fragmentation or unauthorized data access.',
+          solution: 'Utilized Expo Router file-based route groups paired with Firebase Realtime Database role validation rules to enforce clean permission boundaries.'
+        },
+        {
+          challenge: 'Real-Time Cross-Device Data Synchronization',
+          context: 'Ensuring that student assessment submissions immediately reflected on teacher analytics and parent dashboards under varying mobile network speeds.',
+          solution: 'Configured Firebase Realtime Database native real-time listeners and offline caching capabilities to maintain seamless synchronization.'
+        },
+        {
+          challenge: 'Audio Playback Synchronization with Filipino TTS',
+          context: 'Ensuring high-fidelity ElevenLabs Filipino voice synthesis without introducing noticeable audio latency during interactive assessment questions.',
+          solution: 'Implemented audio asset pre-caching and state-managed playback triggers through Expo AV modules to ensure instantaneous speech playback upon question entry.'
+        },
+        {
+          challenge: 'Cross-Device Android Screen Scaling',
+          context: 'Testing touch drag-and-drop questions across varied Android phone aspect ratios and resolutions.',
+          solution: 'Conducted iterative testing on the Android Emulator and physical devices using Expo Go, refactoring layouts with flexible responsive containers and percentage constraints.'
+        },
+        {
+          challenge: 'Capstone Team Coordination & Academic Rigor',
+          context: 'Balancing rigorous academic research manuscript writing (Chapters 1–5) with fast-paced software development sprints.',
+          solution: 'Maintained strict Git commit practices, standardized defect tracking sheets, and divided documentation chapters systematically to align with technical progress.'
+        }
+      ],
+      educationalImpact: [
+        {
+          group: 'For Grade 1 Learners',
+          benefit: 'Provides an engaging supplementary digital environment for foundational mathematics practice, using Filipino audio narration to help learners overcome early reading obstacles.'
+        },
+        {
+          group: 'For Teachers',
+          benefit: 'Automates score tallying and presents organized assessment analytics, enabling teachers to quickly evaluate learner progress and identify areas needing classroom review.'
+        },
+        {
+          group: 'For Parents & Guardians',
+          benefit: 'Provides a convenient, accessible mobile window to monitor children\'s mathematics learning activity and support informed practice at home.'
+        },
+        {
+          group: 'For Educational Technology',
+          benefit: 'Exemplifies how modern mobile frameworks, real-time cloud services, and localized voice synthesis can be harmonized into an accessible supplementary learning solution aligned with the Philippine MATATAG Curriculum.'
+        }
+      ],
+      impactDisclaimer: 'Important Note: These points highlight the intended educational benefits and design motivations of MATHtatag as an academic capstone. They reflect the project\'s conceptual and architectural goals, rather than claims of formal longitudinal clinical proof.',
+      outcomes: [
+        {
+          title: 'Awarded Best Capstone Project',
+          desc: 'Officially recognized and awarded Best Capstone Project by the academic evaluation committee and IT faculty at PUP Lopez Campus.'
+        },
+        {
+          title: 'STCIEERD Research Champion (1st Place)',
+          desc: 'Emerged as the Research Champion (1st Place) at the Southern Tagalog Consortium for Industry, Energy, and Emerging Technology Research and Development (STCIEERD), 2nd Undergraduate R&D Category (Batangas State University, Alangilan Campus).'
+        },
+        {
+          title: 'Functional Android Mobile Application',
+          desc: 'Delivered a fully operational mobile application built with React Native, TypeScript, Expo SDK 54, and Firebase services.'
+        },
+        {
+          title: '2nd Placer — 7th Multi-Disciplinary In-House Review',
+          desc: 'Recognized as 2nd Placer at the 7th Multi-Disciplinary In-House Review and Research Colloquium (PUP Lopez Campus), Architecture, Engineering & Technology Category (2026).'
+        },
+        {
+          title: 'Academic Capstone Defense & BSIT Graduation',
+          desc: 'Successfully defended the capstone project before academic review committees at the Polytechnic University of the Philippines – Lopez, Quezon Campus, graduating Cum Laude.'
+        },
+        {
+          title: 'Comprehensive 5-Chapter Technical Manuscript',
+          desc: 'Authored complete technical and academic research documentation (Chapters 1 to 5) preserved in the university archives and project repository.'
+        }
+      ]
+    }
   },
   {
     id: 7,
@@ -660,6 +1076,139 @@ const projectsData = [
       'Produced the presentation desktop mockup showcasing the concept in a realistic setting'
     ],
     learnings: 'Developed as an academic class task to explore smart home interface design. This project enhanced my ability to structure complex, multi-faceted dashboards with diverse data types (sensors, controls, media, video, energy charts) while maintaining clean visual hierarchy, comfortable spacing, and intuitive navigation patterns.'
+  },
+  {
+    id: 13,
+    title: 'ePhilMed — Telemedicine Mobile App',
+    subtitle: 'Academic Mobile App UI/UX Design Concept • Recognized for Best UI Design (AY 2023–2024)',
+    category: 'UI/UX',
+    categoryDisplay: 'Academic UI/UX Project',
+    tags: ['UI/UX Design', 'Telemedicine App', 'Best UI Design Award', 'Mobile App Design', 'Healthcare UI', 'PUP Lopez'],
+    image: "/assets/projects/Ephil Medicine UI/1.png",
+    gallery: [
+      "/assets/projects/Ephil Medicine UI/1.png",
+      "/assets/projects/Ephil Medicine UI/2.png",
+      "/assets/projects/Ephil Medicine UI/3.png",
+      "/assets/projects/Ephil Medicine UI/4.png",
+      "/assets/projects/Ephil Medicine UI/5.png"
+    ],
+    galleryLabels: [
+      "Project Showcase & Presentation",
+      "Onboarding & Authentication",
+      "Navigation & Core Views",
+      "Doctor & Prescription Services",
+      "Emergency & Health Insights"
+    ],
+    galleryCaptions: [
+      "ePhilMed Project Presentation (Image 1) — Healthcare platform branding featuring a medical caduceus logo, 'Expert care at your fingertips' tagline, and dual-phone mockup presentation displaying the Homepage and Health Insights dashboard.",
+      "Getting Started & Authentication (Image 2) — Welcome screen introducing brand identity, structured multi-field Sign Up form with terms acceptance, and clean Login interface with visual social authentication options.",
+      "Main Navigation Screens (Image 3) — Core application suite featuring the dynamic Homepage with service shortcuts, 5-day doctor Schedule view, organized Medical Records archive, and comprehensive User Profile settings.",
+      "Healthcare Services & Prescriptions (Image 4) — Searchable Doctor Directory with specialist ratings, Doctor Details profile with April 2024 appointment booking slots, Nearby Pharmacy locator (Watsons Lopez) with prescription upload, and chronological Prescription History.",
+      "Emergency Assistance & Health Dashboard (Image 5) — Emergency triage condition selector ('What Happened?'), map-based ambulance dispatch route with single-tap SOS button, and personalized Health Insights dashboard (Heart Rate, Sleep Time, Calories, Steps, Virtual Consultations)."
+    ],
+    recognition: 'Recognized as Best UI Design by our professor in our academic design activity (PUP Lopez Campus)',
+    desc: "An academic mobile UI/UX design concept exploring a centralized telemedicine experience by unifying doctor discovery, appointment scheduling, medical records, prescription management, health information, and emergency assistance interfaces. Recognized as Best UI Design in our 2nd-year academic activity.",
+    problem: "ePhilMed is an academic mobile UI/UX design concept created during my second year as a BS Information Technology student in Academic Year 2023–2024 at the Polytechnic University of the Philippines – Lopez, Quezon Campus. The project originated as an exploration of how digital healthcare platforms could address the fragmentation of modern medical services. In conventional scenarios, patients must navigate disparate processes across clinics, diagnostic laboratories, physical pharmacies, and emergency services. ePhilMed was conceptualized to explore a centralized, approachable mobile interface where users can discover doctors, schedule consultations, organize medical history, order prescriptions, locate nearby pharmacies, and access emergency assistance in a single digital ecosystem. (Note: ePhilMed is an academic visual design concept and does not provide live medical services or backend functionality).",
+    solution: "Using a healthcare-themed visual identity built on calming blue, navy, cyan, lavender, and clean white tones, I designed a multi-screen mobile application concept with consistent vertical layouts and recognizable bottom navigation. The interface features a modular Home Dashboard with service shortcuts, a 5-day doctor scheduling flow with selectable time slots, categorized medical records (Lab Tests, Diagnostic Results, Medications), a pharmacy locator with prescription upload, an emergency triage and map dispatch concept, and a personalized health dashboard displaying daily biometric summaries (Heart Rate, Sleep Time, Calories, Steps).",
+    designObjectives: {
+      primary: 'To conceptualize an approachable, centralized mobile healthcare interface that unifies doctor discovery, appointment scheduling, medical records, prescription management, pharmacy location, and emergency assistance into a cohesive mobile experience.',
+      goals: [
+        'Create a cohesive, medical-themed visual identity utilizing calming blues and rounded card components',
+        'Design a centralized homepage offering rapid shortcut access to Doctors, Medicine, Prescriptions, and Emergency services',
+        'Structure an intuitive doctor appointment scheduling workflow with date selectors and selectable time slots',
+        'Organize diverse medical documents (Lab Tests, Diagnostics, Medications) into an accessible card-based archive',
+        'Conceptualize a dedicated emergency assistance flow featuring condition triage, map-based route visualization, and a single-tap SOS button',
+        'Visualize a personalized health dashboard tracking daily activity metrics (Heart Rate, Sleep, Calories, Steps) alongside upcoming virtual consultations',
+        'Maintain strict multi-screen navigation consistency through a standardized 5-icon bottom navigation bar'
+      ]
+    },
+    screens: [
+      {
+        title: 'Project Presentation & Brand Identity',
+        heading: 'Dual-Mockup Presentation & Healthcare Identity (Image 1)',
+        desc: 'Introduces the visual identity of ePhilMed through a clean healthcare aesthetic, featuring a circular medical caduceus logo, the tagline "Expert care at your fingertips: telemedicine app," and two angled smartphone mockups demonstrating the Homepage and Health Insights screens.',
+        elements: ['Medical Caduceus logo', 'Navy and sky blue palette', 'Angled smartphone presentation mockups', 'Tagline: "Expert care at your fingertips"', 'Homepage & Health Insights screen previews']
+      },
+      {
+        title: 'Getting Started & Authentication',
+        heading: 'Welcome, Registration & Login Workflows (Image 2)',
+        desc: 'Presents the introductory user onboarding experience through three mobile screens: a clean Welcome screen with direct call-to-actions, a structured Sign Up form with language selection and terms acceptance, and a Login interface with password visibility toggles and visual social authentication options (Facebook, Google, Apple).',
+        elements: ['Welcome landing screen ("GET STARTED")', 'Sign Up form (Full Name, Email/Phone, Password, Language)', 'Terms & Conditions acceptance checkbox', 'Login interface with "Keep Sign In" and "Forgot Password"', 'Social authentication visual shortcuts (Facebook, Google, Apple)', 'Seamless navigation toggles between Login and Registration']
+      },
+      {
+        title: 'Core Navigation Ecosystem',
+        heading: 'Homepage, Schedule, Medical Records & Profile (Image 3)',
+        desc: 'Demonstrates the primary navigation screens accessible via the standardized 5-icon bottom navigation bar: the dynamic Homepage with service shortcuts and health news, a 5-day appointment Schedule view with doctor cards and communication icons, a card-based Medical Records repository with health summaries, and a comprehensive User Profile settings screen.',
+        elements: ['Homepage with medical search, service shortcuts, health news, and appointment previews', 'Schedule screen with date selector (17–21) and doctor appointment cards with call/chat icons', 'Medical Records screen (Lab Tests Reports, Diagnostic Test Results, Medication Records)', 'Health summary widgets (Blood Type O+, Total Walk Distance Today: 2km)', 'User Profile screen with demographics, payment methods, security, language (Wika), and support options', 'Standardized 5-icon bottom navigation bar (Home, Calendar, Records, Notifications, Profile)']
+      },
+      {
+        title: 'Healthcare Services & Prescriptions',
+        heading: 'Doctor Directory, Availability Booking & Pharmacy Finder (Image 4)',
+        desc: 'Explores healthcare discovery and prescription fulfillment across four dedicated screens: a searchable Doctor Directory with specialist ratings (Cardiologists, Surgeons, Pediatricians, Neurologists), a Doctor Details profile with an April 2024 availability calendar and selectable time slots, a location-based Nearby Pharmacy map locator (Watsons Lopez, Quezon) with prescription file/link upload, and a chronological Prescription History archive.',
+        elements: ['Doctor Directory with "Popular" / "Nearby" filters and specialist review ratings', 'Doctor Details profile with education background, hospital affiliations, and "Message" button', 'April 2024 calendar row with selectable consultation time slots (9:00 AM to 5:00 PM)', 'Nearby Pharmacy locator centered on Lopez, Quezon with Watsons store rating and distance', 'Prescription upload interface supporting direct file upload or link sharing', 'Prescription History view organizing past medications chronologically with prescribing doctor details']
+      },
+      {
+        title: 'Emergency Assistance & Health Dashboard',
+        heading: 'Emergency Triage, Ambulance Route & Health Insights (Image 5)',
+        desc: 'Visualizes high-priority emergency workflows and ongoing wellness tracking across three specialized screens: an Emergency Triage selector ("What Happened?" with Accident, Heart Attack, Breathlessness, Unconsciousness options and custom text input), a Map-based Emergency Dispatch screen showing ambulance route tracking in Lopez, Quezon (3 min ETA) with a prominent pulsing red SOS button, and a personalized Health Dashboard tracking daily biometric insights and virtual consultations.',
+        elements: ['Emergency condition triage selector (Accident, Heart Attack, Breathlessness, Unconsciousness)', 'Custom emergency situation description text box', 'Map-based ambulance dispatch route visualization in Lopez, Quezon', 'Real-time estimated arrival indicator (3 min ambulance, 8 min user arrival)', 'Large central touch-activated SOS emergency button', 'Health Insights dashboard (Heart Rate 97 bpm, Sleep Time 7.5 hrs, Calories Burnt 1.2 kCal, Steps 1492)', 'Virtual Consultations card ("24+ Upcoming Consultations") with add action button']
+      }
+    ],
+    features: [
+      'Centralized Mobile Healthcare Hub: Centralizes doctor discovery, appointment booking, medical records, prescription fulfillment, and emergency triage into one unified mobile application concept.',
+      'Consistent 5-Icon Bottom Navigation: Standardized navigation bar (Home, Schedule, Medical Records, Notifications, Profile) providing clear, predictable screen switching.',
+      'Doctor Discovery & Availability Scheduling: Searchable directory with specialist ratings, educational credentials, and an interactive April 2024 calendar with selectable hourly consultation slots.',
+      'Structured Medical Records Archive: Card-based repository categorizing Lab Test Reports, Diagnostic Test Results, and Medication Records with supporting blood type and daily walk summaries.',
+      'Location-Based Pharmacy & Prescription Upload: Map-enabled interface pinpointing local pharmacies (Watsons Lopez) with options to upload doctor prescriptions via file or web link.',
+      'Dedicated Emergency Assistance Flow: Emergency triage condition selector paired with map route visualization and a prominent single-touch SOS emergency call button.',
+      'Personalized Health Insights Dashboard: Colorful card widgets visualizing key wellness metrics including Heart Rate (ECG waveform), Sleep Time, Calories Burnt, and Daily Steps.',
+      'Comprehensive User Account Management: Structured onboarding, login, profile editing, language switching (English / Wika), and support settings.'
+    ],
+    designApproach: [
+      {
+        title: 'Healthcare-Themed Color Palette',
+        desc: 'Applied a curated medical palette of deep navy, sky blue, cyan, lavender, and soft neutrals to evoke clinical trust, calm, and cleanliness.'
+      },
+      {
+        title: 'Visual Hierarchy & Scannable Cards',
+        desc: 'Organized dense clinical and administrative information into distinct rounded card surfaces with clear headings, icon anchors, and readable metadata.'
+      },
+      {
+        title: 'Navigation Consistency',
+        desc: 'Implemented a standardized 5-icon bottom navigation bar, consistent top app bars, and familiar back-button patterns across all mobile screen states.'
+      },
+      {
+        title: 'Ergonomic Touch Targets',
+        desc: 'Designed large primary action buttons (GET STARTED, REGISTER, LOG IN, Confirm Booking, SOS Button) optimized for effortless smartphone one-handed thumb reach.'
+      },
+      {
+        title: 'Information Chunking',
+        desc: 'Divided complex healthcare processes (onboarding, discovery, records, triage) across dedicated screens to minimize cognitive load during stressful medical situations.'
+      },
+      {
+        title: 'Academic Milestone',
+        desc: 'Created during second year college as a hands-on exploration of mobile design systems and healthcare ergonomics, earning Best UI Design recognition from my professor.'
+      }
+    ],
+    tech: ['UI/UX Design', 'Mobile App Design', 'Healthcare UI/UX', 'Information Architecture', 'Visual Hierarchy', 'Device Mockup Presentation'],
+    role: 'Student UI/UX Designer (Solo Academic Concept)',
+    responsibilities: [
+      'Independently conceptualized the overarching ePhilMed product vision, branding, and healthcare feature suite',
+      'Designed all 15+ mobile interface screens from scratch, establishing cohesive layouts, visual styling, and typography',
+      'Formulated the information architecture spanning user authentication, service discovery, medical records, and emergency triage',
+      'Created the medical visual design system featuring a blue-toned palette, rounded card components, and custom icon treatments',
+      'Constructed realistic dual-phone and multi-screen presentation mockups to showcase the mobile user experience',
+      'Presented and defended the UI/UX design concept in class, earning recognition as Best UI Design from my professor'
+    ],
+    learnings: 'Created during my second year of college in AY 2023–2024, ePhilMed was a formative milestone in my design journey. It provided hands-on experience in structuring a complex, multi-screen mobile application and balancing dense clinical information with visual clarity and approachable navigation. Earning the Best UI Design recognition from my professor was deeply encouraging and motivated me to pursue deeper studies in user experience, accessibility, and modern design systems.',
+    improvements: [
+      'Enhanced Text Legibility: Increase font size and line height on secondary metadata (e.g., small disclaimer text and doctor sub-credentials) to improve readability on smaller screens.',
+      'Color Contrast Optimization: Elevate contrast ratios between text and background on pastel status cards to strictly satisfy WCAG 2.1 AA accessibility guidelines.',
+      'Refined Component Spacing: Standardize vertical and horizontal padding across form input fields and calendar rows to ensure an exact 8pt grid alignment.',
+      'Interactive State Definitions: Design explicit hover, active, pressed, and error states for appointment time slots, form inputs, and emergency triggers.',
+      'Emergency Flow Usability: Streamline the emergency interface into a zero-latency single-action triage to reduce cognitive friction in life-threatening scenarios.',
+      'User Research & Usability Testing: Conduct formal user testing sessions with real patients and medical practitioners to validate task completion rates and navigation pathways.'
+    ]
   }
 ];
 
